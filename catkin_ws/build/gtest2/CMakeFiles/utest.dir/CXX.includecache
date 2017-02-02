@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/d943/catkin_ws/src/gtest2/src/adder.h
+
+/home/d943/catkin_ws/src/gtest2/test/test.cpp
+/home/d943/catkin_ws/src/gtest2/src/adder.h
+-
+gtest/gtest.h
+-
+

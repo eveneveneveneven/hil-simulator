@@ -1,0 +1,90 @@
+Start testing: Jan 26 12:21 CET
+----------------------------------------------------------
+1/2 Testing: _ctest_gtest_car_gtest_gtest_car-test
+1/2 Test: _ctest_gtest_car_gtest_gtest_car-test
+Command: "/home/d943/Dropbox/Master/catkin_ws/build/catkin_generated/env_cached.sh" "/usr/bin/python" "/opt/ros/kinetic/share/catkin/cmake/test/run_tests.py" "/home/d943/Dropbox/Master/catkin_ws/build/test_results/gtest_car/gtest-gtest_car-test.xml" "--return-code" "/home/d943/Dropbox/Master/catkin_ws/devel/lib/gtest_car/gtest_car-test --gtest_output=xml:/home/d943/Dropbox/Master/catkin_ws/build/test_results/gtest_car/gtest-gtest_car-test.xml"
+Directory: /home/d943/Dropbox/Master/catkin_ws/build/gtest_car
+"_ctest_gtest_car_gtest_gtest_car-test" start time: Jan 26 12:21 CET
+Output:
+----------------------------------------------------------
+[==========] Running 5 tests from 2 test cases.
+[----------] Global test environment set-up.
+[----------] 4 tests from MathTest
+[ RUN      ] MathTest.adderTest
+[       OK ] MathTest.adderTest (0 ms)
+[ RUN      ] MathTest.subtracterTest
+[       OK ] MathTest.subtracterTest (0 ms)
+[ RUN      ] MathTest.multiplierTest
+[       OK ] MathTest.multiplierTest (0 ms)
+[ RUN      ] MathTest.dividerTest
+[       OK ] MathTest.dividerTest (0 ms)
+[----------] 4 tests from MathTest (0 ms total)
+
+[----------] 1 test from ParamTest
+[ RUN      ] ParamTest.getParameter
+/home/d943/Dropbox/Master/catkin_ws/src/gtest_car/src/Test.cpp:25: Failure
+Value of: GetParametersTest()
+  Actual: 10
+Expected: 3300
+[  FAILED  ] ParamTest.getParameter (4 ms)
+[----------] 1 test from ParamTest (4 ms total)
+
+[----------] Global test environment tear-down
+[==========] 5 tests from 2 test cases ran. (4 ms total)
+[  PASSED  ] 4 tests.
+[  FAILED  ] 1 test, listed below:
+[  FAILED  ] ParamTest.getParameter
+
+ 1 FAILED TEST
+terminate called without an active exception
+Aborted (core dumped)
+-- run_tests.py: execute commands
+  /home/d943/Dropbox/Master/catkin_ws/devel/lib/gtest_car/gtest_car-test --gtest_output=xml:/home/d943/Dropbox/Master/catkin_ws/build/test_results/gtest_car/gtest-gtest_car-test.xml
+-- run_tests.py: verify result "/home/d943/Dropbox/Master/catkin_ws/build/test_results/gtest_car/gtest-gtest_car-test.xml"
+<end of output>
+Test time =   0.39 sec
+----------------------------------------------------------
+Test Failed.
+"_ctest_gtest_car_gtest_gtest_car-test" end time: Jan 26 12:21 CET
+"_ctest_gtest_car_gtest_gtest_car-test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/2 Testing: _ctest_simulator_prototype_gtest_simulator_prototype-test
+2/2 Test: _ctest_simulator_prototype_gtest_simulator_prototype-test
+Command: "/home/d943/Dropbox/Master/catkin_ws/build/catkin_generated/env_cached.sh" "/usr/bin/python" "/opt/ros/kinetic/share/catkin/cmake/test/run_tests.py" "/home/d943/Dropbox/Master/catkin_ws/build/test_results/simulator_prototype/gtest-simulator_prototype-test.xml" "--return-code" "/home/d943/Dropbox/Master/catkin_ws/devel/lib/simulator_prototype/simulator_prototype-test --gtest_output=xml:/home/d943/Dropbox/Master/catkin_ws/build/test_results/simulator_prototype/gtest-simulator_prototype-test.xml"
+Directory: /home/d943/Dropbox/Master/catkin_ws/build/simulator_prototype
+"_ctest_simulator_prototype_gtest_simulator_prototype-test" start time: Jan 26 12:21 CET
+Output:
+----------------------------------------------------------
+[==========] Running 4 tests from 2 test cases.
+[----------] Global test environment set-up.
+[----------] 2 tests from Parameters
+[ RUN      ] Parameters.parameterLoad
+[0m[ INFO] [1485429709.161146685]: str[0m
+[       OK ] Parameters.parameterLoad (200 ms)
+[ RUN      ] Parameters.vectorInit
+[       OK ] Parameters.vectorInit (0 ms)
+[----------] 2 tests from Parameters (200 ms total)
+
+[----------] 2 tests from GTestPractice
+[ RUN      ] GTestPractice.squareRoot
+[       OK ] GTestPractice.squareRoot (0 ms)
+[ RUN      ] GTestPractice.adder
+[       OK ] GTestPractice.adder (0 ms)
+[----------] 2 tests from GTestPractice (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 4 tests from 2 test cases ran. (200 ms total)
+[  PASSED  ] 4 tests.
+-- run_tests.py: execute commands
+  /home/d943/Dropbox/Master/catkin_ws/devel/lib/simulator_prototype/simulator_prototype-test --gtest_output=xml:/home/d943/Dropbox/Master/catkin_ws/build/test_results/simulator_prototype/gtest-simulator_prototype-test.xml
+-- run_tests.py: verify result "/home/d943/Dropbox/Master/catkin_ws/build/test_results/simulator_prototype/gtest-simulator_prototype-test.xml"
+<end of output>
+Test time =   0.22 sec
+----------------------------------------------------------
+Test Passed.
+"_ctest_simulator_prototype_gtest_simulator_prototype-test" end time: Jan 26 12:21 CET
+"_ctest_simulator_prototype_gtest_simulator_prototype-test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Jan 26 12:21 CET
