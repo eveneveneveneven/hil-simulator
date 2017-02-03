@@ -66,6 +66,9 @@ class Vessel
   // Used for publishing the vessel state to RVIZ for visualization
   tf::TransformBroadcaster tf = tf::TransformBroadcaster(); 
   std::string tf_name = "hil_sim";
+  tf::TransformBroadcaster tf_map = tf::TransformBroadcaster(); 
+  std::string tf_map_name = "map/hil_sim";
+
 
   ros::NodeHandle log_handle;
   ros::Publisher vel_pub = log_handle.advertise<geometry_msgs::Twist>("hil_sim/log/velocity", 0);
@@ -77,6 +80,8 @@ class Vessel
 
   // Publishes the state of the vessel to RVIZ
   void publishState();
+
+  void publishMap();
 
   void logInfo();
 

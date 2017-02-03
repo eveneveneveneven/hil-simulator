@@ -112,6 +112,7 @@ void Vessel::updateMatrices(){
 			0,	0,	0,	0,	0,	1260.7,
 			0,	0,	0,	0,	0,	0,	
 			0,	0,	0,	0,	0,	0;
+
 	C_a <<  0,	0,	0,	0,	0,	0,	
 			0,	0,	0,	0,	0,	0.17,
 			0,	0,	0,	0,	-1.37, 0,
@@ -130,12 +131,11 @@ void Vessel::updateMatrices(){
 
 
 	// Damping matrix. Contains non-linear elements for the standard 3DOF representation, and linear elements in the restoring 3 DOFs.
-
 	D << 	-X_u-X_uu*abs(u)-X_uuu*u*u, 0, 										0, 										0, 		0, 		0, 
 			0, 							-Y_v-Y_vv*abs(v)-Y_vvv*v*v-Y_rv*abs(r), 0, 										0, 		0, 		-Y_r-Y_vr*abs(v)-Y_rr*abs(r)-Y_rrr*r*r,
-			0, 							0, 										-Z_w, 									0, 		-Z_q, 		0, 
+			-180*abs(u), 							0, 										-Z_w, 									0, 		-Z_q, 		0, 
 			0, 							0, 										0, 										-K_p, 	0, 		-K_r, 
-			0, 							0, 										0, 										0, 		-M_q - M_qq*abs(q),	-M_r, 
+			abs(u)*2300-150*u*u, 							0, 										0, 										0, 		-M_q - M_qq*abs(q),	-M_r, 
 			0, 							-N_v-N_vv*abs(v)-N_rv*abs(r)-N_vvv*v*v, 0, 										0, 		0, 		-N_r-N_vr*abs(v)-N_rr*abs(r)-N_rrr*r*r;
 
 	// Kinematics:
@@ -152,6 +152,7 @@ void Vessel::step(){
 	calculateNextEta();
 	calculateNextNu();
 	publishState();
+	//publishMap();
 	logInfo();
 }
 
@@ -162,6 +163,15 @@ void Vessel::publishState(){
     q.setRPY(eta[3],eta[4],eta[5]);
     transform.setRotation(q);
     tf.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "map", tf_name));
+}
+
+void Vessel::publishMap(){
+	tf::Transform transform2;
+    transform2.setOrigin(tf::Vector3(0,0,0));
+    tf::Quaternion q2;
+    q2.setRPY(0,0,0);
+    transform2.setRotation(q2);
+    tf_map.sendTransform(tf::StampedTransform(transform2, ros::Time::now(), "map", tf_map_name));
 }
 
 void Vessel::logInfo(){
@@ -214,20 +224,20 @@ Vector6d Vessel::nuFunction(Vector6d nu_in){
 	Vector6d F_d;
 	Matrix6d F_coeff;
 	double F_n_0, F_n, a_1, a_2, a_3, a_4, a_5, a_6, b_1, b_2, b_3, b_4, b_5, b_6;
-	F_n_0 = 0.8;
-	a_1 = 1.05;
-	a_2 = 1.07;
+	F_n_0 = 0.6;
+	a_1 = 1.5;
+	a_2 = 0;
 	a_3 = 1.00;
-	a_4 = 1.32;
+	a_4 = 0;
 	a_5 = 1.12;
-	a_6 = 1.12;
+	a_6 = 0;
 	b_1 = 1;
-	b_2 = 1.2;
+	b_2 = 0;
 	b_3 = 1;
-	b_4 = 0.95;
+	b_4 = 0;
 	b_5 = 1.05;
-	b_6 = 0.8;
-	F_n = sqrt(u*u+v*v)/(sqrt(9.81*11));
+	b_6 = 0;
+	F_n = u/(sqrt(9.81*11));
 	F_coeff << 	1+a_1*(1-F_n/F_n_0)+b_1*(1-F_n/F_n_0)*(1-F_n/F_n_0),	0,	0,	0,	0,	0,	
 				0,	1+a_2*(1-F_n/F_n_0)+b_2*(1-F_n/F_n_0)*(1-F_n/F_n_0), 	0,	0,	0,	0,	
 				0,	0,	1+a_3*(1-F_n/F_n_0)+b_3*(1-F_n/F_n_0)*(1-F_n/F_n_0), 	0,	0,	0,
@@ -239,7 +249,7 @@ Vector6d Vessel::nuFunction(Vector6d nu_in){
 	Vector6d D_tot;
 	D_tot = D*nu_in;
 	tau_total = tau_control;
-	Vector6d nu_r_dot = -M_inv*(C*nu_in+D_tot+G*eta-tau_total);
+	Vector6d nu_r_dot = -M_inv*(C*nu_in+F_coeff*D_tot+G*eta-tau_total);
 	return nu_r_dot;
 }
 
