@@ -96,8 +96,11 @@ Y_r: 0
 N_v: 0
 N_r: -12810
 K_p: -200.3
+K_r: 0
+Z_q: 0
 Z_w: -10000
 M_q: -300000
+M_r: 0
 
 # Restoring forces
 Z_z: -146197.67

@@ -1,11 +1,6 @@
-#include "ros/ros.h"
 #include "vessel.h"
-#include <string>
 
-#include <Eigen/Dense>
-
-Vessel::Vessel()
-{
+Vessel::Vessel(){
 	// On creation of new vessel
 	eta = Vector6d::Zero();
 	nu  = Vector6d::Zero();

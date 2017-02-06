@@ -27,14 +27,8 @@ vessel.h
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/vessel.h
 
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/vessel.cpp
-ros/ros.h
-/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/ros/ros.h
 vessel.h
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/vessel.h
-string
--
-Eigen/Dense
--
 
 /opt/ros/kinetic/include/XmlRpcDecl.h
 ros/macros.h
