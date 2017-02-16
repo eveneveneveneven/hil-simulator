@@ -7,9 +7,17 @@
 #include "geometry_msgs/PoseStamped.h"
 #include "geometry_msgs/Twist.h"
 #include "nav_msgs/Odometry.h"
+#include "imu.h"
 
 using namespace Eigen;
+typedef Matrix<double, 1, 2 > Vector2dH;
+typedef Matrix<double, 1, 3 > Vector3dH;
+typedef Matrix<double, 4, 1 > Vector4d;
+typedef Matrix<double, 1, 4 > Vector4dH;
+typedef Matrix<double, 5, 1 > Vector5d;
 typedef Matrix<double, 6, 1 > Vector6d;
+typedef Matrix<double, 4, 4 > Matrix4d;
+typedef Matrix<double, 5, 5 > Matrix5d;
 typedef Matrix<double, 6, 6 > Matrix6d;
 
 struct NumericalSolver {
@@ -51,8 +59,10 @@ class Vessel
  private:
   NumericalSolver solver;
 
+  IMU imu;
+
   // A set of state vectors, relative to different coordinate frames.
-  Vector6d eta, nu, nu_r, nu_c_b, nu_c_n;
+  Vector6d eta, nu, nu_r, nu_c_b, nu_c_n, nu_dot, delta_nu, mu;
 
   // A set of different force vectors, used to represent forces from thrusters and environmental forces
   Vector6d tau_control, tau_wind, tau_current, tau_waves, tau_total;
@@ -62,6 +72,23 @@ class Vessel
 
   // Necessary matrices to model the vessel
   Matrix6d M_rb, M_a, M, M_inv, C, C_a, C_rb, D, J, G;
+
+  //Fluid memory matrices. Large system, quite heavy on calculation
+  Matrix4d A_11, A_22, A_33, A_55, A_66, A_53, A_35;
+  Matrix3d A_44, A_24, A_42;
+  Matrix2d A_26, A_46, A_62, A_64;
+
+  Vector4d B_11, B_22, B_33, B_55, B_66, B_53, B_35;
+  Vector3d B_44, B_24, B_42;
+  Vector2d B_26, B_46, B_62, B_64;
+
+  Vector4dH C_11, C_22, C_33, C_55, C_66, C_53, C_35;
+  Vector3dH C_44, C_24, C_42;
+  Vector2dH C_26, C_46, C_62, C_64;
+
+  Vector4d x_11, x_22, x_33, x_55, x_66, x_53, x_35;
+  Vector3d x_44, x_24, x_42;
+  Vector2d x_26, x_46, x_62, x_64;
 
   // Used for publishing the vessel state to RVIZ for visualization
   tf::TransformBroadcaster tf = tf::TransformBroadcaster(); 
@@ -78,12 +105,18 @@ class Vessel
   // Step size for solver
   double dt;
 
-  // Publishes the state of the vessel to RVIZ
+  // Publishes the state of the vessel to RVIZ. RVIZ uses NWU, while the simulator uses NED, so a transformation is performed
   void publishState();
+
+  void publishSensorData();
 
   void publishMap();
 
   void logInfo();
+
+  void initializeFluidMemoryMatrices();
+
+  void calculateFluidMemoryEffects();
 
   // Receives thrust messages
   void receiveThrust(const geometry_msgs::Twist::ConstPtr& thrust_msg);

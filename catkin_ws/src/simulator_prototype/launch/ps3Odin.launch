@@ -20,7 +20,7 @@
     <node pkg="simulator_prototype" type="hil_simulator_node" name="vessel_state_publisher" output="screen"/>
 
     <node pkg="rosbag" type="record" name="rosbag_record_run"
-       args="record -o $(find simulator_prototype)/logs/run.bag hil_sim/log/thrust hil_sim/log/state hil_sim/log/velocity tf"/>
+       args="record -o $(find simulator_prototype)/logs/run.bag hil_sim/log/thrust hil_sim/log/state hil_sim/log/velocity hil_sim/sensors/imu tf"/>
 	
      
 </launch>

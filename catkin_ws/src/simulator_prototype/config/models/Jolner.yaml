@@ -94,12 +94,12 @@ X_v: 0.0
 Y_v: -1083.3
 Y_r: 0
 N_v: 0
-N_r: -12810
-K_p: -200.3
+N_r: -1274.2
+K_p: -84.3
 K_r: 0
 Z_q: 0
-Z_w: -10000
-M_q: -300000
+Z_w: 0
+M_q: 0
 M_r: 0
 
 # Restoring forces
@@ -115,13 +115,13 @@ X_uuu: 0
 X_vv: 0
 X_vvv: 0
 Y_vv: -2000
-Y_vvv: -1500
+Y_vvv: 0
 Y_rr: 0
 Y_rrr: 0.0
 Y_rv: 0
 Y_vr: 0
-N_rr:  -5000
-N_rrr: -3224
+N_rr:  -2000
+N_rrr: 0
 N_vv: 0
 N_vvv: 0.0
 N_rv: 0
@@ -130,4 +130,4 @@ M_qq: 0
 
 K_thruster: 0.000013888889
 
-dt: 0.01
+dt: 0.001

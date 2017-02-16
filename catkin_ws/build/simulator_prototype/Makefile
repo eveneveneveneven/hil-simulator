@@ -957,6 +957,33 @@ src/hil_simulator.cpp.s:
 	cd /home/d943/Dropbox/Master/catkin_ws/build && $(MAKE) -f simulator_prototype/CMakeFiles/hil_simulator_node.dir/build.make simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/hil_simulator.cpp.s
 .PHONY : src/hil_simulator.cpp.s
 
+src/imu.o: src/imu.cpp.o
+
+.PHONY : src/imu.o
+
+# target to build an object file
+src/imu.cpp.o:
+	cd /home/d943/Dropbox/Master/catkin_ws/build && $(MAKE) -f simulator_prototype/CMakeFiles/hil_simulator_node.dir/build.make simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/imu.cpp.o
+.PHONY : src/imu.cpp.o
+
+src/imu.i: src/imu.cpp.i
+
+.PHONY : src/imu.i
+
+# target to preprocess a source file
+src/imu.cpp.i:
+	cd /home/d943/Dropbox/Master/catkin_ws/build && $(MAKE) -f simulator_prototype/CMakeFiles/hil_simulator_node.dir/build.make simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/imu.cpp.i
+.PHONY : src/imu.cpp.i
+
+src/imu.s: src/imu.cpp.s
+
+.PHONY : src/imu.s
+
+# target to generate assembly for a file
+src/imu.cpp.s:
+	cd /home/d943/Dropbox/Master/catkin_ws/build && $(MAKE) -f simulator_prototype/CMakeFiles/hil_simulator_node.dir/build.make simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/imu.cpp.s
+.PHONY : src/imu.cpp.s
+
 src/unittest.o: src/unittest.cpp.o
 
 .PHONY : src/unittest.o
@@ -1081,6 +1108,9 @@ help:
 	@echo "... src/hil_simulator.o"
 	@echo "... src/hil_simulator.i"
 	@echo "... src/hil_simulator.s"
+	@echo "... src/imu.o"
+	@echo "... src/imu.i"
+	@echo "... src/imu.s"
 	@echo "... src/unittest.o"
 	@echo "... src/unittest.i"
 	@echo "... src/unittest.s"

@@ -6,6 +6,14 @@
 
 #IncludeRegexTransform: 
 
+/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/imu.h
+ros/ros.h
+/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/ros/ros.h
+Eigen/Dense
+-
+geometry_msgs/Twist.h
+/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/geometry_msgs/Twist.h
+
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/vessel.h
 ros/ros.h
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/ros/ros.h
@@ -21,10 +29,16 @@ geometry_msgs/Twist.h
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/geometry_msgs/Twist.h
 nav_msgs/Odometry.h
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/nav_msgs/Odometry.h
+imu.h
+/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/imu.h
 
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/hil_simulator.cpp
 vessel.h
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/vessel.h
+
+/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/imu.cpp
+imu.h
+/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/imu.h
 
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/vessel.cpp
 vessel.h

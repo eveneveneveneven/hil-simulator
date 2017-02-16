@@ -1,7 +1,7 @@
 #include "weather.h"
 
 Weather::Weather(){
-
+	
 }
 
 Weather::~Weather(){}
