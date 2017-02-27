@@ -8,6 +8,7 @@
 #include "geometry_msgs/Twist.h"
 #include "nav_msgs/Odometry.h"
 #include "imu.h"
+#include "gps.h"
 
 using namespace Eigen;
 typedef Matrix<double, 1, 2 > Vector2dH;
@@ -61,14 +62,17 @@ class Vessel
 
   IMU imu;
 
+  GPS gps;
+
   // A set of state vectors, relative to different coordinate frames.
   Vector6d eta, nu, nu_r, nu_c_b, nu_c_n, nu_dot, delta_nu, mu;
-
+  // Velocity in NED, used for GPS-position.
+  Vector3d nu_n;
   // A set of different force vectors, used to represent forces from thrusters and environmental forces
   Vector6d tau_control, tau_wind, tau_current, tau_waves, tau_total;
   
   // Subscriber for incoming thrust messages.
-  ros::Subscriber thrust_rec;
+  
 
   // Necessary matrices to model the vessel
   Matrix6d M_rb, M_a, M, M_inv, C, C_a, C_rb, D, J, G;
@@ -101,6 +105,9 @@ class Vessel
   ros::Publisher vel_pub = log_handle.advertise<geometry_msgs::Twist>("hil_sim/log/velocity", 0);
   ros::Publisher state_pub = log_handle.advertise<geometry_msgs::Twist>("hil_sim/log/state", 0);
   ros::Publisher thrust_pub = log_handle.advertise<geometry_msgs::Twist>("hil_sim/log/thrust", 0);
+
+  ros::NodeHandle thrust_handle;
+  ros::Subscriber thrust_rec = thrust_handle.subscribe<geometry_msgs::Twist>("hil_sim/thrust", 0, &Vessel::receiveThrust, this);
 
   // Step size for solver
   double dt;
@@ -148,7 +155,7 @@ class Vessel
   double X_uu, X_uuu, X_vv, X_vvv, Y_vv, Y_vvv, Y_rr, Y_rrr, Y_rv, Y_vr, N_rr, N_rrr, N_vv, N_vvv, N_rv, N_vr, M_qq;
 
   // Other
-  double K_thruster;
+  double K_thruster, L_pp;
 
   // The damping, coriolis and rotation matrix are dependent of the vessel state, and needs to be updated for each step
   void updateMatrices();

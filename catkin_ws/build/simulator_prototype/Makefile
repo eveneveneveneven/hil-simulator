@@ -930,6 +930,33 @@ simulator_prototype-test/fast:
 	cd /home/d943/Dropbox/Master/catkin_ws/build && $(MAKE) -f simulator_prototype/CMakeFiles/simulator_prototype-test.dir/build.make simulator_prototype/CMakeFiles/simulator_prototype-test.dir/build
 .PHONY : simulator_prototype-test/fast
 
+src/gps.o: src/gps.cpp.o
+
+.PHONY : src/gps.o
+
+# target to build an object file
+src/gps.cpp.o:
+	cd /home/d943/Dropbox/Master/catkin_ws/build && $(MAKE) -f simulator_prototype/CMakeFiles/hil_simulator_node.dir/build.make simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/gps.cpp.o
+.PHONY : src/gps.cpp.o
+
+src/gps.i: src/gps.cpp.i
+
+.PHONY : src/gps.i
+
+# target to preprocess a source file
+src/gps.cpp.i:
+	cd /home/d943/Dropbox/Master/catkin_ws/build && $(MAKE) -f simulator_prototype/CMakeFiles/hil_simulator_node.dir/build.make simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/gps.cpp.i
+.PHONY : src/gps.cpp.i
+
+src/gps.s: src/gps.cpp.s
+
+.PHONY : src/gps.s
+
+# target to generate assembly for a file
+src/gps.cpp.s:
+	cd /home/d943/Dropbox/Master/catkin_ws/build && $(MAKE) -f simulator_prototype/CMakeFiles/hil_simulator_node.dir/build.make simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/gps.cpp.s
+.PHONY : src/gps.cpp.s
+
 src/hil_simulator.o: src/hil_simulator.cpp.o
 
 .PHONY : src/hil_simulator.o
@@ -1105,6 +1132,9 @@ help:
 	@echo "... simulator_prototype_genpy"
 	@echo "... hil_simulator_node"
 	@echo "... simulator_prototype-test"
+	@echo "... src/gps.o"
+	@echo "... src/gps.i"
+	@echo "... src/gps.s"
 	@echo "... src/hil_simulator.o"
 	@echo "... src/hil_simulator.i"
 	@echo "... src/hil_simulator.s"

@@ -6,6 +6,16 @@
 
 #IncludeRegexTransform: 
 
+/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/gps.h
+cmath
+-
+Eigen/Dense
+-
+ros/ros.h
+/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/ros/ros.h
+geometry_msgs/Twist.h
+/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/geometry_msgs/Twist.h
+
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/imu.h
 ros/ros.h
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/ros/ros.h
@@ -31,6 +41,12 @@ nav_msgs/Odometry.h
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/nav_msgs/Odometry.h
 imu.h
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/imu.h
+gps.h
+/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/gps.h
+
+/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/gps.cpp
+gps.h
+/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/gps.h
 
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/hil_simulator.cpp
 vessel.h

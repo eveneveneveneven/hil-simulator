@@ -129,11 +129,36 @@ simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/imu.cpp.o.provides: si
 simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/imu.cpp.o.provides.build: simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/imu.cpp.o
 
 
+simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/gps.cpp.o: simulator_prototype/CMakeFiles/hil_simulator_node.dir/flags.make
+simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/gps.cpp.o: /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/gps.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/d943/Dropbox/Master/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/gps.cpp.o"
+	cd /home/d943/Dropbox/Master/catkin_ws/build/simulator_prototype && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/hil_simulator_node.dir/src/gps.cpp.o -c /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/gps.cpp
+
+simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/gps.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/hil_simulator_node.dir/src/gps.cpp.i"
+	cd /home/d943/Dropbox/Master/catkin_ws/build/simulator_prototype && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/gps.cpp > CMakeFiles/hil_simulator_node.dir/src/gps.cpp.i
+
+simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/gps.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/hil_simulator_node.dir/src/gps.cpp.s"
+	cd /home/d943/Dropbox/Master/catkin_ws/build/simulator_prototype && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/gps.cpp -o CMakeFiles/hil_simulator_node.dir/src/gps.cpp.s
+
+simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/gps.cpp.o.requires:
+
+.PHONY : simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/gps.cpp.o.requires
+
+simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/gps.cpp.o.provides: simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/gps.cpp.o.requires
+	$(MAKE) -f simulator_prototype/CMakeFiles/hil_simulator_node.dir/build.make simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/gps.cpp.o.provides.build
+.PHONY : simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/gps.cpp.o.provides
+
+simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/gps.cpp.o.provides.build: simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/gps.cpp.o
+
+
 # Object files for target hil_simulator_node
 hil_simulator_node_OBJECTS = \
 "CMakeFiles/hil_simulator_node.dir/src/hil_simulator.cpp.o" \
 "CMakeFiles/hil_simulator_node.dir/src/vessel.cpp.o" \
-"CMakeFiles/hil_simulator_node.dir/src/imu.cpp.o"
+"CMakeFiles/hil_simulator_node.dir/src/imu.cpp.o" \
+"CMakeFiles/hil_simulator_node.dir/src/gps.cpp.o"
 
 # External object files for target hil_simulator_node
 hil_simulator_node_EXTERNAL_OBJECTS =
@@ -141,6 +166,7 @@ hil_simulator_node_EXTERNAL_OBJECTS =
 /home/d943/Dropbox/Master/catkin_ws/devel/lib/simulator_prototype/hil_simulator_node: simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/hil_simulator.cpp.o
 /home/d943/Dropbox/Master/catkin_ws/devel/lib/simulator_prototype/hil_simulator_node: simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/vessel.cpp.o
 /home/d943/Dropbox/Master/catkin_ws/devel/lib/simulator_prototype/hil_simulator_node: simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/imu.cpp.o
+/home/d943/Dropbox/Master/catkin_ws/devel/lib/simulator_prototype/hil_simulator_node: simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/gps.cpp.o
 /home/d943/Dropbox/Master/catkin_ws/devel/lib/simulator_prototype/hil_simulator_node: simulator_prototype/CMakeFiles/hil_simulator_node.dir/build.make
 /home/d943/Dropbox/Master/catkin_ws/devel/lib/simulator_prototype/hil_simulator_node: /opt/ros/kinetic/lib/libtf.so
 /home/d943/Dropbox/Master/catkin_ws/devel/lib/simulator_prototype/hil_simulator_node: /opt/ros/kinetic/lib/libtf2_ros.so
@@ -167,7 +193,7 @@ hil_simulator_node_EXTERNAL_OBJECTS =
 /home/d943/Dropbox/Master/catkin_ws/devel/lib/simulator_prototype/hil_simulator_node: /usr/lib/x86_64-linux-gnu/libpthread.so
 /home/d943/Dropbox/Master/catkin_ws/devel/lib/simulator_prototype/hil_simulator_node: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so
 /home/d943/Dropbox/Master/catkin_ws/devel/lib/simulator_prototype/hil_simulator_node: simulator_prototype/CMakeFiles/hil_simulator_node.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/d943/Dropbox/Master/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable /home/d943/Dropbox/Master/catkin_ws/devel/lib/simulator_prototype/hil_simulator_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/d943/Dropbox/Master/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable /home/d943/Dropbox/Master/catkin_ws/devel/lib/simulator_prototype/hil_simulator_node"
 	cd /home/d943/Dropbox/Master/catkin_ws/build/simulator_prototype && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/hil_simulator_node.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -178,6 +204,7 @@ simulator_prototype/CMakeFiles/hil_simulator_node.dir/build: /home/d943/Dropbox/
 simulator_prototype/CMakeFiles/hil_simulator_node.dir/requires: simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/hil_simulator.cpp.o.requires
 simulator_prototype/CMakeFiles/hil_simulator_node.dir/requires: simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/vessel.cpp.o.requires
 simulator_prototype/CMakeFiles/hil_simulator_node.dir/requires: simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/imu.cpp.o.requires
+simulator_prototype/CMakeFiles/hil_simulator_node.dir/requires: simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/gps.cpp.o.requires
 
 .PHONY : simulator_prototype/CMakeFiles/hil_simulator_node.dir/requires
 
