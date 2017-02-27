@@ -13,6 +13,7 @@ Vessel::Vessel(){
 	tau_current = Vector6d::Zero();
 	tau_control = Vector6d::Zero();
 	tau_total = Vector6d::Zero();	
+	ros::NodeHandle nh;
 	readParameters(nh);
 	gps.setStepSize(dt);
 	gps.receiveStartCoordinates(0, 0);
