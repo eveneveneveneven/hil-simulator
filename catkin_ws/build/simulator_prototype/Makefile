@@ -1011,6 +1011,60 @@ src/imu.cpp.s:
 	cd /home/d943/Dropbox/Master/catkin_ws/build && $(MAKE) -f simulator_prototype/CMakeFiles/hil_simulator_node.dir/build.make simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/imu.cpp.s
 .PHONY : src/imu.cpp.s
 
+src/mru.o: src/mru.cpp.o
+
+.PHONY : src/mru.o
+
+# target to build an object file
+src/mru.cpp.o:
+	cd /home/d943/Dropbox/Master/catkin_ws/build && $(MAKE) -f simulator_prototype/CMakeFiles/hil_simulator_node.dir/build.make simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/mru.cpp.o
+.PHONY : src/mru.cpp.o
+
+src/mru.i: src/mru.cpp.i
+
+.PHONY : src/mru.i
+
+# target to preprocess a source file
+src/mru.cpp.i:
+	cd /home/d943/Dropbox/Master/catkin_ws/build && $(MAKE) -f simulator_prototype/CMakeFiles/hil_simulator_node.dir/build.make simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/mru.cpp.i
+.PHONY : src/mru.cpp.i
+
+src/mru.s: src/mru.cpp.s
+
+.PHONY : src/mru.s
+
+# target to generate assembly for a file
+src/mru.cpp.s:
+	cd /home/d943/Dropbox/Master/catkin_ws/build && $(MAKE) -f simulator_prototype/CMakeFiles/hil_simulator_node.dir/build.make simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/mru.cpp.s
+.PHONY : src/mru.cpp.s
+
+src/sensor.o: src/sensor.cpp.o
+
+.PHONY : src/sensor.o
+
+# target to build an object file
+src/sensor.cpp.o:
+	cd /home/d943/Dropbox/Master/catkin_ws/build && $(MAKE) -f simulator_prototype/CMakeFiles/hil_simulator_node.dir/build.make simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/sensor.cpp.o
+.PHONY : src/sensor.cpp.o
+
+src/sensor.i: src/sensor.cpp.i
+
+.PHONY : src/sensor.i
+
+# target to preprocess a source file
+src/sensor.cpp.i:
+	cd /home/d943/Dropbox/Master/catkin_ws/build && $(MAKE) -f simulator_prototype/CMakeFiles/hil_simulator_node.dir/build.make simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/sensor.cpp.i
+.PHONY : src/sensor.cpp.i
+
+src/sensor.s: src/sensor.cpp.s
+
+.PHONY : src/sensor.s
+
+# target to generate assembly for a file
+src/sensor.cpp.s:
+	cd /home/d943/Dropbox/Master/catkin_ws/build && $(MAKE) -f simulator_prototype/CMakeFiles/hil_simulator_node.dir/build.make simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/sensor.cpp.s
+.PHONY : src/sensor.cpp.s
+
 src/unittest.o: src/unittest.cpp.o
 
 .PHONY : src/unittest.o
@@ -1141,6 +1195,12 @@ help:
 	@echo "... src/imu.o"
 	@echo "... src/imu.i"
 	@echo "... src/imu.s"
+	@echo "... src/mru.o"
+	@echo "... src/mru.i"
+	@echo "... src/mru.s"
+	@echo "... src/sensor.o"
+	@echo "... src/sensor.i"
+	@echo "... src/sensor.s"
 	@echo "... src/unittest.o"
 	@echo "... src/unittest.i"
 	@echo "... src/unittest.s"

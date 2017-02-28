@@ -36,7 +36,7 @@ JoystickPublisher::JoystickPublisher():
   nh_.param("axis_sway", sway, sway);
 
 
-  vel_pub_ = nh_.advertise<geometry_msgs::Twist>("hil_sim/thrust", 0);
+  vel_pub_ = nh_.advertise<geometry_msgs::Twist>("input/thrust", 0);
 
 
   joy_sub_ = nh_.subscribe<sensor_msgs::Joy>("joy", 0, &JoystickPublisher::joyCallback, this);

@@ -360,8 +360,9 @@ void Vessel::step(){
 
 void Vessel::publishSensorData(){
 	nu_n = (J*nu_r).head(3);
-	gps.publishData(nu_n);
-	imu.publishData(nu_dot , nu);
+	gps.publishGpsData(nu_n);
+	imu.publishImuData(nu_dot , nu);
+	mru.publishMruData(nu, eta);
 }
 
 void Vessel::publishState(){

@@ -3,22 +3,18 @@
 #include <gtest/gtest.h>
 #include <Eigen/Dense>
 
-
-struct pubSubHelper{
-  int numRecMessages =0;
-  void callback(const geometry_msgs::Twist::ConstPtr& msg){
-    numRecMessages++;
-  }
+struct pubSubHelper {
+  int numRecMessages = 0;
+  void callback(const geometry_msgs::Twist::ConstPtr &msg) { numRecMessages++; }
 };
 
-
-TEST(Vessel, parameterLoad){
+TEST(Vessel, parameterLoad) {
   ros::NodeHandle testHandle;
   Vessel testVessel;
   EXPECT_FALSE(testVessel.readParameters(testHandle));
 }
 
-TEST(Vessel, initializeMatrices){
+TEST(Vessel, initializeMatrices) {
   Vessel testVessel;
   ros::NodeHandle testHandle;
   testVessel.readParameters(testHandle);
@@ -26,22 +22,19 @@ TEST(Vessel, initializeMatrices){
   ASSERT_NE(testVessel.M_det, 0);
 }
 
-TEST(Vessel, setGetState){
+TEST(Vessel, setGetState) {
   Vector6d newState = Vector6d::Zero();
   Vector6d testState;
-  testState << 1,2,3,4,5,6;
+  testState << 1, 2, 3, 4, 5, 6;
   Vessel testVessel;
   testVessel.setState(newState, newState);
   testVessel.getState(testState, testState);
   EXPECT_EQ(newState, testState);
 }
 
-TEST(Vessel, getDT){
-  Vessel testVessel;
+TEST(Vessel, getDT) { Vessel testVessel; }
 
-}
-
-TEST(Basic, publishSubscribe){
+TEST(Basic, publishSubscribe) {
   ros::NodeHandle nh;
   pubSubHelper h;
   ros::Publisher pub = nh.advertise<geometry_msgs::Twist>("testPub", 0);
@@ -50,13 +43,13 @@ TEST(Basic, publishSubscribe){
   EXPECT_EQ(sub.getNumPublishers(), 1);
   geometry_msgs::Twist msg;
   pub.publish(msg);
-  ros::Rate delayTime(1/0.1);
+  ros::Rate delayTime(1 / 0.1);
   delayTime.sleep();
   ros::spinOnce();
   EXPECT_EQ(h.numRecMessages, 1);
 }
 
-TEST(Vessel, receiveThrust){
+TEST(Vessel, receiveThrust) {
   Vessel testVessel;
   ros::NodeHandle nh;
   ros::Publisher pub = nh.advertise<geometry_msgs::Twist>("hil_sim/thrust", 0);
@@ -64,7 +57,7 @@ TEST(Vessel, receiveThrust){
   double test_val = 123;
   newThrust.linear.x = test_val;
   pub.publish(newThrust);
-  ros::Rate delayTime(1/0.1);
+  ros::Rate delayTime(1 / 0.1);
   delayTime.sleep();
   ros::spinOnce();
   Vector6d returnedThrust = testVessel.getThrust();
@@ -72,11 +65,10 @@ TEST(Vessel, receiveThrust){
   EXPECT_NE(returnedThrust(1), test_val);
 }
 
-
-int main(int argc, char** argv){
+int main(int argc, char **argv) {
   ros::init(argc, argv, "GTestNode");
   ros::start();
-  testing::InitGoogleTest(&argc, argv);  
+  testing::InitGoogleTest(&argc, argv);
   ros::NodeHandle nh;
   return RUN_ALL_TESTS();
 }
