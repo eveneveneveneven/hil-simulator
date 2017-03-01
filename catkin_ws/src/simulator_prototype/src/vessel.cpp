@@ -2,9 +2,18 @@
 
 Vessel::Vessel(){
 	// On creation of new vessel
+	initializeStateVectors();	
+	ros::NodeHandle nh;
+	readParameters(nh);
+	initializeSensors();
+	initializeMatrices();
+	initializeSolver();
+}
+
+void Vessel::initializeStateVectors(){
 	eta = Vector6d::Zero();
 	nu  = Vector6d::Zero();
-	nu_n = Vector3d::Zero();
+	nu_n = Vector6d::Zero();
 	nu_r  = Vector6d::Zero();
 	nu_c_b  = Vector6d::Zero();
 	nu_c_n  = Vector6d::Zero();
@@ -12,20 +21,22 @@ Vessel::Vessel(){
 	tau_waves = Vector6d::Zero();
 	tau_current = Vector6d::Zero();
 	tau_control = Vector6d::Zero();
-	tau_total = Vector6d::Zero();	
-	ros::NodeHandle nh;
-	readParameters(nh);
+	tau_total = Vector6d::Zero();
+}
+
+void Vessel::initializeSensors(){
 	gps.setStepSize(dt);
-	gps.receiveStartCoordinates(0, 0);
-	initializeFluidMemoryMatrices();
-	initializeMatrices();
-	initializeSolver();
-	updateMatrices();
+	gps.receiveStartCoordinates(start_latitude, start_longitude);
+	gps.setFrequency(gps_frequency);
+	mru.setStepSize(dt);
+	mru.setFrequency(mru_frequency);
+	imu.setStepSize(dt);
+	imu.setFrequency(imu_frequency);
 }
 
 void Vessel::receiveThrust(const geometry_msgs::Twist::ConstPtr& thrust_msg){
 	
-	tau_control << thrust_msg->linear.x, thrust_msg->linear.y, thrust_msg->linear.z, thrust_msg->angular.x, thrust_msg->angular.y, thrust_msg->angular.z;
+	tau_control << thrust_msg->linear.x*surge_max, thrust_msg->linear.y*surge_max, thrust_msg->linear.z, thrust_msg->angular.x, thrust_msg->angular.y, thrust_msg->angular.z*surge_max*0.5;
 }
 
 Vector6d Vessel::getThrust(){
@@ -308,18 +319,18 @@ void Vessel::updateMatrices(){
 	theta=eta(4);
 	psi=eta(5);
 	C_rb << 0,	0,	0,	0,	0,	0,
-			0,	0,	0,	0,	0,	5002.6,
-			0,	0,	0,	0,	-5002.6,	0,
-			0,	0,	0,	0,	0,	1260.7,
+			0,	0,	0,	0,	0,	C_rb_26,
+			0,	0,	0,	0,	C_rb_35,	0,
+			0,	0,	0,	0,	0,	C_rb_46,
 			0,	0,	0,	0,	0,	0,	
 			0,	0,	0,	0,	0,	0;
 
 	C_a <<  0,	0,	0,	0,	0,	0,	
-			0,	0,	0,	0,	0,	0.17,
-			0,	0,	0,	0,	-1.37, 0,
-			0,	0,	0,	0,	0,	0.08,
-			0,	0,	0,	0,	-0.76, 0,
-			0,	0,	0,	0,	0,	0.03;
+			0,	0,	0,	0,	0,	C_a_26,
+			0,	0,	0,	0,	C_a_35, 0,
+			0,	0,	0,	0,	0,	C_a_46,
+			0,	0,	0,	0,	C_a_55, 0,
+			0,	0,	0,	0,	0,	C_a_66;
 	C = u*(C_rb+C_a);
 	//Coriolis and centripetal
 	/*C << 	0, 										-m_11*r,			0,	0,	0,	-m_11*x_g*r+Y_v_dot*v+r*(Y_r_dot),
@@ -359,7 +370,7 @@ void Vessel::step(){
 }
 
 void Vessel::publishSensorData(){
-	nu_n = (J*nu_r).head(3);
+	nu_n = (J*nu_r);
 	gps.publishGpsData(nu_n);
 	imu.publishImuData(nu_dot , nu);
 	mru.publishMruData(nu, eta);
@@ -458,6 +469,7 @@ void Vessel::calculateNextNu(){
 }
 
 void Vessel::initializeMatrices(){
+	initializeFluidMemoryMatrices();
 	M_det = 0;
 	M_rb << m_11, m_12, m_13, m_14, m_15, m_16, 
           	m_21, m_22, m_23, m_24, m_25, m_26, 
@@ -726,12 +738,44 @@ bool Vessel::readParameters(ros::NodeHandle nh) {
 	if (!nh.getParam("M_qq", M_qq))
 		parameterFail=true;
 
+	if (!nh.getParam("C_rb_26", C_rb_26))
+		parameterFail=true;
+	if (!nh.getParam("C_rb_35", C_rb_35))
+		parameterFail=true;
+	if (!nh.getParam("C_rb_46", C_rb_46))
+		parameterFail=true;
+
+	if (!nh.getParam("C_a_26", C_a_26))
+		parameterFail=true;
+	if (!nh.getParam("C_a_35", C_a_35))
+		parameterFail=true;
+	if (!nh.getParam("C_a_46", C_a_46))
+		parameterFail=true;
+	if (!nh.getParam("C_a_55", C_a_55))
+		parameterFail=true;
+	if (!nh.getParam("C_a_66", C_a_66))
+		parameterFail=true;
+
+
+
 	// Others
 	if (!nh.getParam("K_thruster", K_thruster))
 		parameterFail=true;
 	if (!nh.getParam("L_pp", L_pp))
 		parameterFail=true;
 	if (!nh.getParam("dt", dt))
+		parameterFail=true;
+	if (!nh.getParam("gps_frequency", gps_frequency))
+		parameterFail=true;
+	if (!nh.getParam("mru_frequency", mru_frequency))
+		parameterFail=true;
+	if (!nh.getParam("imu_frequency", imu_frequency))
+		parameterFail=true;
+	if (!nh.getParam("start_latitude", start_latitude))
+		parameterFail=true;
+	if (!nh.getParam("start_longitude", start_longitude))
+		parameterFail=true;
+	if (!nh.getParam("surge_max", surge_max))
 		parameterFail=true;
 	return parameterFail;
 }

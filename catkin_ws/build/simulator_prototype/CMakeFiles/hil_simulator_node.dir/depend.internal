@@ -4,6 +4,7 @@
 simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/gps.cpp.o
  /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/gps.h
  /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/sensor.h
+ /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/solver.h
  /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/gps.cpp
  /opt/ros/kinetic/include/XmlRpcDecl.h
  /opt/ros/kinetic/include/XmlRpcValue.h
@@ -68,6 +69,7 @@ simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/hil_simulator.cpp.o
  /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/imu.h
  /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/mru.h
  /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/sensor.h
+ /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/solver.h
  /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/vessel.h
  /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/hil_simulator.cpp
  /opt/ros/kinetic/include/XmlRpcDecl.h
@@ -359,6 +361,7 @@ simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/vessel.cpp.o
  /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/imu.h
  /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/mru.h
  /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/sensor.h
+ /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/solver.h
  /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/vessel.h
  /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/vessel.cpp
  /opt/ros/kinetic/include/XmlRpcDecl.h

@@ -15,6 +15,8 @@ Eigen/Dense
 -
 ros/ros.h
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/ros/ros.h
+solver.h
+/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/solver.h
 
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/imu.h
 ros/ros.h
@@ -42,6 +44,10 @@ ros/ros.h
 geometry_msgs/Twist.h
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/geometry_msgs/Twist.h
 
+/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/solver.h
+Eigen/Dense
+-
+
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/vessel.h
 ros/ros.h
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/ros/ros.h
@@ -57,6 +63,8 @@ geometry_msgs/Twist.h
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/geometry_msgs/Twist.h
 nav_msgs/Odometry.h
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/nav_msgs/Odometry.h
+solver.h
+/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/solver.h
 sensor.h
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/sensor.h
 mru.h

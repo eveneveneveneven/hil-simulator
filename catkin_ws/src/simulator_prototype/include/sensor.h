@@ -8,13 +8,11 @@
 
 using namespace Eigen;
 
-#define PI 3.14159265
-
 typedef Matrix<double, 6, 1> Vector6d;
 
 class Sensor {
 public:
-  void publishData(Vector3d v_n, ros::Publisher sensor_pub);
+  void publishData(Vector6d v_n, ros::Publisher sensor_pub);
 
   void publishData(Vector6d nu_dot, Vector6d nu, ros::Publisher sensor_pub);
 
@@ -24,11 +22,13 @@ public:
 
   void setStepSize(double stepsize);
 
+  void setFrequency(double _frequency);
+
   void setNoise();
 
   ros::NodeHandle sensor_handle;
 
-  double dt;
+  double dt, frequency, steps_per_data_output, step;
 };
 
 #endif

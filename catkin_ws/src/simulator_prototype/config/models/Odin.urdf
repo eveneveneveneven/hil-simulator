@@ -2,12 +2,12 @@
 <robot name="hil_sim">
   <link name="hil_sim">
     <visual>
-      <origin rpy="0 -1.570796326 -1.570796326" xyz="-4.15 -1.6 -0.7"/>
+      <origin rpy="0 -1.570796326 -1.570796326" xyz="-5.5 -1.75 -0.7"/>
       <geometry>
         <mesh filename="file:///home/d943/Dropbox/Master2/OdinDecimated.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="white">
-        <color rgba="0.8 0.4 0.4 1"/>
+        <color rgba="0.25 0.25 0.25 1"/>
       </material>
     </visual>
   </link>

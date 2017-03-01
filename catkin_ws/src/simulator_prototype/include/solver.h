@@ -1,57 +1,20 @@
-#include "Eigen\Dense"
+#ifndef SOLVER_H
+#define SOLVER_H
 
-class Ode5Solver {
-private:
-  // Solver specific parameters
-  double a21, a31, a32, a41, a42, a43, a51, a52, a53, a54, a61, a62, a63, a64,
+#include <Eigen/Dense>
+
+using namespace Eigen;
+
+typedef Matrix<double, 6, 1> Vector6d;
+
+struct NumericalSolver {
+  // Template is for Ode45, but usable for other solvers as well. TODO: Add
+  // functionality for choice of solver.
+  long double epsilon, t, y, h, h_min, h_max;
+  long double a21, a31, a32, a41, a42, a43, a51, a52, a53, a54, a61, a62, a63, a64,
       a65, a71, a72, a73, a74, a75, a76, c2, c3, c4, c5, c6, c7, b11, b12, b13,
       b14, b15, b16, b17, b21, b22, b23, b24, b25, b26, b27;
-  Eigen::Vector3d k1v, k2v, k3v, k4v, k5v, k6v, k7v;
-  a21 = 1.0L / 5L;
-  a31 = 3.0L / 40;
-  a32 = 9.0L / 40;
-  a41 = 44.0L / 45;
-  a42 = -56.0L / 15;
-  a43 = 32.0L / 9;
-  a51 = 19372.0L / 6561;
-  a52 = -25360.0L / 2187;
-  a53 = 64448.0L / 6561;
-  a54 = -212.0L / 729;
-  a61 = 9017.0L / 3168;
-  a62 = -355.0L / 33;
-  a63 = 46732.0L / 5247;
-  a64 = 49.0L / 176;
-  a65 = -5103.0L / 18656;
-  a71 = 35.0L / 384;
-  a72 = 0;
-  a73 = 500.0L / 1113;
-  a74 = 125.0L / 192;
-  a75 = -2187.0L / 6784;
-  a76 = 11.0L / 84;
-  c2 = 1.0L / 5;
-  c3 = 3.0L / 10;
-  c4 = 4.0L / 5;
-  c5 = 8.0L / 9;
-  c6 = 1.0L;
-  c7 = 1.0L;
-  b11 = 35.0L / 384;
-  b12 = 0.0L;
-  b13 = 500.0L / 1113;
-  b14 = 125.0L / 192;
-  b15 = -2187.0L / 6784;
-  b16 = 11.0L / 84;
-  b17 = 0.0L;
-  b21 = 5179.0L / 57600;
-  b22 = 0.0L;
-  b23 = 7571.0L / 16695;
-  b24 = 393.0L / 640;
-  b25 = -92097.0L / 339200;
-  b26 = 187.0L / 2100;
-  b27 = 1.0L / 40;
-
-public:
-  long double t, h;
-  t = 0L;
-  h = 0.05L;
+  Vector6d k1v, k2v, k3v, k4v, k5v, k6v, k7v, zv, sv, errv;
 };
-Solver Ode45;
+
+#endif

@@ -7,6 +7,7 @@
 #include "geometry_msgs/PoseStamped.h"
 #include "geometry_msgs/Twist.h"
 #include "nav_msgs/Odometry.h"
+#include "solver.h"
 #include "sensor.h"
 #include "mru.h"
 #include "imu.h"
@@ -22,16 +23,6 @@ typedef Matrix<double, 6, 1> Vector6d;
 typedef Matrix<double, 4, 4> Matrix4d;
 typedef Matrix<double, 5, 5> Matrix5d;
 typedef Matrix<double, 6, 6> Matrix6d;
-
-struct NumericalSolver {
-  // Template is for Ode45, but usable for other solvers as well. TODO: Add
-  // functionality for choice of solver.
-  long double epsilon, t, y, h, h_min, h_max;
-  double a21, a31, a32, a41, a42, a43, a51, a52, a53, a54, a61, a62, a63, a64,
-      a65, a71, a72, a73, a74, a75, a76, c2, c3, c4, c5, c6, c7, b11, b12, b13,
-      b14, b15, b16, b17, b21, b22, b23, b24, b25, b26, b27;
-  Vector6d k1v, k2v, k3v, k4v, k5v, k6v, k7v, zv, sv, errv;
-};
 
 class Vessel {
 
@@ -51,6 +42,10 @@ public:
   // Fills in the loaded parameters in the M_rb, M_a, M, M_inv and G matrices,
   // as these are constant.
   void initializeMatrices();
+
+  void initializeStateVectors();
+
+  void initializeSensors();
 
   // Performs one step in the simulation
   void step();
@@ -77,7 +72,7 @@ private:
   // A set of state vectors, relative to different coordinate frames.
   Vector6d eta, nu, nu_r, nu_c_b, nu_c_n, nu_dot, delta_nu, mu;
   // Velocity in NED, used for GPS-position.
-  Vector3d nu_n;
+  Vector6d nu_n;
   // A set of different force vectors, used to represent forces from thrusters
   // and environmental forces
   Vector6d tau_control, tau_wind, tau_current, tau_waves, tau_total;
@@ -154,6 +149,8 @@ private:
       M_u_dot, M_v_dot, M_w_dot, M_p_dot, M_q_dot, M_r_dot, N_u_dot, N_v_dot,
       N_w_dot, N_p_dot, N_q_dot, N_r_dot;
 
+  double C_rb_26, C_rb_35, C_rb_46, C_a_26, C_a_35, C_a_46, C_a_55, C_a_66;
+
   // Center of gravity
   double x_g, y_g, z_g;
 
@@ -167,6 +164,13 @@ private:
 
   // Other
   double K_thruster, L_pp;
+  double surge_max;
+
+  // Update frequency for onboard sensors.
+  double gps_frequency, mru_frequency, imu_frequency;
+
+  // Starting position in lat/long
+  double start_latitude, start_longitude;
 
   // The damping, coriolis and rotation matrix are dependent of the vessel
   // state, and needs to be updated for each step
