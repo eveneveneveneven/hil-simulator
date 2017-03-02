@@ -117,6 +117,7 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/d943/Dropbox/Master/catkin_ws/build/gtest_car/cmake_install.cmake")
+  include("/home/d943/Dropbox/Master/catkin_ws/build/ps3_joy_thrusters/cmake_install.cmake")
   include("/home/d943/Dropbox/Master/catkin_ws/build/ps3thrustInput/cmake_install.cmake")
   include("/home/d943/Dropbox/Master/catkin_ws/build/simulator_prototype/cmake_install.cmake")
 

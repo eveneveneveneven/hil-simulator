@@ -36,7 +36,7 @@ void Vessel::initializeSensors(){
 
 void Vessel::receiveThrust(const geometry_msgs::Twist::ConstPtr& thrust_msg){
 	
-	tau_control << thrust_msg->linear.x*surge_max, thrust_msg->linear.y*surge_max, thrust_msg->linear.z, thrust_msg->angular.x, thrust_msg->angular.y, thrust_msg->angular.z*surge_max*0.5;
+	tau_control << thrust_msg->linear.x, thrust_msg->linear.y, thrust_msg->linear.z, thrust_msg->angular.x, thrust_msg->angular.y, thrust_msg->angular.z;
 }
 
 Vector6d Vessel::getThrust(){
@@ -249,15 +249,15 @@ void Vessel::calculateFluidMemoryEffects(){
 
 	double mu_1, mu_2, mu_3, mu_4, mu_5, mu_6;
 
-	// The fluid memory effects model used in this prototype is calculated for the Viknes830-vessel. A simple transformation of the forces using the BIS-system is performed here, 
-	// to make sure the forces "fits" the vessel simulated. 
+	// The fluid memory effects model used in this prototype is calculated for the Viknes830-vessel. A simple transformation of the forces and momemnts using the BIS-system is performed here, 
+	// to roughly "fit" the data to the vessel simulated. 
 
-	mu_1 = double(C_11*x_11)*m_11/5002.6;
-	mu_2 = (double(C_22*x_22)+double(C_24*x_24)+double(C_26*x_26))*m_11/5002.6;
-	mu_3 = (double(C_33*x_33)+double(C_35*x_35))*m_11/5002.6;
-	mu_4 = (double(C_42*x_42)+double(C_44*x_44)+double(C_46*x_46))*(m_11*L_pp)/(5002.6*7.2);
-	mu_5 = (double(C_53*x_53)+double(C_55*x_55))*(m_11*L_pp)/(5002.6*7.2);
-	mu_6 = (double(C_62*x_62)+double(C_64*x_64)+double(C_66*x_66))*(m_11*L_pp)/(5002.6*7.2);
+	mu_1 = double(C_11*x_11)*((m_11*L_pp)/(L_pp*9.81))/((7.2*5002.6)/(7.2*9.81));
+	mu_2 = (double(C_22*x_22)+double(C_24*x_24)+double(C_26*x_26))*((m_11*L_pp)/(L_pp*9.81))/((7.2*5002.6)/(7.2*9.81));
+	mu_3 = (double(C_33*x_33)+double(C_35*x_35))*((m_11*L_pp)/(L_pp*9.81))/((7.2*5002.6)/(7.2*9.81));
+	mu_4 = (double(C_42*x_42)+double(C_44*x_44)+double(C_46*x_46))*((m_11*L_pp*L_pp)/(L_pp*9.81))/((7.2*7.2*5002.6)/(7.2*9.81));
+	mu_5 = (double(C_53*x_53)+double(C_55*x_55))*((m_11*L_pp*L_pp)/(L_pp*9.81))/((7.2*7.2*5002.6)/(7.2*9.81));
+	mu_6 = (double(C_62*x_62)+double(C_64*x_64)+double(C_66*x_66))*((m_11*L_pp*L_pp)/(L_pp*9.81))/((7.2*7.2*5002.6)/(7.2*9.81));
 
 	mu << mu_1, mu_2, mu_3, mu_4, mu_5, mu_6;
 }	

@@ -725,6 +725,32 @@ gtest_car_geneus/fast:
 .PHONY : gtest_car_geneus/fast
 
 #=============================================================================
+# Target rules for targets named ps3_joy_thrusters_generate_messages
+
+# Build rule for target.
+ps3_joy_thrusters_generate_messages: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ps3_joy_thrusters_generate_messages
+.PHONY : ps3_joy_thrusters_generate_messages
+
+# fast build rule for target.
+ps3_joy_thrusters_generate_messages/fast:
+	$(MAKE) -f ps3_joy_thrusters/CMakeFiles/ps3_joy_thrusters_generate_messages.dir/build.make ps3_joy_thrusters/CMakeFiles/ps3_joy_thrusters_generate_messages.dir/build
+.PHONY : ps3_joy_thrusters_generate_messages/fast
+
+#=============================================================================
+# Target rules for targets named ps3_joy_thrusters
+
+# Build rule for target.
+ps3_joy_thrusters: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ps3_joy_thrusters
+.PHONY : ps3_joy_thrusters
+
+# fast build rule for target.
+ps3_joy_thrusters/fast:
+	$(MAKE) -f ps3_joy_thrusters/CMakeFiles/ps3_joy_thrusters.dir/build.make ps3_joy_thrusters/CMakeFiles/ps3_joy_thrusters.dir/build
+.PHONY : ps3_joy_thrusters/fast
+
+#=============================================================================
 # Target rules for targets named ps3thrustInput_generate_messages
 
 # Build rule for target.
@@ -1469,6 +1495,8 @@ help:
 	@echo "... gtest_car_generate_messages_eus"
 	@echo "... roscpp_generate_messages_py"
 	@echo "... gtest_car_geneus"
+	@echo "... ps3_joy_thrusters_generate_messages"
+	@echo "... ps3_joy_thrusters"
 	@echo "... ps3thrustInput_generate_messages"
 	@echo "... ps3_thrust_input"
 	@echo "... clean_test_results_simulator_prototype"

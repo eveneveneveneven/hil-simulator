@@ -55,6 +55,15 @@
 /home/d943/Dropbox/Master/catkin_ws/build/gtest_car/CMakeFiles/gtest_car_generate_messages_eus.dir
 /home/d943/Dropbox/Master/catkin_ws/build/gtest_car/CMakeFiles/roscpp_generate_messages_py.dir
 /home/d943/Dropbox/Master/catkin_ws/build/gtest_car/CMakeFiles/gtest_car_geneus.dir
+/home/d943/Dropbox/Master/catkin_ws/build/ps3_joy_thrusters/CMakeFiles/list_install_components.dir
+/home/d943/Dropbox/Master/catkin_ws/build/ps3_joy_thrusters/CMakeFiles/install.dir
+/home/d943/Dropbox/Master/catkin_ws/build/ps3_joy_thrusters/CMakeFiles/rebuild_cache.dir
+/home/d943/Dropbox/Master/catkin_ws/build/ps3_joy_thrusters/CMakeFiles/edit_cache.dir
+/home/d943/Dropbox/Master/catkin_ws/build/ps3_joy_thrusters/CMakeFiles/test.dir
+/home/d943/Dropbox/Master/catkin_ws/build/ps3_joy_thrusters/CMakeFiles/ps3_joy_thrusters_generate_messages.dir
+/home/d943/Dropbox/Master/catkin_ws/build/ps3_joy_thrusters/CMakeFiles/ps3_joy_thrusters.dir
+/home/d943/Dropbox/Master/catkin_ws/build/ps3_joy_thrusters/CMakeFiles/install/strip.dir
+/home/d943/Dropbox/Master/catkin_ws/build/ps3_joy_thrusters/CMakeFiles/install/local.dir
 /home/d943/Dropbox/Master/catkin_ws/build/ps3thrustInput/CMakeFiles/list_install_components.dir
 /home/d943/Dropbox/Master/catkin_ws/build/ps3thrustInput/CMakeFiles/install.dir
 /home/d943/Dropbox/Master/catkin_ws/build/ps3thrustInput/CMakeFiles/edit_cache.dir
