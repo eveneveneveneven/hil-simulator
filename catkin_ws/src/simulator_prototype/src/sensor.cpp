@@ -1,7 +1,7 @@
 #include "sensor.h"
 
 void Sensor::publishData(Vector6d nu_dot, Vector6d nu,
-                         ros::Publisher sensor_pub) {
+                         ros::Publisher imu_pub) {
   if(step == steps_per_data_output){
     step=0;
     geometry_msgs::Twist imuMessage;
@@ -11,19 +11,36 @@ void Sensor::publishData(Vector6d nu_dot, Vector6d nu,
     imuMessage.angular.x = nu(3);
     imuMessage.angular.y = nu(4);
     imuMessage.angular.z = nu(5);
-    sensor_pub.publish(imuMessage);
+    imu_pub.publish(imuMessage);
   }
   step++; 
 }
 
-void Sensor::publishData(Vector6d v_n, ros::Publisher sensor_pub) {
+void Sensor::publishData(double u, double v, ros::Publisher speed_sensor_pub){
   if(step == steps_per_data_output){
     step=0;
-    geometry_msgs::Twist gpsMessage;
-    gpsMessage.linear.x = v_n(0)*(180/M_PI);
-    gpsMessage.linear.y = v_n(1)*(180/M_PI);
-    gpsMessage.linear.z = v_n(2);
-    sensor_pub.publish(gpsMessage);
+    geometry_msgs::Twist speedSensorMessage;
+    speedSensorMessage.linear.x = u;
+    speedSensorMessage.linear.y = v;
+    speed_sensor_pub.publish(speedSensorMessage);
+  }
+  step++;
+}
+
+void Sensor::publishData(Vector6d gps_position, Vector3d gps_info, ros::Publisher gps_pub) {
+  if(step == steps_per_data_output){
+    step=0;
+    simulator_prototype::Gps gpsMessage;
+    gpsMessage.header.stamp = ros::Time::now();
+    gpsMessage.header.frame_id = "/gps";
+    gpsMessage.latitude = gps_position(0)*(180/M_PI);
+    gpsMessage.longitude = gps_position(1)*(180/M_PI);
+    gpsMessage.altitude = gps_position(2);
+    gpsMessage.track = gps_info(1);
+    gpsMessage.speed = gps_info(0);
+    gpsMessage.heading = gps_position(5);
+    gpsMessage.headingRate = gps_info(2);
+    gps_pub.publish(gpsMessage);
   }
   step++;
 }

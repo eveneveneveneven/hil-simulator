@@ -1,8 +1,8 @@
 
 "use strict";
 
-let GpsPos = require('./GpsPos.js');
+let Gps = require('./Gps.js');
 
 module.exports = {
-  GpsPos: GpsPos,
+  Gps: Gps,
 };

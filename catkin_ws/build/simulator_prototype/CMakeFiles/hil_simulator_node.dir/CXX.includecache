@@ -6,33 +6,37 @@
 
 #IncludeRegexTransform: 
 
-/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/gps.h
-cmath
+/home/d943/Dropbox/Master/catkin_ws/devel/include/simulator_prototype/Gps.h
+string
 -
+vector
+-
+map
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+std_msgs/Header.h
+-
+
+/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/gps.h
 sensor.h
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/sensor.h
-Eigen/Dense
--
-ros/ros.h
-/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/ros/ros.h
 solver.h
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/solver.h
 
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/imu.h
-ros/ros.h
-/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/ros/ros.h
 sensor.h
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/sensor.h
-Eigen/Dense
--
 
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/mru.h
-ros/ros.h
-/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/ros/ros.h
 sensor.h
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/sensor.h
-Eigen/Dense
--
 
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/sensor.h
 cmath
@@ -43,10 +47,18 @@ ros/ros.h
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/ros/ros.h
 geometry_msgs/Twist.h
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/geometry_msgs/Twist.h
+simulator_prototype/Gps.h
+/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/simulator_prototype/Gps.h
 
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/solver.h
 Eigen/Dense
 -
+
+/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/speedsensor.h
+sensor.h
+/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/sensor.h
+ros/ros.h
+/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/ros/ros.h
 
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/vessel.h
 ros/ros.h
@@ -73,6 +85,8 @@ imu.h
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/imu.h
 gps.h
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/gps.h
+speedsensor.h
+/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/speedsensor.h
 
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/gps.cpp
 gps.h
@@ -93,6 +107,14 @@ mru.h
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/sensor.cpp
 sensor.h
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/sensor.h
+
+/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/solver.cpp
+solver.h
+/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/solver.h
+
+/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/speedsensor.cpp
+speedsensor.h
+/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/speedsensor.h
 
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/vessel.cpp
 vessel.h

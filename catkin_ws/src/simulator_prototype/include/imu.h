@@ -1,11 +1,7 @@
 #ifndef IMU_H
 #define IMU_H
 
-#include "ros/ros.h"
 #include "sensor.h"
-#include <Eigen/Dense>
-
-using namespace Eigen;
 
 class IMU : public Sensor {
 

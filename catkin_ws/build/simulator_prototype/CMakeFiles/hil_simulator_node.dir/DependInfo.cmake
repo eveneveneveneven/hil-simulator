@@ -9,6 +9,8 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/imu.cpp" "/home/d943/Dropbox/Master/catkin_ws/build/simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/imu.cpp.o"
   "/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/mru.cpp" "/home/d943/Dropbox/Master/catkin_ws/build/simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/mru.cpp.o"
   "/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/sensor.cpp" "/home/d943/Dropbox/Master/catkin_ws/build/simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/sensor.cpp.o"
+  "/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/solver.cpp" "/home/d943/Dropbox/Master/catkin_ws/build/simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/solver.cpp.o"
+  "/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/speedsensor.cpp" "/home/d943/Dropbox/Master/catkin_ws/build/simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/speedsensor.cpp.o"
   "/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/vessel.cpp" "/home/d943/Dropbox/Master/catkin_ws/build/simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/vessel.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

@@ -8,7 +8,7 @@ void GPS::receiveStartCoordinates(double latitude_in, double longitude_in) {
   latitude = latitude_in*(M_PI/180);
   longitude = longitude_in*(M_PI/180);
   gps_position << latitude, longitude, 0, 0, 0, 0;
-  initializeSolver();
+  solver.initializeSolver(dt);
 }
 
 void GPS::updateCurvatures() {
@@ -38,57 +38,35 @@ Vector6d GPS::positionFunction(Vector6d gps_position_in){
   return gps_position_dot;
 }
 
-void GPS::publishGpsData(Vector6d v_n_in) {
-  // Side 32 i Kalman-boka
-  v_n=v_n_in;
-  updateCurvatures();
-  calculateNextPosition();  
-  publishData(gps_position, gps_pub);
+Vector3d GPS::getSpeedAndTrack(Vector6d eta){
+  Vector3d gpsData;
+  double speed = sqrt(v_n(0)*v_n(0)+v_n(1)*v_n(1)+v_n(2)*v_n(2));
+  double bearing = (180/M_PI)*atan2(v_n(1), v_n(0));
+  if(bearing<0)
+    bearing+=360;
+  gpsData << speed, bearing, v_n(5)*180/M_PI;
+  return gpsData;
 }
 
-void GPS::initializeSolver(){
-  // For now this initializes an Ode45 solver, could be arranged to read solver from some Solver.yaml configuration file.
-  solver.t = 0L;
-  solver.h = dt;
-  solver.a21 = 1.0L / 5L;
-  solver.a31 = 3.0L / 40;
-  solver.a32 = 9.0L / 40;
-  solver.a41 = 44.0L / 45;
-  solver.a42 = -56.0L / 15;
-  solver.a43 = 32.0L / 9;
-  solver.a51 = 19372.0L / 6561;
-  solver.a52 = -25360.0L / 2187;
-  solver.a53 = 64448.0L / 6561;
-  solver.a54 = -212.0L / 729;
-  solver.a61 = 9017.0L / 3168;
-  solver.a62 = -355.0L / 33;
-  solver.a63 = 46732.0L / 5247;
-  solver.a64 = 49.0L / 176;
-  solver.a65 = -5103.0L / 18656;
-  solver.a71 = 35.0L / 384;
-  solver.a72 = 0;
-  solver.a73 = 500.0L / 1113;
-  solver.a74 = 125.0L / 192;
-  solver.a75 = -2187.0L / 6784;
-  solver.a76 = 11.0L / 84;
-  solver.c2 = 1.0L / 5;
-  solver.c3 = 3.0L / 10;
-  solver.c4 = 4.0L / 5;
-  solver.c5 = 8.0L / 9;
-  solver.c6 = 1.0L;
-  solver.c7 = 1.0L;
-  solver.b11 = 35.0L / 384;
-  solver.b12 = 0.0L;
-  solver.b13 = 500.0L / 1113;
-  solver.b14 = 125.0L / 192;
-  solver.b15 = -2187.0L / 6784;
-  solver.b16 = 11.0L / 84;
-  solver.b17 = 0.0L;
-  solver.b21 = 5179.0L / 57600;
-  solver.b22 = 0.0L;
-  solver.b23 = 7571.0L / 16695;
-  solver.b24 = 393.0L / 640;
-  solver.b25 = -92097.0L / 339200;
-  solver.b26 = 187.0L / 2100;
-  solver.b27 = 1.0L / 40;
+void GPS::getHeading(Vector6d eta){
+  double temp_heading = eta(5)*180/M_PI;
+  while(temp_heading<0 || temp_heading > 360){
+    if(temp_heading<0)
+      temp_heading+=360;
+    if(temp_heading>360){
+      temp_heading-=360;
+    }
+  }
+  heading=temp_heading;
+}
+
+void GPS::publishGpsData(Vector6d nu_n, Vector6d eta) {
+  // Side 32 i Kalman-boka
+  v_n=nu_n;
+  getHeading(eta);
+  Vector3d gps_data = getSpeedAndTrack(eta);
+  updateCurvatures();
+  calculateNextPosition();  
+  gps_position(5)=heading;
+  publishData(gps_position, gps_data, gps_pub);
 }

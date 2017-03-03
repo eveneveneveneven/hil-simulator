@@ -1,13 +1,8 @@
 #ifndef GPS_H
 #define GPS_H
 
-#include <cmath>
 #include "sensor.h"
-#include <Eigen/Dense>
-#include "ros/ros.h"
 #include "solver.h"
-
-using namespace Eigen;
 
 typedef Matrix<double, 6, 6> Matrix6d;
 
@@ -18,7 +13,7 @@ public:
   // Receives the start position for the vessel.
   void receiveStartCoordinates(double latitute_start, double longitude_start);
 
-  void publishGpsData(Vector6d v_n);
+  void publishGpsData(Vector6d nu_n, Vector6d eta);
 
 private:
   // Latitude and longitude used for GPS position.
@@ -27,20 +22,23 @@ private:
   long double r_mer, r_prime;
   // WGS-84 parameters needed for transformation
   long double r_e = 6378137;
-  long double e = 0.0818;
+  long double e = 0.0818191908426215;
+  double heading;
 
   ros::Publisher gps_pub =
-      sensor_handle.advertise<geometry_msgs::Twist>("sensors/gps", 0);
+      sensor_handle.advertise<simulator_prototype::Gps>("sensors/gps", 0);
 
   NumericalSolver solver;
 
   Matrix6d A;
 
+  void getHeading(Vector6d eta);
+
   void updateCurvatures();
 
   void calculateNextPosition();
 
-  void initializeSolver();
+  Vector3d getSpeedAndTrack(Vector6d eta);
 
   Vector6d positionFunction(Vector6d position_in);
 

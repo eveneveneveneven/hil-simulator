@@ -346,21 +346,6 @@ run_tests_simulator_prototype_gtest/fast:
 .PHONY : run_tests_simulator_prototype_gtest/fast
 
 # Convenience name for target.
-simulator_prototype/CMakeFiles/_simulator_prototype_generate_messages_check_deps_GpsPos.dir/rule:
-	cd /home/d943/Dropbox/Master/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 simulator_prototype/CMakeFiles/_simulator_prototype_generate_messages_check_deps_GpsPos.dir/rule
-.PHONY : simulator_prototype/CMakeFiles/_simulator_prototype_generate_messages_check_deps_GpsPos.dir/rule
-
-# Convenience name for target.
-_simulator_prototype_generate_messages_check_deps_GpsPos: simulator_prototype/CMakeFiles/_simulator_prototype_generate_messages_check_deps_GpsPos.dir/rule
-
-.PHONY : _simulator_prototype_generate_messages_check_deps_GpsPos
-
-# fast build rule for target.
-_simulator_prototype_generate_messages_check_deps_GpsPos/fast:
-	cd /home/d943/Dropbox/Master/catkin_ws/build && $(MAKE) -f simulator_prototype/CMakeFiles/_simulator_prototype_generate_messages_check_deps_GpsPos.dir/build.make simulator_prototype/CMakeFiles/_simulator_prototype_generate_messages_check_deps_GpsPos.dir/build
-.PHONY : _simulator_prototype_generate_messages_check_deps_GpsPos/fast
-
-# Convenience name for target.
 simulator_prototype/CMakeFiles/tf_generate_messages_cpp.dir/rule:
 	cd /home/d943/Dropbox/Master/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 simulator_prototype/CMakeFiles/tf_generate_messages_cpp.dir/rule
 .PHONY : simulator_prototype/CMakeFiles/tf_generate_messages_cpp.dir/rule
@@ -464,6 +449,21 @@ tf2_msgs_generate_messages_nodejs: simulator_prototype/CMakeFiles/tf2_msgs_gener
 tf2_msgs_generate_messages_nodejs/fast:
 	cd /home/d943/Dropbox/Master/catkin_ws/build && $(MAKE) -f simulator_prototype/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build.make simulator_prototype/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build
 .PHONY : tf2_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+simulator_prototype/CMakeFiles/_simulator_prototype_generate_messages_check_deps_Gps.dir/rule:
+	cd /home/d943/Dropbox/Master/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 simulator_prototype/CMakeFiles/_simulator_prototype_generate_messages_check_deps_Gps.dir/rule
+.PHONY : simulator_prototype/CMakeFiles/_simulator_prototype_generate_messages_check_deps_Gps.dir/rule
+
+# Convenience name for target.
+_simulator_prototype_generate_messages_check_deps_Gps: simulator_prototype/CMakeFiles/_simulator_prototype_generate_messages_check_deps_Gps.dir/rule
+
+.PHONY : _simulator_prototype_generate_messages_check_deps_Gps
+
+# fast build rule for target.
+_simulator_prototype_generate_messages_check_deps_Gps/fast:
+	cd /home/d943/Dropbox/Master/catkin_ws/build && $(MAKE) -f simulator_prototype/CMakeFiles/_simulator_prototype_generate_messages_check_deps_Gps.dir/build.make simulator_prototype/CMakeFiles/_simulator_prototype_generate_messages_check_deps_Gps.dir/build
+.PHONY : _simulator_prototype_generate_messages_check_deps_Gps/fast
 
 # Convenience name for target.
 simulator_prototype/CMakeFiles/tf_generate_messages_py.dir/rule:
@@ -1065,6 +1065,60 @@ src/sensor.cpp.s:
 	cd /home/d943/Dropbox/Master/catkin_ws/build && $(MAKE) -f simulator_prototype/CMakeFiles/hil_simulator_node.dir/build.make simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/sensor.cpp.s
 .PHONY : src/sensor.cpp.s
 
+src/solver.o: src/solver.cpp.o
+
+.PHONY : src/solver.o
+
+# target to build an object file
+src/solver.cpp.o:
+	cd /home/d943/Dropbox/Master/catkin_ws/build && $(MAKE) -f simulator_prototype/CMakeFiles/hil_simulator_node.dir/build.make simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/solver.cpp.o
+.PHONY : src/solver.cpp.o
+
+src/solver.i: src/solver.cpp.i
+
+.PHONY : src/solver.i
+
+# target to preprocess a source file
+src/solver.cpp.i:
+	cd /home/d943/Dropbox/Master/catkin_ws/build && $(MAKE) -f simulator_prototype/CMakeFiles/hil_simulator_node.dir/build.make simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/solver.cpp.i
+.PHONY : src/solver.cpp.i
+
+src/solver.s: src/solver.cpp.s
+
+.PHONY : src/solver.s
+
+# target to generate assembly for a file
+src/solver.cpp.s:
+	cd /home/d943/Dropbox/Master/catkin_ws/build && $(MAKE) -f simulator_prototype/CMakeFiles/hil_simulator_node.dir/build.make simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/solver.cpp.s
+.PHONY : src/solver.cpp.s
+
+src/speedsensor.o: src/speedsensor.cpp.o
+
+.PHONY : src/speedsensor.o
+
+# target to build an object file
+src/speedsensor.cpp.o:
+	cd /home/d943/Dropbox/Master/catkin_ws/build && $(MAKE) -f simulator_prototype/CMakeFiles/hil_simulator_node.dir/build.make simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/speedsensor.cpp.o
+.PHONY : src/speedsensor.cpp.o
+
+src/speedsensor.i: src/speedsensor.cpp.i
+
+.PHONY : src/speedsensor.i
+
+# target to preprocess a source file
+src/speedsensor.cpp.i:
+	cd /home/d943/Dropbox/Master/catkin_ws/build && $(MAKE) -f simulator_prototype/CMakeFiles/hil_simulator_node.dir/build.make simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/speedsensor.cpp.i
+.PHONY : src/speedsensor.cpp.i
+
+src/speedsensor.s: src/speedsensor.cpp.s
+
+.PHONY : src/speedsensor.s
+
+# target to generate assembly for a file
+src/speedsensor.cpp.s:
+	cd /home/d943/Dropbox/Master/catkin_ws/build && $(MAKE) -f simulator_prototype/CMakeFiles/hil_simulator_node.dir/build.make simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/speedsensor.cpp.s
+.PHONY : src/speedsensor.cpp.s
+
 src/unittest.o: src/unittest.cpp.o
 
 .PHONY : src/unittest.o
@@ -1146,7 +1200,6 @@ help:
 	@echo "... simulator_prototype_generate_messages_cpp"
 	@echo "... tf2_msgs_generate_messages_lisp"
 	@echo "... run_tests_simulator_prototype_gtest"
-	@echo "... _simulator_prototype_generate_messages_check_deps_GpsPos"
 	@echo "... tf_generate_messages_cpp"
 	@echo "... simulator_prototype_genlisp"
 	@echo "... geometry_msgs_generate_messages_py"
@@ -1154,6 +1207,7 @@ help:
 	@echo "... simulator_prototype_geneus"
 	@echo "... simulator_prototype_generate_messages_eus"
 	@echo "... tf2_msgs_generate_messages_nodejs"
+	@echo "... _simulator_prototype_generate_messages_check_deps_Gps"
 	@echo "... tf_generate_messages_py"
 	@echo "... geometry_msgs_generate_messages_lisp"
 	@echo "... sensor_msgs_generate_messages_eus"
@@ -1201,6 +1255,12 @@ help:
 	@echo "... src/sensor.o"
 	@echo "... src/sensor.i"
 	@echo "... src/sensor.s"
+	@echo "... src/solver.o"
+	@echo "... src/solver.i"
+	@echo "... src/solver.s"
+	@echo "... src/speedsensor.o"
+	@echo "... src/speedsensor.i"
+	@echo "... src/speedsensor.s"
 	@echo "... src/unittest.o"
 	@echo "... src/unittest.i"
 	@echo "... src/unittest.s"

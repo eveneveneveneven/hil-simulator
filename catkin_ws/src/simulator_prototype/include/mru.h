@@ -1,11 +1,7 @@
 #ifndef MRU_H
 #define MRU_H
 
-#include "ros/ros.h"
 #include "sensor.h"
-#include <Eigen/Dense>
-
-using namespace Eigen;
 
 class MRU : public Sensor {
 

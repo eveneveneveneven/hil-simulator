@@ -12,6 +12,7 @@
 #include "mru.h"
 #include "imu.h"
 #include "gps.h"
+#include "speedsensor.h"
 
 using namespace Eigen;
 typedef Matrix<double, 1, 2> Vector2dH;
@@ -68,6 +69,7 @@ private:
   IMU imu;
   GPS gps;
   MRU mru;
+  SpeedSensor speedSensor;
 
   // A set of state vectors, relative to different coordinate frames.
   Vector6d eta, nu, nu_r, nu_c_b, nu_c_n, nu_dot, delta_nu, mu;
@@ -167,7 +169,7 @@ private:
   double surge_max;
 
   // Update frequency for onboard sensors.
-  double gps_frequency, mru_frequency, imu_frequency;
+  double gps_frequency, mru_frequency, imu_frequency, speed_sensor_frequency;
 
   // Starting position in lat/long
   double start_latitude, start_longitude;
@@ -187,9 +189,6 @@ private:
 
   // Uses the solver and nuFunction() to calculate next nu
   void calculateNextNu();
-
-  // Fills in the parameters for the solver
-  void initializeSolver();
 };
 
 #endif

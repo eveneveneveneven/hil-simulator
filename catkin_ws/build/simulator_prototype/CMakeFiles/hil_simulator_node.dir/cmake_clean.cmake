@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/hil_simulator_node.dir/src/gps.cpp.o"
   "CMakeFiles/hil_simulator_node.dir/src/sensor.cpp.o"
   "CMakeFiles/hil_simulator_node.dir/src/mru.cpp.o"
+  "CMakeFiles/hil_simulator_node.dir/src/speedsensor.cpp.o"
+  "CMakeFiles/hil_simulator_node.dir/src/solver.cpp.o"
   "/home/d943/Dropbox/Master/catkin_ws/devel/lib/simulator_prototype/hil_simulator_node.pdb"
   "/home/d943/Dropbox/Master/catkin_ws/devel/lib/simulator_prototype/hil_simulator_node"
 )
