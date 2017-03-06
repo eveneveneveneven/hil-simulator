@@ -12,6 +12,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/solver.cpp" "/home/d943/Dropbox/Master/catkin_ws/build/simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/solver.cpp.o"
   "/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/speedsensor.cpp" "/home/d943/Dropbox/Master/catkin_ws/build/simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/speedsensor.cpp.o"
   "/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/vessel.cpp" "/home/d943/Dropbox/Master/catkin_ws/build/simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/vessel.cpp.o"
+  "/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/vesselnode.cpp" "/home/d943/Dropbox/Master/catkin_ws/build/simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/vesselnode.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

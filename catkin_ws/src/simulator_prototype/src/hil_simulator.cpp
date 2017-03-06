@@ -1,4 +1,4 @@
-#include "vessel.h"
+#include "vesselnode.h"
 
 int main(int argc, char *argv[]) {
 
@@ -7,11 +7,11 @@ int main(int argc, char *argv[]) {
   ROS_INFO("Started HIL Simulator node, waiting for RViz to get ready");
   ros::Duration(5).sleep(); // Wait for RViz to start
   ROS_INFO("Starting simulation");
-  Vessel simulatedVessel;
-  ros::Rate loopRate(1 / simulatedVessel.getDT());
+  VesselNode vessel_node;
+  ros::Rate loopRate(1 / vessel_node.getDT());
 
   while (ros::ok()) {
-    simulatedVessel.step();
+    vessel_node.step();
     ros::spinOnce();
     loopRate.sleep();
   }

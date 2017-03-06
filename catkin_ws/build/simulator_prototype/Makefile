@@ -1176,6 +1176,33 @@ src/vessel.cpp.s:
 	cd /home/d943/Dropbox/Master/catkin_ws/build && $(MAKE) -f simulator_prototype/CMakeFiles/simulator_prototype-test.dir/build.make simulator_prototype/CMakeFiles/simulator_prototype-test.dir/src/vessel.cpp.s
 .PHONY : src/vessel.cpp.s
 
+src/vesselnode.o: src/vesselnode.cpp.o
+
+.PHONY : src/vesselnode.o
+
+# target to build an object file
+src/vesselnode.cpp.o:
+	cd /home/d943/Dropbox/Master/catkin_ws/build && $(MAKE) -f simulator_prototype/CMakeFiles/hil_simulator_node.dir/build.make simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/vesselnode.cpp.o
+.PHONY : src/vesselnode.cpp.o
+
+src/vesselnode.i: src/vesselnode.cpp.i
+
+.PHONY : src/vesselnode.i
+
+# target to preprocess a source file
+src/vesselnode.cpp.i:
+	cd /home/d943/Dropbox/Master/catkin_ws/build && $(MAKE) -f simulator_prototype/CMakeFiles/hil_simulator_node.dir/build.make simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/vesselnode.cpp.i
+.PHONY : src/vesselnode.cpp.i
+
+src/vesselnode.s: src/vesselnode.cpp.s
+
+.PHONY : src/vesselnode.s
+
+# target to generate assembly for a file
+src/vesselnode.cpp.s:
+	cd /home/d943/Dropbox/Master/catkin_ws/build && $(MAKE) -f simulator_prototype/CMakeFiles/hil_simulator_node.dir/build.make simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/vesselnode.cpp.s
+.PHONY : src/vesselnode.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1267,6 +1294,9 @@ help:
 	@echo "... src/vessel.o"
 	@echo "... src/vessel.i"
 	@echo "... src/vessel.s"
+	@echo "... src/vesselnode.o"
+	@echo "... src/vesselnode.i"
+	@echo "... src/vesselnode.s"
 .PHONY : help
 
 

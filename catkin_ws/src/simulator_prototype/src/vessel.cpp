@@ -10,6 +10,9 @@ Vessel::Vessel(){
 	solver.initializeSolver(dt);
 }
 
+Vessel::~Vessel() {}
+
+
 void Vessel::initializeStateVectors(){
 	eta = Vector6d::Zero();
 	nu  = Vector6d::Zero();
@@ -36,17 +39,14 @@ void Vessel::initializeSensors(){
 	imu.setFrequency(imu_frequency);
 }
 
-void Vessel::receiveThrust(const geometry_msgs::Twist::ConstPtr& thrust_msg){
-	
-	tau_control << thrust_msg->linear.x, thrust_msg->linear.y, thrust_msg->linear.z, thrust_msg->angular.x, thrust_msg->angular.y, thrust_msg->angular.z;
+void Vessel::setThrust(Vector6d tau_in){
+	tau_control = tau_in;
 }
 
 Vector6d Vessel::getThrust(){
 
 	return tau_control;
 }
-
-Vessel::~Vessel() {}
 
 void Vessel::setState(Vector6d eta_new, Vector6d nu_new){
 	eta = eta_new;
@@ -319,9 +319,7 @@ void Vessel::step(){
 	calculateFluidMemoryEffects();
 	calculateNextEta();
 	calculateNextNu();
-	publishState();
 	publishSensorData();
-	logInfo();
 }
 
 void Vessel::publishSensorData(){
@@ -330,58 +328,6 @@ void Vessel::publishSensorData(){
 	imu.publishImuData(nu_dot , nu);
 	mru.publishMruData(nu, eta);
 	speedSensor.publishSpeedSensorData(nu(0), nu(1));
-}
-
-void Vessel::publishState(){
-	// RVIZ uses NWU, while the simulator uses NED, so a transformation is performed
-	tf::Transform transform;
-    transform.setOrigin(tf::Vector3(eta[0],-eta[1],-eta[2]));
-    tf::Quaternion q;
-    q.setRPY(-eta[3],-eta[4],-eta[5]);
-    transform.setRotation(q);
-    tf.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "map", tf_name));
-}
-
-void Vessel::publishMap(){
-	tf::Transform transform2;
-    transform2.setOrigin(tf::Vector3(0,0,0));
-    tf::Quaternion q2;
-    q2.setRPY(0,0,0);
-    transform2.setRotation(q2);
-    tf_map.sendTransform(tf::StampedTransform(transform2, ros::Time::now(), "map", tf_map_name));
-}
-
-void Vessel::logInfo(){
-	geometry_msgs::Twist velocity;
-	geometry_msgs::Twist state;
-	geometry_msgs::Twist thrust;
-
-	velocity.linear.x = nu_r(0);
-	velocity.linear.y = nu_r(1);
-	velocity.linear.z = nu_r(2);
-	velocity.angular.x = nu_r(3);
-	velocity.angular.y = nu_r(4);
-	velocity.angular.z = nu_r(5);
-
-	vel_pub.publish(velocity);
-
-	state.linear.x = eta(0);
-	state.linear.y = eta(1);
-	state.linear.z = eta(2);
-	state.angular.x = eta(3);
-	state.angular.y = eta(4);
-	state.angular.z = eta(5);
-
-	state_pub.publish(state);
-
-	thrust.linear.x = tau_control(0);
-	thrust.linear.y = tau_control(1);
-	thrust.linear.z = tau_control(2);
-	thrust.angular.x = tau_control(3);
-	thrust.angular.y = tau_control(4);
-	thrust.angular.z = tau_control(5);
-
-	thrust_pub.publish(thrust);
 }
 
 double Vessel::getDT(){

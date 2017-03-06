@@ -35,6 +35,8 @@ public:
   // receiveThrust()-function.
   Vector6d getThrust();
 
+  void setThrust(Vector6d tau_in);
+
   // Reads vessel parameters from a <VesselName>.yaml-file, which should be
   // loaded through a launch-file. This ensures that different vessels can
   // easily be simulated.
@@ -99,45 +101,17 @@ private:
   Vector3d x_44, x_24, x_42;
   Vector2d x_26, x_46, x_62, x_64;
 
-  // Used for publishing the vessel state to RVIZ for visualization
-  tf::TransformBroadcaster tf = tf::TransformBroadcaster();
-  std::string tf_name = "hil_sim";
-  tf::TransformBroadcaster tf_map = tf::TransformBroadcaster();
-  std::string tf_map_name = "map/hil_sim";
-
-  // Publishers for logging of the vessel info
-  ros::NodeHandle log_handle;
-  ros::Publisher vel_pub =
-      log_handle.advertise<geometry_msgs::Twist>("log/velocity", 0);
-  ros::Publisher state_pub =
-      log_handle.advertise<geometry_msgs::Twist>("log/state", 0);
-  ros::Publisher thrust_pub =
-      log_handle.advertise<geometry_msgs::Twist>("log/thrust", 0);
-
-  // Subscriber for incoming thrust messages.
-  ros::NodeHandle thrust_handle;
-  ros::Subscriber thrust_rec = thrust_handle.subscribe<geometry_msgs::Twist>(
-      "input/thrust", 0, &Vessel::receiveThrust, this);
-
   // Step size for solver
   double dt;
 
-  // Publishes the state of the vessel to RVIZ. RVIZ uses NWU, while the
-  // simulator uses NED, so a transformation is performed
-  void publishState();
-
   void publishSensorData();
-
-  void publishMap();
-
-  void logInfo();
 
   void initializeFluidMemoryMatrices();
 
   void calculateFluidMemoryEffects();
 
   // Receives thrust messages
-  void receiveThrust(const geometry_msgs::Twist::ConstPtr &thrust_msg);
+  //void receiveThrust(const geometry_msgs::Twist::ConstPtr &thrust_msg);
 
   // Mass and inertia
   double m_11, m_12, m_13, m_14, m_15, m_16, m_21, m_22, m_23, m_24, m_25, m_26,
