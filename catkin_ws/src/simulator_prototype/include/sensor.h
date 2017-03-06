@@ -13,15 +13,13 @@ typedef Matrix<double, 6, 1> Vector6d;
 
 class Sensor {
 public:
-  void publishData(Vector6d v_n, Vector3d gps_info, ros::Publisher gps_pub);
+  void publishData(Vector6d v_n, Vector3d gps_info);
 
-  void publishData(double u, double v, ros::Publisher speed_sensor_pub);
+  void publishData(double u, double v);
 
-  void publishData(Vector6d nu_dot, Vector6d nu, ros::Publisher imu_pub);
+  void publishData(Vector6d imu_data);
 
-  void publishData(Vector6d nu, Vector6d eta,
-                   ros::Publisher sensor_velocity_pub,
-                   ros::Publisher sensor_position_pub);
+  void publishData(Vector6d nu, Vector6d eta);
 
   void setStepSize(double stepsize);
 
@@ -30,6 +28,11 @@ public:
   void setNoise();
 
   ros::NodeHandle sensor_handle;
+  ros::Publisher gps_pub = sensor_handle.advertise<simulator_prototype::Gps>("sensors/gps", 0);
+  ros::Publisher mru_velocity_pub = sensor_handle.advertise<geometry_msgs::Twist>("sensors/mru/velocity", 0);
+  ros::Publisher mru_position_pub = sensor_handle.advertise<geometry_msgs::Twist>("sensors/mru/position", 0);
+  ros::Publisher imu_pub = sensor_handle.advertise<geometry_msgs::Twist>("sensors/imu", 0);
+  ros::Publisher speed_sensor_pub = sensor_handle.advertise<geometry_msgs::Twist>("sensors/speedSensor", 0);
 
   double dt, frequency, steps_per_data_output, step;
 };

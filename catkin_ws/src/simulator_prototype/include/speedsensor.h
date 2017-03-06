@@ -10,8 +10,6 @@ class SpeedSensor: public Sensor{
 		~SpeedSensor();
 		void publishSpeedSensorData(double u, double v);
 	private:
-		ros::Publisher speed_sensor_pub =
-      sensor_handle.advertise<geometry_msgs::Twist>("sensors/speedSensor", 0);
 };
 
 #endif

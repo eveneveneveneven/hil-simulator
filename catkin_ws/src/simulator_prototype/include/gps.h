@@ -25,8 +25,6 @@ private:
   long double e = 0.0818191908426215;
   double heading;
 
-  ros::Publisher gps_pub =
-      sensor_handle.advertise<simulator_prototype::Gps>("sensors/gps", 0);
 
   NumericalSolver solver;
 

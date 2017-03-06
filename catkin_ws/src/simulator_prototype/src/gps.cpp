@@ -68,5 +68,5 @@ void GPS::publishGpsData(Vector6d nu_n, Vector6d eta) {
   updateCurvatures();
   calculateNextPosition();  
   gps_position(5)=heading;
-  publishData(gps_position, gps_data, gps_pub);
+  publishData(gps_position, gps_data);
 }

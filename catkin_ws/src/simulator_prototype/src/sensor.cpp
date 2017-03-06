@@ -1,22 +1,21 @@
 #include "sensor.h"
 
-void Sensor::publishData(Vector6d nu_dot, Vector6d nu,
-                         ros::Publisher imu_pub) {
+void Sensor::publishData(Vector6d imu_data) {
   if(step == steps_per_data_output){
     step=0;
     geometry_msgs::Twist imuMessage;
-    imuMessage.linear.x = nu_dot(0);
-    imuMessage.linear.y = nu_dot(1);
-    imuMessage.linear.z = nu_dot(2);
-    imuMessage.angular.x = nu(3);
-    imuMessage.angular.y = nu(4);
-    imuMessage.angular.z = nu(5);
+    imuMessage.linear.x = imu_data(0);
+    imuMessage.linear.y = imu_data(1);
+    imuMessage.linear.z = imu_data(2);
+    imuMessage.angular.x = imu_data(3);
+    imuMessage.angular.y = imu_data(4);
+    imuMessage.angular.z = imu_data(5);
     imu_pub.publish(imuMessage);
   }
   step++; 
 }
 
-void Sensor::publishData(double u, double v, ros::Publisher speed_sensor_pub){
+void Sensor::publishData(double u, double v){
   if(step == steps_per_data_output){
     step=0;
     geometry_msgs::Twist speedSensorMessage;
@@ -27,7 +26,7 @@ void Sensor::publishData(double u, double v, ros::Publisher speed_sensor_pub){
   step++;
 }
 
-void Sensor::publishData(Vector6d gps_position, Vector3d gps_info, ros::Publisher gps_pub) {
+void Sensor::publishData(Vector6d gps_position, Vector3d gps_info) {
   if(step == steps_per_data_output){
     step=0;
     simulator_prototype::Gps gpsMessage;
@@ -45,9 +44,7 @@ void Sensor::publishData(Vector6d gps_position, Vector3d gps_info, ros::Publishe
   step++;
 }
 
-void Sensor::publishData(Vector6d nu, Vector6d eta,
-                         ros::Publisher sensor_velocity_pub,
-                         ros::Publisher sensor_position_pub) {
+void Sensor::publishData(Vector6d nu, Vector6d eta) {
 
   if(step == steps_per_data_output){
     step = 0;
@@ -67,8 +64,8 @@ void Sensor::publishData(Vector6d nu, Vector6d eta,
     mruVelocityMessage.angular.y = nu(4);
     mruVelocityMessage.angular.z = nu(5);
 
-    sensor_position_pub.publish(mruPositionMessage);
-    sensor_velocity_pub.publish(mruVelocityMessage);
+    mru_position_pub.publish(mruPositionMessage);
+    mru_velocity_pub.publish(mruVelocityMessage);
   }
   step++;  
 }
