@@ -13,20 +13,13 @@ typedef Matrix<double, 6, 1> Vector6d;
 
 class Sensor {
 public:
-  void publishData(Vector6d v_n, Vector3d gps_info);
-
-  void publishData(double u, double v);
-
-  void publishData(Vector6d imu_data);
-
-  void publishData(Vector6d nu, Vector6d eta);
-
   void setStepSize(double stepsize);
 
   void setFrequency(double _frequency);
 
   void setNoise();
 
+  // To simplify modifications on the HIL interface, all publishers are declared here, and used in each individual sensor class.
   ros::NodeHandle sensor_handle;
   ros::Publisher gps_pub = sensor_handle.advertise<simulator_prototype::Gps>("sensors/gps", 0);
   ros::Publisher mru_velocity_pub = sensor_handle.advertise<geometry_msgs::Twist>("sensors/mru/velocity", 0);

@@ -68,5 +68,19 @@ void GPS::publishGpsData(Vector6d nu_n, Vector6d eta) {
   updateCurvatures();
   calculateNextPosition();  
   gps_position(5)=heading;
-  publishData(gps_position, gps_data);
+  if(step == steps_per_data_output){
+    step=0;
+    simulator_prototype::Gps gpsMessage;
+    gpsMessage.header.stamp = ros::Time::now();
+    gpsMessage.header.frame_id = "/gps";
+    gpsMessage.latitude = gps_position(0)*(180/M_PI);
+    gpsMessage.longitude = gps_position(1)*(180/M_PI);
+    gpsMessage.altitude = gps_position(2);
+    gpsMessage.track = gps_data(1);
+    gpsMessage.speed = gps_data(0);
+    gpsMessage.heading = gps_position(5);
+    gpsMessage.headingRate = gps_data(2);
+    gps_pub.publish(gpsMessage);
+  }
+  step++;
 }
