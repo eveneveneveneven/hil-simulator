@@ -138,10 +138,13 @@ N_vr: 0
 M_qq: 0
 
 K_thruster: 0.000013888889
+C_d_2d: 0.65
+T: 0.7
+X_uu_c: -15000
 surge_max: 10000
 L_pp: 7.2
 
-dt: 0.001
+dt: 0.01
 gps_frequency: 0.5
 mru_frequency: 200
 imu_frequency: 200

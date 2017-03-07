@@ -110,6 +110,9 @@ private:
 
   void calculateFluidMemoryEffects();
 
+  void calculateNonlinearSurge();
+
+  void calculateCrossFlowDrag();
   // Receives thrust messages
   //void receiveThrust(const geometry_msgs::Twist::ConstPtr &thrust_msg);
 
@@ -139,7 +142,7 @@ private:
       N_rrr, N_vv, N_vvv, N_rv, N_vr, M_qq;
 
   // Other
-  double K_thruster, L_pp;
+  double K_thruster, L_pp, C_d_2d, T, X_uu_c;
   double surge_max;
 
   // Update frequency for onboard sensors.

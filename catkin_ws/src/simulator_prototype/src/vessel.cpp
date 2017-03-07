@@ -12,7 +12,6 @@ Vessel::Vessel(){
 
 Vessel::~Vessel() {}
 
-
 void Vessel::initializeStateVectors(){
 	eta = Vector6d::Zero();
 	nu  = Vector6d::Zero();
@@ -264,6 +263,34 @@ void Vessel::calculateFluidMemoryEffects(){
 	mu << mu_1, mu_2, mu_3, mu_4, mu_5, mu_6;
 }	
 
+void Vessel::calculateNonlinearSurge(){
+	double _u_r = nu_r(0);
+	if(_u_r<0.2)
+		_u_r=0.2;
+	double R_n = (_u_r*L_pp)/(1.0*pow(10, -6));
+	double C_F = pow((log10(R_n)-2),2);	
+	X_uu = X_uu_c*((0.075/C_F)+0.0025); 
+}
+void Vessel::calculateCrossFlowDrag(){
+	double rho = 1025;
+	double _v = nu_r(1);
+	double _r = nu_r(5);
+	Y_vv = 0;
+	N_vv = 0;
+	double _dt=0.01;
+	for(double x=-L_pp/2; x<=L_pp/2;){
+		Y_vv+=_dt*(T*C_d_2d*std::abs(_v+x*_r)*(_v+x*_r));
+		N_vv+=_dt*(T*C_d_2d*x*std::abs(_v+x*_r)*(_v+x*_r));
+		x = x+_dt;
+	}
+
+	if(std::abs(_v)>0.1){
+		Y_vv = -(Y_vv*(rho/2))/(std::abs(_v)*_v);
+		N_vv = -(N_vv*(rho/2))/(std::abs(_v)*_v);
+	}
+	
+}
+
 void Vessel::updateMatrices(){
 	double u, v, q, r, phi, theta, psi;
 	u = nu_r(0);
@@ -298,12 +325,15 @@ void Vessel::updateMatrices(){
 
 
 	// Damping matrix. Contains non-linear elements for the standard 3DOF representation, and linear elements in the restoring 3 DOFs.
-	D << 	-X_u-X_uu*abs(u)-X_uuu*u*u, 0, 										0, 										0, 		0, 		0, 
-			0, 							-Y_v-Y_vv*abs(v)-Y_vvv*v*v-Y_rv*abs(r), 0, 										0, 		0, 		-Y_r-Y_vr*abs(v)-Y_rr*abs(r)-Y_rrr*r*r,
+	calculateNonlinearSurge();
+	calculateCrossFlowDrag();
+	//std::cout << "Y_vv: " << Y_vv << ", N_vv: " << N_vv << std::endl;
+	D << 	-X_u-X_uu*std::abs(u)-X_uuu*u*u, 0, 										0, 										0, 		0, 		0, 
+			0, 							-Y_v-Y_vv*std::abs(v)-Y_vvv*v*v-Y_rv*std::abs(r), 0, 										0, 		0, 		-Y_r-Y_vr*std::abs(v)-Y_rr*std::abs(r)-Y_rrr*r*r,
 			0, 							0, 										-Z_w, 									0, 		-Z_q, 		0, 
 			0, 							0, 										0, 										-K_p, 	0, 		-K_r, 
-			0, 							0, 										0, 										0, 		-M_q - M_qq*abs(q),	-M_r, 
-			0, 							-N_v-N_vv*abs(v)-N_rv*abs(r)-N_vvv*v*v, 0, 										0, 		0, 		-N_r-N_vr*abs(v)-N_rr*abs(r)-N_rrr*r*r;
+			0, 							0, 										0, 										0, 		-M_q - M_qq*std::abs(q),	-M_r, 
+			0, 							-N_v-N_vv*std::abs(v)-N_rv*std::abs(r)-N_vvv*v*v, 0, 										0, 		0, 		-N_r-N_vr*std::abs(v)-N_rr*std::abs(r)-N_rrr*r*r;
 
 	// Kinematics:
 	J << 	cos(psi)*cos(theta), 	-sin(psi)*cos(phi)+cos(psi)*sin(theta)*sin(phi), 	sin(psi)*sin(phi)+cos(psi)*cos(phi)*sin(theta), 	0, 	0, 						0,
@@ -664,6 +694,12 @@ bool Vessel::readParameters(ros::NodeHandle nh) {
 	if (!nh.getParam("K_thruster", K_thruster))
 		parameterFail=true;
 	if (!nh.getParam("L_pp", L_pp))
+		parameterFail=true;
+	if (!nh.getParam("C_d_2d", C_d_2d))
+		parameterFail=true;
+	if (!nh.getParam("T", T))
+		parameterFail=true;
+	if (!nh.getParam("X_uu_c", X_uu_c))
 		parameterFail=true;
 	if (!nh.getParam("dt", dt))
 		parameterFail=true;

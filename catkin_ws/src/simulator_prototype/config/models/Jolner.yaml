@@ -138,6 +138,9 @@ N_vr: 0.5
 M_qq: 0
 
 K_thruster: 0.000013888889
+C_d_2d: 0.65
+T: 0.2
+X_uu_c: -1491
 surge_max: 130
 L_pp: 1.65
 

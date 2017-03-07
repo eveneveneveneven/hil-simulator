@@ -8,9 +8,6 @@
 
     <param name="hil/robot_description" textfile="$(find simulator_prototype)/config/models/Jolner.urdf" />
 
-    #<param name="map_description" textfile="$(find simulator_prototype)/config/models/map.urdf" />
-
-
     <node pkg="joy" name="joy_node" type="joy_node" respawn="false" output="screen">
     </node>
 
