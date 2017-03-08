@@ -26,9 +26,13 @@ void Vessel::initializeStateVectors(){
 	tau_total = Vector6d::Zero();
 }
 
+void Vessel::setGpsCoordinates(double _lat, double _long){
+	gps.setCoordinates(_lat, _long);
+}
+
 void Vessel::initializeSensors(){
 	gps.setStepSize(dt);
-	gps.receiveStartCoordinates(start_latitude, start_longitude);
+	gps.setCoordinates(start_latitude, start_longitude);
 	gps.setFrequency(gps_frequency);
 	speedSensor.setStepSize(dt);
 	speedSensor.setFrequency(speed_sensor_frequency);

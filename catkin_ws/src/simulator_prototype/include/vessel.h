@@ -62,6 +62,9 @@ public:
 
   void getState(Vector6d &eta, Vector6d &nu);
 
+  void setGpsCoordinates(double _lat, double _long);
+
+
   double M_det;
 
 private:

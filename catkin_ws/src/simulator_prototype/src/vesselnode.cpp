@@ -5,14 +5,19 @@ VesselNode::VesselNode(){
 
 }
 VesselNode::~VesselNode(){
-	
+
 }
+
 void VesselNode::step(){
-	vessel.setThrust(tau_control);
-	vessel.step();
-	vessel.getState(eta, nu);
-	logInfo();
-	publishState();
+	if(!paused){
+		vessel.setThrust(tau_control);
+		vessel.step();
+		vessel.getState(eta, nu);
+		logInfo();
+		publishState();
+	}else{
+
+	}	
 }
 
 double VesselNode::getDT(){
@@ -30,6 +35,15 @@ void VesselNode::publishState(){
 
 void VesselNode::receiveThrust(const geometry_msgs::Twist::ConstPtr& thrust_msg){
 	tau_control << thrust_msg->linear.x, thrust_msg->linear.y, thrust_msg->linear.z, thrust_msg->angular.x, thrust_msg->angular.y, thrust_msg->angular.z;
+}
+
+void VesselNode::receiveEnvironmentMessage(const simulator_prototype::Environment::ConstPtr &environment_msg){
+	vessel.setGpsCoordinates(environment_msg->latitude, environment_msg->longitude);
+	paused = environment_msg->paused;
+	if(paused)
+		ROS_INFO("Simulation paused from GUI...");
+	if(!paused)
+		ROS_INFO("Simulation started from GUI...");
 }
 
 void VesselNode::logInfo(){

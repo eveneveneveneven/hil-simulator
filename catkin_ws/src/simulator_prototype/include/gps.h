@@ -11,7 +11,7 @@ public:
   GPS();
   ~GPS();
   // Receives the start position for the vessel.
-  void receiveStartCoordinates(double latitute_start, double longitude_start);
+  void setCoordinates(double latitute_start, double longitude_start);
 
   void publishGpsData(Vector6d nu_n, Vector6d eta);
 

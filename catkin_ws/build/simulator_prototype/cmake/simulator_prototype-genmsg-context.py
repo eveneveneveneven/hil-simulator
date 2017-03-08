@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
-messages_str = "/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/msg/Gps.msg"
+messages_str = "/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/msg/Environment.msg;/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/msg/Gps.msg"
 services_str = ""
 pkg_name = "simulator_prototype"
 dependencies_str = "std_msgs"

@@ -4,7 +4,7 @@ GPS::GPS() {}
 
 GPS::~GPS() {}
 
-void GPS::receiveStartCoordinates(double latitude_in, double longitude_in) {
+void GPS::setCoordinates(double latitude_in, double longitude_in) {
   latitude = latitude_in*(M_PI/180);
   longitude = longitude_in*(M_PI/180);
   gps_position << latitude, longitude, 0, 0, 0, 0;

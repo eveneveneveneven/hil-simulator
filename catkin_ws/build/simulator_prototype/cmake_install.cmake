@@ -33,7 +33,10 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/simulator_prototype/msg" TYPE FILE FILES "/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/msg/Gps.msg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/simulator_prototype/msg" TYPE FILE FILES
+    "/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/msg/Environment.msg"
+    "/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/msg/Gps.msg"
+    )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")

@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/simulator_prototype_generate_messages_cpp"
   "/home/d943/Dropbox/Master/catkin_ws/devel/include/simulator_prototype/Gps.h"
+  "/home/d943/Dropbox/Master/catkin_ws/devel/include/simulator_prototype/Environment.h"
 )
 
 # Per-language clean rules from dependency scanning.

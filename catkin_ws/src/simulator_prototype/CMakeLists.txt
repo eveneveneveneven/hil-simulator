@@ -21,7 +21,13 @@ include
   ${catkin_INCLUDE_DIRS}
 )
 
-add_message_files(DIRECTORY msg)
+add_message_files(
+  FILES 
+  Environment.msg 
+  Gps.msg
+)
+
+
 
 
 
