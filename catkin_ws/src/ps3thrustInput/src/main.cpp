@@ -48,7 +48,7 @@ void JoystickPublisher::joyCallback(const sensor_msgs::Joy::ConstPtr& joy)
   geometry_msgs::Twist twist;
   twist.linear.x = -10000*(joy->axes[surge_fw]-1)+10000*(joy->axes[surge_bw]-1);
   twist.linear.y = -10000*(joy->axes[sway]);
-  twist.angular.z = -30000*(joy->axes[yaw]);
+  twist.angular.z = -50000*(joy->axes[yaw]);
   vel_pub_.publish(twist);
 }
 

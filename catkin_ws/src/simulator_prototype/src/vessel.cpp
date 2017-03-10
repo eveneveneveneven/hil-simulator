@@ -282,7 +282,7 @@ void Vessel::calculateCrossFlowDrag(){
 	Y_vv = 0;
 	N_vv = 0;
 	double _dt=0.01;
-	for(double x=-L_pp/2; x<=L_pp/2;){
+	for(double x=-L_pp/2.5; x<=L_pp/2.5;){
 		Y_vv+=_dt*(T*C_d_2d*std::abs(_v+x*_r)*(_v+x*_r));
 		N_vv+=_dt*(T*C_d_2d*x*std::abs(_v+x*_r)*(_v+x*_r));
 		x = x+_dt;
@@ -296,9 +296,11 @@ void Vessel::calculateCrossFlowDrag(){
 }
 
 void Vessel::updateMatrices(){
-	double u, v, q, r, phi, theta, psi;
+	double u, v, w, p, q, r, phi, theta, psi;
 	u = nu_r(0);
 	v = nu_r(1);
+	w = nu_r(2);
+	p = nu_r(3);
 	q = nu_r(4);
 	r = nu_r(5);
 	phi = eta(3);
@@ -319,12 +321,12 @@ void Vessel::updateMatrices(){
 			0,	0,	0,	0,	0,	C_a_66;
 	C = u*(C_rb+C_a);
 	//Coriolis and centripetal
-	/*C << 	0, 										-m_11*r,			0,	0,	0,	-m_11*x_g*r+Y_v_dot*v+r*(Y_r_dot),
-			m_11*r,									0,					0,	0,	0,	-X_u_dot*u,
-			0, 										0,					0,	0,	0,	0,	
-			0,										0,					0,	0,	0,	0,	
-			0,										0,					0,	0,	0,	0,	
-			m_11*x_g*r-Y_v_dot*v+r*(-Y_r_dot), 		X_u_dot*u, 			0,	0,	0,	0;*/
+	/*C << 	0, 							0,					0,						m_11*(y_g*q+z_g*r),		-m_11*(x_g*q-w),		-m_11*(x_g*r+v),
+			0,							0,					0,						-m_11*(y_g*p+w),		m_11*(z_g*r+x_g*w),		-m_11*(y_g*r-u),
+			0, 							0,					0,						-m_11*(z_g*p-v),		-m_11*(z_g*q+u), 		m_11*(x_g*p+y_g*q),
+			-m_11*(y_g*q+z_g*r),		m_11*(y_g*p+w), 	m_11*(z_g*p-v),			0,						m_56*q+m_46*p+m_66*r,	-m_56*r-m_45*p-m_55*q,	
+			m_11*(x_g*q-w),				-m_11*(z_g*r+x_g*w),m_11*(z_g*q+u),			-m_56*q-m_46*p-m_66*r,	0, 						m_46*r+m_45*q+m_44*p,	
+			m_11*(x_g*r+v), 			m_11*(y_g*r-u), 	-m_11*(x_g*p+y_g*q),	-m_56*r-m_45*p+m_55*q,	-m_46*r-m_45*q-m_44*p,	0;*/
 
 
 
