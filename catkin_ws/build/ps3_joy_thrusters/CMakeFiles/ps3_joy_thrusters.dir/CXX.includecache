@@ -6,6 +6,24 @@
 
 #IncludeRegexTransform: 
 
+/home/d943/Dropbox/Master/catkin_ws/devel/include/ps3_joy_thrusters/JolnerActuators.h
+string
+-
+vector
+-
+map
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+std_msgs/Header.h
+-
+
 /home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/src/main.cpp
 ros/ros.h
 /home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/src/ros/ros.h
@@ -15,6 +33,8 @@ sensor_msgs/Joy.h
 /home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/src/sensor_msgs/Joy.h
 ps3.h
 /home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/src/ps3.h
+ps3_joy_thrusters/JolnerActuators.h
+/home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/src/ps3_joy_thrusters/JolnerActuators.h
 math.h
 -
 

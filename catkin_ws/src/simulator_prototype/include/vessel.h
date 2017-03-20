@@ -12,6 +12,7 @@
 #include "mru.h"
 #include "imu.h"
 #include "gps.h"
+#include "actuatormodel.h"
 #include "speedsensor.h"
 
 using namespace Eigen;
@@ -66,6 +67,8 @@ public:
 
 
   double M_det;
+
+  ActuatorModel actuators;
 
 private:
   NumericalSolver solver;
@@ -145,7 +148,7 @@ private:
       N_rrr, N_vv, N_vvv, N_rv, N_vr, M_qq;
 
   // Other
-  double K_thruster, L_pp, C_d_2d, T, X_uu_c;
+  double K_thruster, T_n, T_alpha, T_beta, l_y_1, l_y_2, l_x_1, l_x_2, L_pp, C_d_2d, T, X_uu_c;
   double surge_max;
 
   // Update frequency for onboard sensors.

@@ -8,11 +8,17 @@ project(${PROJECT_NAME})
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   std_msgs
+  message_generation
 )
 
 include_directories(
 include
   ${catkin_INCLUDE_DIRS}
+)
+
+add_message_files(
+  FILES 
+  JolnerActuators.msg
 )
 
 generate_messages(

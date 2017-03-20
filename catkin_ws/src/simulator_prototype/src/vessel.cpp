@@ -5,6 +5,7 @@ Vessel::Vessel(){
 	initializeStateVectors();	
 	ros::NodeHandle nh;
 	readParameters(nh);
+	actuators.initializeActuatorModel(K_thruster, T_alpha, T_beta, T_n, l_x_1, l_x_2, l_y_1, l_y_2, dt);
 	initializeSensors();
 	initializeMatrices();
 	solver.initializeSolver(dt);
@@ -698,6 +699,20 @@ bool Vessel::readParameters(ros::NodeHandle nh) {
 
 	// Others
 	if (!nh.getParam("K_thruster", K_thruster))
+		parameterFail=true;
+	if (!nh.getParam("l_y_1", l_y_1))
+		parameterFail=true;
+	if (!nh.getParam("l_y_2", l_y_2))
+		parameterFail=true;
+	if (!nh.getParam("l_x_1", l_x_1))
+		parameterFail=true;
+	if (!nh.getParam("l_x_2", l_x_2))
+		parameterFail=true;
+	if (!nh.getParam("T_n", T_n))
+		parameterFail=true;
+	if (!nh.getParam("T_alpha", T_alpha))
+		parameterFail=true;
+	if (!nh.getParam("T_beta", T_beta))
 		parameterFail=true;
 	if (!nh.getParam("L_pp", L_pp))
 		parameterFail=true;

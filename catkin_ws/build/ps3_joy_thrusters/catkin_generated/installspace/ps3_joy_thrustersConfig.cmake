@@ -145,7 +145,7 @@ foreach(library ${libraries})
   endif()
 endforeach()
 
-set(ps3_joy_thrusters_EXPORTED_TARGETS "")
+set(ps3_joy_thrusters_EXPORTED_TARGETS "ps3_joy_thrusters_generate_messages_cpp;ps3_joy_thrusters_generate_messages_eus;ps3_joy_thrusters_generate_messages_lisp;ps3_joy_thrusters_generate_messages_nodejs;ps3_joy_thrusters_generate_messages_py")
 # create dummy targets for exported code generation targets to make life of users easier
 foreach(t ${ps3_joy_thrusters_EXPORTED_TARGETS})
   if(NOT TARGET ${t})

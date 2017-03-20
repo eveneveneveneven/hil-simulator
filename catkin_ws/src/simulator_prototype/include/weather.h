@@ -14,17 +14,12 @@ class Weather {
 public:
   // Speed and angle for environmental forces. Angle defined as 0=going to
   // north.
-  double wind_angle, current_angle, wind_speed, current_speed, wind_mean_speed,
-      wind_mean_angle, current_mean_speed, current_mean_angle, wind_std_dev,
-      current_std_dev;
 
-  void SetWindData(double mean_wind_speed_in, double mean_wind_angle_in,
-                   double height);
-
-  void SetCurrentData(double mean_current_speed_in,
-                      double mean_current_angle_in);
+  void SetData(double speed_in, direction_in);
 
 private:
+  double direction, speed;
+  
   void SetMeanWindSpeedAtHeight(double U_10, double z);
 
   void UpdateWindSpeed();

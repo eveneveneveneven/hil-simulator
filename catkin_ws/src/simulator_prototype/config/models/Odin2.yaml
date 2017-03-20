@@ -140,7 +140,7 @@ M_qq: 0
 K_thruster: 0.000013888889
 C_d_2d: 0.65
 T: 0.7
-X_uu_c: -15000
+X_uu_c: -9457
 surge_max: 10000
 L_pp: 10.5
 

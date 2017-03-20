@@ -138,9 +138,16 @@ N_vr: 0.5
 M_qq: 0
 
 K_thruster: 0.000013888889
+T_n: 0.02
+T_alpha: 0
+T_beta: 0
+l_y_1: 0.1505 #Y-coordinate of right thruster
+l_y_2: -0.1505 # Y-coordinate of left thruster
+l_x_1: -0.825 #X-coordinate of right thruster
+l_x_2: -0.825 # X-coordinate of left thruster
 C_d_2d: 0.65
 T: 0.2
-X_uu_c: -1491
+X_uu_c: -1143
 surge_max: 130
 L_pp: 1.65
 

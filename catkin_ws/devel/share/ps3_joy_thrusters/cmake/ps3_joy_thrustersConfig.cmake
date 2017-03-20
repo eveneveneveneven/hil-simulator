@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(ps3_joy_thrusters_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/include " STREQUAL " ")
+if(NOT "/home/d943/Dropbox/Master/catkin_ws/devel/include;/home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/include " STREQUAL " ")
   set(ps3_joy_thrusters_INCLUDE_DIRS "")
-  set(_include_dirs "/home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/include")
+  set(_include_dirs "/home/d943/Dropbox/Master/catkin_ws/devel/include;/home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/include")
   foreach(idir ${_include_dirs})
     if(IS_ABSOLUTE ${idir} AND IS_DIRECTORY ${idir})
       set(include ${idir})
@@ -145,7 +145,7 @@ foreach(library ${libraries})
   endif()
 endforeach()
 
-set(ps3_joy_thrusters_EXPORTED_TARGETS "")
+set(ps3_joy_thrusters_EXPORTED_TARGETS "ps3_joy_thrusters_generate_messages_cpp;ps3_joy_thrusters_generate_messages_eus;ps3_joy_thrusters_generate_messages_lisp;ps3_joy_thrusters_generate_messages_nodejs;ps3_joy_thrusters_generate_messages_py")
 # create dummy targets for exported code generation targets to make life of users easier
 foreach(t ${ps3_joy_thrusters_EXPORTED_TARGETS})
   if(NOT TARGET ${t})

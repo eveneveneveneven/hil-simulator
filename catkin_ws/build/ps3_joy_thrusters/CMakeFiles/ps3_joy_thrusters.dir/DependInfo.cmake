@@ -17,6 +17,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "/home/d943/Dropbox/Master/catkin_ws/devel/include"
   "/home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/include"
   "/opt/ros/kinetic/include"
   "/home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/include/ps3_joy_thrusters"
