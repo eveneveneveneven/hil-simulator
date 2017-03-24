@@ -5,7 +5,7 @@ Vessel::Vessel(){
 	initializeStateVectors();	
 	ros::NodeHandle nh;
 	readParameters(nh);
-	actuators.initializeActuatorModel(K_thruster, T_alpha, T_beta, T_n, l_x_1, l_x_2, l_y_1, l_y_2, dt);
+	actuators.initializeActuatorModel(K_thruster, T_alpha, T_beta, T_n, l_x_1, l_x_2, l_y_1, l_y_2, dt, n_max, n_min, alpha_max);
 	initializeSensors();
 	initializeMatrices();
 	solver.initializeSolver(dt);
@@ -14,10 +14,10 @@ Vessel::Vessel(){
 Vessel::~Vessel() {}
 
 void Vessel::initializeStateVectors(){
-	eta = Vector6d::Zero();
+	eta << 0, 0, 0, 0, 0, 29*M_PI/180;//= Vector6d::Zero();
 	nu  = Vector6d::Zero();
 	nu_n = Vector6d::Zero();
-	nu_r  = Vector6d::Zero();
+	nu_r << 0, 0, 0, 0, 0, 0;// = Vector6d::Zero();
 	nu_c_b  = Vector6d::Zero();
 	nu_c_n  = Vector6d::Zero();
 	tau_wind = Vector6d::Zero();
@@ -274,6 +274,7 @@ void Vessel::calculateNonlinearSurge(){
 		_u_r=0.2;
 	double R_n = (_u_r*L_pp)/(1.0*pow(10, -6));
 	double C_F = pow((log10(R_n)-2),2);	
+	// TODO: Update the nonlinear surge coefficient
 	X_uu = X_uu_c*((0.075/C_F)+0.0025); 
 }
 void Vessel::calculateCrossFlowDrag(){
@@ -283,18 +284,19 @@ void Vessel::calculateCrossFlowDrag(){
 	Y_vv = 0;
 	N_vv = 0;
 	double _dt=0.01;
-	for(double x=-L_pp/2.5; x<=L_pp/2.5;){
+	for(double x=(-L_pp)/2; x<=(0.9*L_pp)/2;){
 		Y_vv+=_dt*(T*C_d_2d*std::abs(_v+x*_r)*(_v+x*_r));
 		N_vv+=_dt*(T*C_d_2d*x*std::abs(_v+x*_r)*(_v+x*_r));
 		x = x+_dt;
 	}
 
-	if(std::abs(_v)>0.1){
+	if(std::abs(_v)>=0.05){
 		Y_vv = -(Y_vv*(rho/2))/(std::abs(_v)*_v);
 		N_vv = -(N_vv*(rho/2))/(std::abs(_v)*_v);
 	}
 	
 }
+
 
 void Vessel::updateMatrices(){
 	double u, v, w, p, q, r, phi, theta, psi;
@@ -713,6 +715,12 @@ bool Vessel::readParameters(ros::NodeHandle nh) {
 	if (!nh.getParam("T_alpha", T_alpha))
 		parameterFail=true;
 	if (!nh.getParam("T_beta", T_beta))
+		parameterFail=true;
+	if (!nh.getParam("n_min", n_min))
+		parameterFail=true;
+	if (!nh.getParam("n_max", n_max))
+		parameterFail=true;
+	if (!nh.getParam("alpha_max", alpha_max))
 		parameterFail=true;
 	if (!nh.getParam("L_pp", L_pp))
 		parameterFail=true;

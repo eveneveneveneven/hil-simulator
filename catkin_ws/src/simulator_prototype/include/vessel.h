@@ -3,10 +3,6 @@
 #include "ros/ros.h"
 #include <Eigen/Dense>
 #include <math.h>
-#include <tf/transform_broadcaster.h>
-#include "geometry_msgs/PoseStamped.h"
-#include "geometry_msgs/Twist.h"
-#include "nav_msgs/Odometry.h"
 #include "solver.h"
 #include "sensor.h"
 #include "mru.h"
@@ -148,7 +144,7 @@ private:
       N_rrr, N_vv, N_vvv, N_rv, N_vr, M_qq;
 
   // Other
-  double K_thruster, T_n, T_alpha, T_beta, l_y_1, l_y_2, l_x_1, l_x_2, L_pp, C_d_2d, T, X_uu_c;
+  double K_thruster, T_n, T_alpha, T_beta, n_min, n_max, alpha_max, l_y_1, l_y_2, l_x_1, l_x_2, L_pp, C_d_2d, T, X_uu_c;
   double surge_max;
 
   // Update frequency for onboard sensors.

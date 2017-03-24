@@ -3,12 +3,12 @@
 
 let JolnerActuators = require('./JolnerActuators.js');
 let Environment = require('./Environment.js');
-let OdinActuators = require('./OdinActuators.js');
+let ActuatorMessage = require('./ActuatorMessage.js');
 let Gps = require('./Gps.js');
 
 module.exports = {
   JolnerActuators: JolnerActuators,
   Environment: Environment,
-  OdinActuators: OdinActuators,
+  ActuatorMessage: ActuatorMessage,
   Gps: Gps,
 };

@@ -2,6 +2,9 @@
 #define VESSELNODE_H
 
 #include "simulator_prototype/Environment.h"
+#include <tf/transform_broadcaster.h>
+#include "geometry_msgs/PoseStamped.h"
+#include "geometry_msgs/Twist.h"
 #include "vessel.h"
 
 class VesselNode{
@@ -32,11 +35,6 @@ private:
 	  log_handle.advertise<geometry_msgs::Twist>("log/state", 0);
 	ros::Publisher thrust_pub =
 	  log_handle.advertise<geometry_msgs::Twist>("log/thrust", 0);
-
-  // Subscriber for incoming thrust messages.
-	ros::NodeHandle thrust_handle;
-	//ros::Subscriber thrust_rec = thrust_handle.subscribe<geometry_msgs::Twist>(
-	  //"input/thrust", 0, &VesselNode::receiveThrust, this);
 
 	ros::NodeHandle environment_comm_handle;
 	ros::Subscriber environment_msg_rec = environment_comm_handle.subscribe<simulator_prototype::Environment>("input/environment_communication", 0, &VesselNode::receiveEnvironmentMessage, this);

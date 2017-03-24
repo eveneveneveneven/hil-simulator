@@ -25,8 +25,7 @@ add_message_files(
   FILES 
   Environment.msg 
   Gps.msg
-  JolnerActuators.msg
-  OdinActuators.msg
+  ActuatorMessage.msg
 )
 
 

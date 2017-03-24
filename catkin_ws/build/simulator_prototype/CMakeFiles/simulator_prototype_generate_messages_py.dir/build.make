@@ -53,49 +53,40 @@ CMAKE_BINARY_DIR = /home/d943/Dropbox/Master/catkin_ws/build
 # Include the progress variables for this target.
 include simulator_prototype/CMakeFiles/simulator_prototype_generate_messages_py.dir/progress.make
 
-simulator_prototype/CMakeFiles/simulator_prototype_generate_messages_py: /home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/simulator_prototype/msg/_OdinActuators.py
 simulator_prototype/CMakeFiles/simulator_prototype_generate_messages_py: /home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/simulator_prototype/msg/_Gps.py
 simulator_prototype/CMakeFiles/simulator_prototype_generate_messages_py: /home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/simulator_prototype/msg/_Environment.py
-simulator_prototype/CMakeFiles/simulator_prototype_generate_messages_py: /home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/simulator_prototype/msg/_JolnerActuators.py
+simulator_prototype/CMakeFiles/simulator_prototype_generate_messages_py: /home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/simulator_prototype/msg/_ActuatorMessage.py
 simulator_prototype/CMakeFiles/simulator_prototype_generate_messages_py: /home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/simulator_prototype/msg/__init__.py
 
-
-/home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/simulator_prototype/msg/_OdinActuators.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
-/home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/simulator_prototype/msg/_OdinActuators.py: /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/msg/OdinActuators.msg
-/home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/simulator_prototype/msg/_OdinActuators.py: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/d943/Dropbox/Master/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG simulator_prototype/OdinActuators"
-	cd /home/d943/Dropbox/Master/catkin_ws/build/simulator_prototype && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/msg/OdinActuators.msg -Isimulator_prototype:/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p simulator_prototype -o /home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/simulator_prototype/msg
 
 /home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/simulator_prototype/msg/_Gps.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
 /home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/simulator_prototype/msg/_Gps.py: /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/msg/Gps.msg
 /home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/simulator_prototype/msg/_Gps.py: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/d943/Dropbox/Master/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python from MSG simulator_prototype/Gps"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/d943/Dropbox/Master/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG simulator_prototype/Gps"
 	cd /home/d943/Dropbox/Master/catkin_ws/build/simulator_prototype && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/msg/Gps.msg -Isimulator_prototype:/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p simulator_prototype -o /home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/simulator_prototype/msg
 
 /home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/simulator_prototype/msg/_Environment.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
 /home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/simulator_prototype/msg/_Environment.py: /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/msg/Environment.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/d943/Dropbox/Master/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python from MSG simulator_prototype/Environment"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/d943/Dropbox/Master/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python from MSG simulator_prototype/Environment"
 	cd /home/d943/Dropbox/Master/catkin_ws/build/simulator_prototype && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/msg/Environment.msg -Isimulator_prototype:/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p simulator_prototype -o /home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/simulator_prototype/msg
 
-/home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/simulator_prototype/msg/_JolnerActuators.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
-/home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/simulator_prototype/msg/_JolnerActuators.py: /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/msg/JolnerActuators.msg
-/home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/simulator_prototype/msg/_JolnerActuators.py: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/d943/Dropbox/Master/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python from MSG simulator_prototype/JolnerActuators"
-	cd /home/d943/Dropbox/Master/catkin_ws/build/simulator_prototype && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/msg/JolnerActuators.msg -Isimulator_prototype:/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p simulator_prototype -o /home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/simulator_prototype/msg
+/home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/simulator_prototype/msg/_ActuatorMessage.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
+/home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/simulator_prototype/msg/_ActuatorMessage.py: /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/msg/ActuatorMessage.msg
+/home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/simulator_prototype/msg/_ActuatorMessage.py: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/d943/Dropbox/Master/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python from MSG simulator_prototype/ActuatorMessage"
+	cd /home/d943/Dropbox/Master/catkin_ws/build/simulator_prototype && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/msg/ActuatorMessage.msg -Isimulator_prototype:/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p simulator_prototype -o /home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/simulator_prototype/msg
 
 /home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/simulator_prototype/msg/__init__.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
-/home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/simulator_prototype/msg/__init__.py: /home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/simulator_prototype/msg/_OdinActuators.py
 /home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/simulator_prototype/msg/__init__.py: /home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/simulator_prototype/msg/_Gps.py
 /home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/simulator_prototype/msg/__init__.py: /home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/simulator_prototype/msg/_Environment.py
-/home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/simulator_prototype/msg/__init__.py: /home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/simulator_prototype/msg/_JolnerActuators.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/d943/Dropbox/Master/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Python msg __init__.py for simulator_prototype"
+/home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/simulator_prototype/msg/__init__.py: /home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/simulator_prototype/msg/_ActuatorMessage.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/d943/Dropbox/Master/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python msg __init__.py for simulator_prototype"
 	cd /home/d943/Dropbox/Master/catkin_ws/build/simulator_prototype && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/simulator_prototype/msg --initpy
 
 simulator_prototype_generate_messages_py: simulator_prototype/CMakeFiles/simulator_prototype_generate_messages_py
-simulator_prototype_generate_messages_py: /home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/simulator_prototype/msg/_OdinActuators.py
 simulator_prototype_generate_messages_py: /home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/simulator_prototype/msg/_Gps.py
 simulator_prototype_generate_messages_py: /home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/simulator_prototype/msg/_Environment.py
-simulator_prototype_generate_messages_py: /home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/simulator_prototype/msg/_JolnerActuators.py
+simulator_prototype_generate_messages_py: /home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/simulator_prototype/msg/_ActuatorMessage.py
 simulator_prototype_generate_messages_py: /home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/simulator_prototype/msg/__init__.py
 simulator_prototype_generate_messages_py: simulator_prototype/CMakeFiles/simulator_prototype_generate_messages_py.dir/build.make
 

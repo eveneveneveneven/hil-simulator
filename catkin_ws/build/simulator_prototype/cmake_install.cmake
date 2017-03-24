@@ -36,8 +36,7 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/simulator_prototype/msg" TYPE FILE FILES
     "/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/msg/Environment.msg"
     "/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/msg/Gps.msg"
-    "/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/msg/JolnerActuators.msg"
-    "/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/msg/OdinActuators.msg"
+    "/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/msg/ActuatorMessage.msg"
     )
 endif()
 

@@ -120,6 +120,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/d943/Dropbox/Master/catkin_ws/build/ps3_joy_thrusters/cmake_install.cmake")
   include("/home/d943/Dropbox/Master/catkin_ws/build/ps3thrustInput/cmake_install.cmake")
   include("/home/d943/Dropbox/Master/catkin_ws/build/simulator_prototype/cmake_install.cmake")
+  include("/home/d943/Dropbox/Master/catkin_ws/build/txt_to_actuator_info/cmake_install.cmake")
 
 endif()
 

@@ -61,7 +61,6 @@ void GPS::getHeading(Vector6d eta){
 }
 
 void GPS::publishGpsData(Vector6d nu_n, Vector6d eta) {
-  // Side 32 i Kalman-boka
   v_n=nu_n;
   getHeading(eta);
   Vector3d gps_data = getSpeedAndTrack(eta);
@@ -81,6 +80,13 @@ void GPS::publishGpsData(Vector6d nu_n, Vector6d eta) {
     gpsMessage.heading = gps_position(5);
     gpsMessage.headingRate = gps_data(2);
     gps_pub.publish(gpsMessage);
+
+    // Publishes lat, long and heading in one extra ROS-message, using a standard message. Used only for plotting in Matlab.
+    geometry_msgs::Twist gpsLogMessage;
+    gpsLogMessage.linear.x = gps_position(0)*(180/M_PI);
+    gpsLogMessage.linear.y = gps_position(1)*(180/M_PI);
+    gpsLogMessage.angular.z = gps_position(5);
+    gps_pub2.publish(gpsLogMessage);
   }
   step++;
 }

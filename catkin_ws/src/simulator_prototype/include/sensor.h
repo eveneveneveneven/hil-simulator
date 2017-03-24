@@ -22,6 +22,7 @@ public:
   // To simplify modifications on the HIL interface, all publishers are declared here, and used in each individual sensor class.
   ros::NodeHandle sensor_handle;
   ros::Publisher gps_pub = sensor_handle.advertise<simulator_prototype::Gps>("sensors/gps", 0);
+  ros::Publisher gps_pub2 = sensor_handle.advertise<geometry_msgs::Twist>("sensors/gpsLog", 0);
   ros::Publisher mru_velocity_pub = sensor_handle.advertise<geometry_msgs::Twist>("sensors/mru/velocity", 0);
   ros::Publisher mru_position_pub = sensor_handle.advertise<geometry_msgs::Twist>("sensors/mru/position", 0);
   ros::Publisher imu_pub = sensor_handle.advertise<geometry_msgs::Twist>("sensors/imu", 0);

@@ -10,7 +10,7 @@ VesselNode::~VesselNode(){
 
 void VesselNode::step(){
 	if(!paused){
-		vessel.actuators.getThrust(tau_control);
+		vessel.actuators.getForcesAndMoments(tau_control);
 		vessel.setThrust(tau_control);
 		vessel.step();
 		vessel.getState(eta, nu);
