@@ -18,7 +18,7 @@ include
 
 add_message_files(
   FILES 
-  JolnerActuators.msg
+  ActuatorMessage.msg
 )
 
 generate_messages(

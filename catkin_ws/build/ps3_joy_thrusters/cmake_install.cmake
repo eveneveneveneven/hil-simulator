@@ -33,7 +33,7 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ps3_joy_thrusters/msg" TYPE FILE FILES "/home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg/JolnerActuators.msg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ps3_joy_thrusters/msg" TYPE FILE FILES "/home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg/ActuatorMessage.msg")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")

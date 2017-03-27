@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
-messages_str = "/home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg/JolnerActuators.msg"
+messages_str = "/home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg/ActuatorMessage.msg"
 services_str = ""
 pkg_name = "ps3_joy_thrusters"
 dependencies_str = "std_msgs"

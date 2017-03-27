@@ -29,17 +29,17 @@ m_46: 0 #kg
 
 m_51: -480 # kg
 m_52: 0 #kg
-m_53: 0 #kg
+m_53: 9000 #kg
 m_54: 0 #kg
 m_55: 18992.13 #kg
 m_56: 0 #kg
 
 m_61: 0 # kg
-m_62: -0 #kg
+m_62: -9000 #kg
 m_63: 0 #kg
-m_64: -0 #kg
-m_65: -0 #kg
-m_66: 18000.7 #kg
+m_64: -519.34 #kg
+m_65: -1.21 #kg
+m_66: 20927.7 #kg
 
 #Added mass matrix M_a[6x6]
 X_u_dot: 527.36 # kg
@@ -78,11 +78,11 @@ M_q_dot: 94768.5 #kg
 M_r_dot: 0 #kg
 
 N_u_dot: 0 # kg
-N_v_dot: 361.29 #kg
+N_v_dot: 632.29 #kg
 N_w_dot: 0 #kg
-N_p_dot: 106.42 #kg
+N_p_dot: 272.42 #kg
 N_q_dot: 0 #kg
-N_r_dot: 4000.24 #kg
+N_r_dot: 13204.24 #kg
 
 # Center of gravity
 x_g: 0.0
@@ -139,18 +139,18 @@ M_qq: 0
 
 K_thruster: 0.0025
 T_n: 0.4
-T_alpha: 0.5
+T_alpha: 0.2
 T_beta: 0.1
 n_min: 400
 n_max: 2000
 alpha_max: 27
 l_y_1: 0.57 #Y-coordinate of right thruster
 l_y_2: -0.57 # Y-coordinate of left thruster
-l_x_1: -4.8 #X-coordinate of right thruster
-l_x_2: -4.8 # X-coordinate of left thruster
+l_x_1: -4.5 #X-coordinate of right thruster
+l_x_2: -4.5 # X-coordinate of left thruster
 C_d_2d: 0.65
 T: 0.7
-X_uu_c: -42600.25
+X_uu_c: -21487.33
 surge_max: 10000
 L_pp: 10.5
 

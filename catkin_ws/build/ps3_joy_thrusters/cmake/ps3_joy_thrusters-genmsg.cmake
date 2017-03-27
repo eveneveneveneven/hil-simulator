@@ -17,9 +17,9 @@ add_custom_target(ps3_joy_thrusters_generate_messages ALL)
 
 
 
-get_filename_component(_filename "/home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg/JolnerActuators.msg" NAME_WE)
+get_filename_component(_filename "/home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg/ActuatorMessage.msg" NAME_WE)
 add_custom_target(_ps3_joy_thrusters_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "ps3_joy_thrusters" "/home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg/JolnerActuators.msg" "std_msgs/Header"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "ps3_joy_thrusters" "/home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg/ActuatorMessage.msg" "std_msgs/Header"
 )
 
 #
@@ -29,7 +29,7 @@ add_custom_target(_ps3_joy_thrusters_generate_messages_check_deps_${_filename}
 ### Section generating for lang: gencpp
 ### Generating Messages
 _generate_msg_cpp(ps3_joy_thrusters
-  "/home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg/JolnerActuators.msg"
+  "/home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg/ActuatorMessage.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/kinetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/ps3_joy_thrusters
@@ -49,7 +49,7 @@ add_custom_target(ps3_joy_thrusters_generate_messages_cpp
 add_dependencies(ps3_joy_thrusters_generate_messages ps3_joy_thrusters_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg/JolnerActuators.msg" NAME_WE)
+get_filename_component(_filename "/home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg/ActuatorMessage.msg" NAME_WE)
 add_dependencies(ps3_joy_thrusters_generate_messages_cpp _ps3_joy_thrusters_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -62,7 +62,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS ps3_joy_thrusters_generate_messages
 ### Section generating for lang: geneus
 ### Generating Messages
 _generate_msg_eus(ps3_joy_thrusters
-  "/home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg/JolnerActuators.msg"
+  "/home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg/ActuatorMessage.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/kinetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/ps3_joy_thrusters
@@ -82,7 +82,7 @@ add_custom_target(ps3_joy_thrusters_generate_messages_eus
 add_dependencies(ps3_joy_thrusters_generate_messages ps3_joy_thrusters_generate_messages_eus)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg/JolnerActuators.msg" NAME_WE)
+get_filename_component(_filename "/home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg/ActuatorMessage.msg" NAME_WE)
 add_dependencies(ps3_joy_thrusters_generate_messages_eus _ps3_joy_thrusters_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -95,7 +95,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS ps3_joy_thrusters_generate_messages
 ### Section generating for lang: genlisp
 ### Generating Messages
 _generate_msg_lisp(ps3_joy_thrusters
-  "/home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg/JolnerActuators.msg"
+  "/home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg/ActuatorMessage.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/kinetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/ps3_joy_thrusters
@@ -115,7 +115,7 @@ add_custom_target(ps3_joy_thrusters_generate_messages_lisp
 add_dependencies(ps3_joy_thrusters_generate_messages ps3_joy_thrusters_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg/JolnerActuators.msg" NAME_WE)
+get_filename_component(_filename "/home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg/ActuatorMessage.msg" NAME_WE)
 add_dependencies(ps3_joy_thrusters_generate_messages_lisp _ps3_joy_thrusters_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -128,7 +128,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS ps3_joy_thrusters_generate_messages
 ### Section generating for lang: gennodejs
 ### Generating Messages
 _generate_msg_nodejs(ps3_joy_thrusters
-  "/home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg/JolnerActuators.msg"
+  "/home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg/ActuatorMessage.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/kinetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/ps3_joy_thrusters
@@ -148,7 +148,7 @@ add_custom_target(ps3_joy_thrusters_generate_messages_nodejs
 add_dependencies(ps3_joy_thrusters_generate_messages ps3_joy_thrusters_generate_messages_nodejs)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg/JolnerActuators.msg" NAME_WE)
+get_filename_component(_filename "/home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg/ActuatorMessage.msg" NAME_WE)
 add_dependencies(ps3_joy_thrusters_generate_messages_nodejs _ps3_joy_thrusters_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -161,7 +161,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS ps3_joy_thrusters_generate_messages
 ### Section generating for lang: genpy
 ### Generating Messages
 _generate_msg_py(ps3_joy_thrusters
-  "/home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg/JolnerActuators.msg"
+  "/home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg/ActuatorMessage.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/kinetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/ps3_joy_thrusters
@@ -181,7 +181,7 @@ add_custom_target(ps3_joy_thrusters_generate_messages_py
 add_dependencies(ps3_joy_thrusters_generate_messages ps3_joy_thrusters_generate_messages_py)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg/JolnerActuators.msg" NAME_WE)
+get_filename_component(_filename "/home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg/ActuatorMessage.msg" NAME_WE)
 add_dependencies(ps3_joy_thrusters_generate_messages_py _ps3_joy_thrusters_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility

@@ -53,17 +53,17 @@ CMAKE_BINARY_DIR = /home/d943/Dropbox/Master/catkin_ws/build
 # Include the progress variables for this target.
 include ps3_joy_thrusters/CMakeFiles/ps3_joy_thrusters_generate_messages_nodejs.dir/progress.make
 
-ps3_joy_thrusters/CMakeFiles/ps3_joy_thrusters_generate_messages_nodejs: /home/d943/Dropbox/Master/catkin_ws/devel/share/gennodejs/ros/ps3_joy_thrusters/msg/JolnerActuators.js
+ps3_joy_thrusters/CMakeFiles/ps3_joy_thrusters_generate_messages_nodejs: /home/d943/Dropbox/Master/catkin_ws/devel/share/gennodejs/ros/ps3_joy_thrusters/msg/ActuatorMessage.js
 
 
-/home/d943/Dropbox/Master/catkin_ws/devel/share/gennodejs/ros/ps3_joy_thrusters/msg/JolnerActuators.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
-/home/d943/Dropbox/Master/catkin_ws/devel/share/gennodejs/ros/ps3_joy_thrusters/msg/JolnerActuators.js: /home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg/JolnerActuators.msg
-/home/d943/Dropbox/Master/catkin_ws/devel/share/gennodejs/ros/ps3_joy_thrusters/msg/JolnerActuators.js: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/d943/Dropbox/Master/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Javascript code from ps3_joy_thrusters/JolnerActuators.msg"
-	cd /home/d943/Dropbox/Master/catkin_ws/build/ps3_joy_thrusters && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg/JolnerActuators.msg -Ips3_joy_thrusters:/home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p ps3_joy_thrusters -o /home/d943/Dropbox/Master/catkin_ws/devel/share/gennodejs/ros/ps3_joy_thrusters/msg
+/home/d943/Dropbox/Master/catkin_ws/devel/share/gennodejs/ros/ps3_joy_thrusters/msg/ActuatorMessage.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
+/home/d943/Dropbox/Master/catkin_ws/devel/share/gennodejs/ros/ps3_joy_thrusters/msg/ActuatorMessage.js: /home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg/ActuatorMessage.msg
+/home/d943/Dropbox/Master/catkin_ws/devel/share/gennodejs/ros/ps3_joy_thrusters/msg/ActuatorMessage.js: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/d943/Dropbox/Master/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Javascript code from ps3_joy_thrusters/ActuatorMessage.msg"
+	cd /home/d943/Dropbox/Master/catkin_ws/build/ps3_joy_thrusters && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg/ActuatorMessage.msg -Ips3_joy_thrusters:/home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p ps3_joy_thrusters -o /home/d943/Dropbox/Master/catkin_ws/devel/share/gennodejs/ros/ps3_joy_thrusters/msg
 
 ps3_joy_thrusters_generate_messages_nodejs: ps3_joy_thrusters/CMakeFiles/ps3_joy_thrusters_generate_messages_nodejs
-ps3_joy_thrusters_generate_messages_nodejs: /home/d943/Dropbox/Master/catkin_ws/devel/share/gennodejs/ros/ps3_joy_thrusters/msg/JolnerActuators.js
+ps3_joy_thrusters_generate_messages_nodejs: /home/d943/Dropbox/Master/catkin_ws/devel/share/gennodejs/ros/ps3_joy_thrusters/msg/ActuatorMessage.js
 ps3_joy_thrusters_generate_messages_nodejs: ps3_joy_thrusters/CMakeFiles/ps3_joy_thrusters_generate_messages_nodejs.dir/build.make
 
 .PHONY : ps3_joy_thrusters_generate_messages_nodejs

@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /home/d943/Dropbox/Master/catkin_ws/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target test
 test:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
@@ -88,6 +77,27 @@ install/local: preinstall
 install/local/fast: install/local
 
 .PHONY : install/local/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: install/strip
+
+.PHONY : install/strip/fast
 
 # Special rule for the target install
 install: preinstall
@@ -112,26 +122,16 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
 
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
 
-.PHONY : list_install_components/fast
-
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: install/strip
-
-.PHONY : install/strip/fast
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -211,19 +211,19 @@ ps3_joy_thrusters_gencpp/fast:
 .PHONY : ps3_joy_thrusters_gencpp/fast
 
 # Convenience name for target.
-ps3_joy_thrusters/CMakeFiles/_ps3_joy_thrusters_generate_messages_check_deps_JolnerActuators.dir/rule:
-	cd /home/d943/Dropbox/Master/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 ps3_joy_thrusters/CMakeFiles/_ps3_joy_thrusters_generate_messages_check_deps_JolnerActuators.dir/rule
-.PHONY : ps3_joy_thrusters/CMakeFiles/_ps3_joy_thrusters_generate_messages_check_deps_JolnerActuators.dir/rule
+ps3_joy_thrusters/CMakeFiles/_ps3_joy_thrusters_generate_messages_check_deps_ActuatorMessage.dir/rule:
+	cd /home/d943/Dropbox/Master/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 ps3_joy_thrusters/CMakeFiles/_ps3_joy_thrusters_generate_messages_check_deps_ActuatorMessage.dir/rule
+.PHONY : ps3_joy_thrusters/CMakeFiles/_ps3_joy_thrusters_generate_messages_check_deps_ActuatorMessage.dir/rule
 
 # Convenience name for target.
-_ps3_joy_thrusters_generate_messages_check_deps_JolnerActuators: ps3_joy_thrusters/CMakeFiles/_ps3_joy_thrusters_generate_messages_check_deps_JolnerActuators.dir/rule
+_ps3_joy_thrusters_generate_messages_check_deps_ActuatorMessage: ps3_joy_thrusters/CMakeFiles/_ps3_joy_thrusters_generate_messages_check_deps_ActuatorMessage.dir/rule
 
-.PHONY : _ps3_joy_thrusters_generate_messages_check_deps_JolnerActuators
+.PHONY : _ps3_joy_thrusters_generate_messages_check_deps_ActuatorMessage
 
 # fast build rule for target.
-_ps3_joy_thrusters_generate_messages_check_deps_JolnerActuators/fast:
-	cd /home/d943/Dropbox/Master/catkin_ws/build && $(MAKE) -f ps3_joy_thrusters/CMakeFiles/_ps3_joy_thrusters_generate_messages_check_deps_JolnerActuators.dir/build.make ps3_joy_thrusters/CMakeFiles/_ps3_joy_thrusters_generate_messages_check_deps_JolnerActuators.dir/build
-.PHONY : _ps3_joy_thrusters_generate_messages_check_deps_JolnerActuators/fast
+_ps3_joy_thrusters_generate_messages_check_deps_ActuatorMessage/fast:
+	cd /home/d943/Dropbox/Master/catkin_ws/build && $(MAKE) -f ps3_joy_thrusters/CMakeFiles/_ps3_joy_thrusters_generate_messages_check_deps_ActuatorMessage.dir/build.make ps3_joy_thrusters/CMakeFiles/_ps3_joy_thrusters_generate_messages_check_deps_ActuatorMessage.dir/build
+.PHONY : _ps3_joy_thrusters_generate_messages_check_deps_ActuatorMessage/fast
 
 # Convenience name for target.
 ps3_joy_thrusters/CMakeFiles/ps3_joy_thrusters_generate_messages_nodejs.dir/rule:
@@ -393,17 +393,17 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... install/local"
+	@echo "... list_install_components"
+	@echo "... install/strip"
 	@echo "... ps3_joy_thrusters_genpy"
 	@echo "... install"
 	@echo "... ps3_joy_thrusters_generate_messages_py"
 	@echo "... edit_cache"
 	@echo "... ps3_joy_thrusters_gencpp"
-	@echo "... list_install_components"
-	@echo "... install/strip"
-	@echo "... _ps3_joy_thrusters_generate_messages_check_deps_JolnerActuators"
+	@echo "... rebuild_cache"
+	@echo "... _ps3_joy_thrusters_generate_messages_check_deps_ActuatorMessage"
 	@echo "... ps3_joy_thrusters_generate_messages_nodejs"
 	@echo "... ps3_joy_thrusters_generate_messages_cpp"
 	@echo "... ps3_joy_thrusters_generate_messages_eus"

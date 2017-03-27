@@ -275,7 +275,7 @@ void Vessel::calculateNonlinearSurge(){
 	double R_n = (_u_r*L_pp)/(1.0*pow(10, -6));
 	double C_F = pow((log10(R_n)-2),2);	
 	// TODO: Update the nonlinear surge coefficient
-	X_uu = X_uu_c*((0.075/C_F)+0.0025); 
+	X_uu = X_uu_c*((0.075/C_F)+0.014); 
 }
 void Vessel::calculateCrossFlowDrag(){
 	double rho = 1025;
@@ -296,7 +296,6 @@ void Vessel::calculateCrossFlowDrag(){
 	}
 	
 }
-
 
 void Vessel::updateMatrices(){
 	double u, v, w, p, q, r, phi, theta, psi;

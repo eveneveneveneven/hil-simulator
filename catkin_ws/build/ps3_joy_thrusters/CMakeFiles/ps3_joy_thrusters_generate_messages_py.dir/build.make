@@ -53,23 +53,23 @@ CMAKE_BINARY_DIR = /home/d943/Dropbox/Master/catkin_ws/build
 # Include the progress variables for this target.
 include ps3_joy_thrusters/CMakeFiles/ps3_joy_thrusters_generate_messages_py.dir/progress.make
 
-ps3_joy_thrusters/CMakeFiles/ps3_joy_thrusters_generate_messages_py: /home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/ps3_joy_thrusters/msg/_JolnerActuators.py
+ps3_joy_thrusters/CMakeFiles/ps3_joy_thrusters_generate_messages_py: /home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/ps3_joy_thrusters/msg/_ActuatorMessage.py
 ps3_joy_thrusters/CMakeFiles/ps3_joy_thrusters_generate_messages_py: /home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/ps3_joy_thrusters/msg/__init__.py
 
 
-/home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/ps3_joy_thrusters/msg/_JolnerActuators.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
-/home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/ps3_joy_thrusters/msg/_JolnerActuators.py: /home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg/JolnerActuators.msg
-/home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/ps3_joy_thrusters/msg/_JolnerActuators.py: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/d943/Dropbox/Master/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG ps3_joy_thrusters/JolnerActuators"
-	cd /home/d943/Dropbox/Master/catkin_ws/build/ps3_joy_thrusters && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg/JolnerActuators.msg -Ips3_joy_thrusters:/home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p ps3_joy_thrusters -o /home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/ps3_joy_thrusters/msg
+/home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/ps3_joy_thrusters/msg/_ActuatorMessage.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
+/home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/ps3_joy_thrusters/msg/_ActuatorMessage.py: /home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg/ActuatorMessage.msg
+/home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/ps3_joy_thrusters/msg/_ActuatorMessage.py: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/d943/Dropbox/Master/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG ps3_joy_thrusters/ActuatorMessage"
+	cd /home/d943/Dropbox/Master/catkin_ws/build/ps3_joy_thrusters && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg/ActuatorMessage.msg -Ips3_joy_thrusters:/home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p ps3_joy_thrusters -o /home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/ps3_joy_thrusters/msg
 
 /home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/ps3_joy_thrusters/msg/__init__.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
-/home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/ps3_joy_thrusters/msg/__init__.py: /home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/ps3_joy_thrusters/msg/_JolnerActuators.py
+/home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/ps3_joy_thrusters/msg/__init__.py: /home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/ps3_joy_thrusters/msg/_ActuatorMessage.py
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/d943/Dropbox/Master/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python msg __init__.py for ps3_joy_thrusters"
 	cd /home/d943/Dropbox/Master/catkin_ws/build/ps3_joy_thrusters && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/ps3_joy_thrusters/msg --initpy
 
 ps3_joy_thrusters_generate_messages_py: ps3_joy_thrusters/CMakeFiles/ps3_joy_thrusters_generate_messages_py
-ps3_joy_thrusters_generate_messages_py: /home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/ps3_joy_thrusters/msg/_JolnerActuators.py
+ps3_joy_thrusters_generate_messages_py: /home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/ps3_joy_thrusters/msg/_ActuatorMessage.py
 ps3_joy_thrusters_generate_messages_py: /home/d943/Dropbox/Master/catkin_ws/devel/lib/python2.7/dist-packages/ps3_joy_thrusters/msg/__init__.py
 ps3_joy_thrusters_generate_messages_py: ps3_joy_thrusters/CMakeFiles/ps3_joy_thrusters_generate_messages_py.dir/build.make
 

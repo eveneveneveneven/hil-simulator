@@ -53,22 +53,22 @@ CMAKE_BINARY_DIR = /home/d943/Dropbox/Master/catkin_ws/build
 # Include the progress variables for this target.
 include ps3_joy_thrusters/CMakeFiles/ps3_joy_thrusters_generate_messages_eus.dir/progress.make
 
-ps3_joy_thrusters/CMakeFiles/ps3_joy_thrusters_generate_messages_eus: /home/d943/Dropbox/Master/catkin_ws/devel/share/roseus/ros/ps3_joy_thrusters/msg/JolnerActuators.l
+ps3_joy_thrusters/CMakeFiles/ps3_joy_thrusters_generate_messages_eus: /home/d943/Dropbox/Master/catkin_ws/devel/share/roseus/ros/ps3_joy_thrusters/msg/ActuatorMessage.l
 ps3_joy_thrusters/CMakeFiles/ps3_joy_thrusters_generate_messages_eus: /home/d943/Dropbox/Master/catkin_ws/devel/share/roseus/ros/ps3_joy_thrusters/manifest.l
 
 
-/home/d943/Dropbox/Master/catkin_ws/devel/share/roseus/ros/ps3_joy_thrusters/msg/JolnerActuators.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
-/home/d943/Dropbox/Master/catkin_ws/devel/share/roseus/ros/ps3_joy_thrusters/msg/JolnerActuators.l: /home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg/JolnerActuators.msg
-/home/d943/Dropbox/Master/catkin_ws/devel/share/roseus/ros/ps3_joy_thrusters/msg/JolnerActuators.l: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/d943/Dropbox/Master/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from ps3_joy_thrusters/JolnerActuators.msg"
-	cd /home/d943/Dropbox/Master/catkin_ws/build/ps3_joy_thrusters && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg/JolnerActuators.msg -Ips3_joy_thrusters:/home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p ps3_joy_thrusters -o /home/d943/Dropbox/Master/catkin_ws/devel/share/roseus/ros/ps3_joy_thrusters/msg
+/home/d943/Dropbox/Master/catkin_ws/devel/share/roseus/ros/ps3_joy_thrusters/msg/ActuatorMessage.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
+/home/d943/Dropbox/Master/catkin_ws/devel/share/roseus/ros/ps3_joy_thrusters/msg/ActuatorMessage.l: /home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg/ActuatorMessage.msg
+/home/d943/Dropbox/Master/catkin_ws/devel/share/roseus/ros/ps3_joy_thrusters/msg/ActuatorMessage.l: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/d943/Dropbox/Master/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from ps3_joy_thrusters/ActuatorMessage.msg"
+	cd /home/d943/Dropbox/Master/catkin_ws/build/ps3_joy_thrusters && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg/ActuatorMessage.msg -Ips3_joy_thrusters:/home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p ps3_joy_thrusters -o /home/d943/Dropbox/Master/catkin_ws/devel/share/roseus/ros/ps3_joy_thrusters/msg
 
 /home/d943/Dropbox/Master/catkin_ws/devel/share/roseus/ros/ps3_joy_thrusters/manifest.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/d943/Dropbox/Master/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp manifest code for ps3_joy_thrusters"
 	cd /home/d943/Dropbox/Master/catkin_ws/build/ps3_joy_thrusters && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/d943/Dropbox/Master/catkin_ws/devel/share/roseus/ros/ps3_joy_thrusters ps3_joy_thrusters std_msgs
 
 ps3_joy_thrusters_generate_messages_eus: ps3_joy_thrusters/CMakeFiles/ps3_joy_thrusters_generate_messages_eus
-ps3_joy_thrusters_generate_messages_eus: /home/d943/Dropbox/Master/catkin_ws/devel/share/roseus/ros/ps3_joy_thrusters/msg/JolnerActuators.l
+ps3_joy_thrusters_generate_messages_eus: /home/d943/Dropbox/Master/catkin_ws/devel/share/roseus/ros/ps3_joy_thrusters/msg/ActuatorMessage.l
 ps3_joy_thrusters_generate_messages_eus: /home/d943/Dropbox/Master/catkin_ws/devel/share/roseus/ros/ps3_joy_thrusters/manifest.l
 ps3_joy_thrusters_generate_messages_eus: ps3_joy_thrusters/CMakeFiles/ps3_joy_thrusters_generate_messages_eus.dir/build.make
 

@@ -137,10 +137,10 @@ N_rv: 0.82
 N_vr: 0.5
 M_qq: 0
 
-K_thruster: 0.000013888889
+K_thruster: 0.000027777778
 T_n: 0.02
-T_alpha: 0
-T_beta: 0
+T_alpha: 0.2
+T_beta: 0.05
 l_y_1: 0.1505 #Y-coordinate of right thruster
 l_y_2: -0.1505 # Y-coordinate of left thruster
 l_x_1: -0.825 #X-coordinate of right thruster
