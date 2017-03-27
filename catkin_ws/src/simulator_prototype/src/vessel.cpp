@@ -14,12 +14,12 @@ Vessel::Vessel(){
 Vessel::~Vessel() {}
 
 void Vessel::initializeStateVectors(){
-	eta << 0, 0, 0, 0, 0, 29*M_PI/180;//= Vector6d::Zero();
+	eta = Vector6d::Zero();
 	nu  = Vector6d::Zero();
 	nu_n = Vector6d::Zero();
-	nu_r << 0, 0, 0, 0, 0, 0;// = Vector6d::Zero();
-	nu_c_b  = Vector6d::Zero();
-	nu_c_n  = Vector6d::Zero();
+	nu_r = Vector6d::Zero();
+	nu_c_b = Vector6d::Zero();
+	nu_c_n = Vector6d::Zero();
 	tau_wind = Vector6d::Zero();
 	tau_waves = Vector6d::Zero();
 	tau_current = Vector6d::Zero();

@@ -2,7 +2,7 @@
 
 
 VesselNode::VesselNode(){
-
+	dt = getDT();
 }
 VesselNode::~VesselNode(){
 
@@ -10,7 +10,10 @@ VesselNode::~VesselNode(){
 
 void VesselNode::step(){
 	if(!paused){
-		vessel.actuators.getForcesAndMoments(tau_control);
+		time_since_last_message += dt;
+		if(time_since_last_message>1){
+			tau_control << 0, 0, 0, 0, 0, 0;
+		}
 		vessel.setThrust(tau_control);
 		vessel.step();
 		vessel.getState(eta, nu);
@@ -34,10 +37,6 @@ void VesselNode::publishState(){
     tf.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "map", tf_name));
 }
 
-void VesselNode::receiveThrust(const geometry_msgs::Twist::ConstPtr& thrust_msg){
-	tau_control << thrust_msg->linear.x, thrust_msg->linear.y, thrust_msg->linear.z, thrust_msg->angular.x, thrust_msg->angular.y, thrust_msg->angular.z;
-}
-
 void VesselNode::receiveEnvironmentMessage(const simulator_prototype::Environment::ConstPtr &environment_msg){
 	vessel.setGpsCoordinates(environment_msg->latitude, environment_msg->longitude);
 	paused = environment_msg->paused;
@@ -48,34 +47,35 @@ void VesselNode::receiveEnvironmentMessage(const simulator_prototype::Environmen
 }
 
 void VesselNode::logInfo(){
-	geometry_msgs::Twist velocity;
-	geometry_msgs::Twist state;
-	geometry_msgs::Twist thrust;
-
-	velocity.linear.x = nu(0);
-	velocity.linear.y = nu(1);
-	velocity.linear.z = nu(2);
-	velocity.angular.x = nu(3);
-	velocity.angular.y = nu(4);
-	velocity.angular.z = nu(5);
+	geometry_msgs::Twist velocity = vectorToGeometryMsg(nu);
+	geometry_msgs::Twist state = vectorToGeometryMsg(eta);
+	geometry_msgs::Twist thrust = vectorToGeometryMsg(tau_control);
 
 	vel_pub.publish(velocity);
 
-	state.linear.x = eta(0);
-	state.linear.y = eta(1);
-	state.linear.z = eta(2);
-	state.angular.x = eta(3);
-	state.angular.y = eta(4);
-	state.angular.z = eta(5);
-
 	state_pub.publish(state);
 
-	thrust.linear.x = tau_control(0);
-	thrust.linear.y = tau_control(1);
-	thrust.linear.z = tau_control(2);
-	thrust.angular.x = tau_control(3);
-	thrust.angular.y = tau_control(4);
-	thrust.angular.z = tau_control(5);
-
 	thrust_pub.publish(thrust);
+}
+
+geometry_msgs::Twist VesselNode::vectorToGeometryMsg(Vector6d vector_in){
+	geometry_msgs::Twist geometry_msg;
+	geometry_msg.linear.x = vector_in(0);
+	geometry_msg.linear.y = vector_in(1);
+	geometry_msg.linear.z = vector_in(2);
+	geometry_msg.angular.x = vector_in(3);
+	geometry_msg.angular.y = vector_in(4);
+	geometry_msg.angular.z = vector_in(5);
+	return geometry_msg;
+}
+
+void VesselNode::receiveForcesAndMoments(const geometry_msgs::Twist::ConstPtr &thrust_msg){
+	tau_control << thrust_msg->linear.x, thrust_msg->linear.y, thrust_msg->linear.z, thrust_msg->angular.x, thrust_msg->angular.y, thrust_msg->angular.z;
+	time_since_last_message = 0;
+}
+
+void VesselNode::receiveActuatorInfo(const simulator_prototype::ActuatorMessage::ConstPtr &actuator_msg){
+	desired_actuator_states << actuator_msg->rightRPM, actuator_msg->leftRPM, actuator_msg->rightNozzle, actuator_msg->leftNozzle, actuator_msg->rightDeflector, actuator_msg->leftDeflector;
+	vessel.actuators.getForcesAndMoments(tau_control, desired_actuator_states);
+	time_since_last_message = 0;
 }

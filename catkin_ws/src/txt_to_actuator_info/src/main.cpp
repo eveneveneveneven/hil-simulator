@@ -11,7 +11,7 @@ int main(int argc, char* argv[])
 	ROS_INFO("Started Odin actuator data node");
 	
     //ros::Duration(5).sleep(); // Wait for RViz to start
-    ros::Rate loopRate(100);
+    ros::Rate loopRate(10);
     txt_to_actuator_info::ActuatorMessage actuators;
     geometry_msgs::Twist actuators2;
     ros::NodeHandle nh_;
@@ -31,7 +31,7 @@ int main(int argc, char* argv[])
 	else{
 		ROS_INFO("Cannot find input-file");
 	}
-	std::cout << line.size() << std::endl;
+	//std::cout << line.size() << std::endl;
 	std::vector<double> leftRPM;
 	std::vector<double> rightRPM;
 	std::vector<double> leftNozzle;
@@ -58,10 +58,10 @@ int main(int argc, char* argv[])
 			rightBucket.push_back(atof(line[i].c_str()));
 		}
 	}
-	std::cout << leftNozzle[3] << std::endl;
+	//std::cout << leftNozzle[3] << std::endl;
 	int i=0;
 
-    while(i<leftRPM.size()){
+    while(i<leftRPM.size() && ros::ok()){
     	actuators.header.stamp = ros::Time::now();
   		actuators.header.frame_id = "/odin";
   		actuators.rightRPM = rightRPM[i];

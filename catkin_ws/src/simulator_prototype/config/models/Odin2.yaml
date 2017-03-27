@@ -155,7 +155,7 @@ surge_max: 10000
 L_pp: 10.5
 
 dt: 0.01
-gps_frequency: 100
+gps_frequency: 2
 mru_frequency: 200
 imu_frequency: 200
 speed_sensor_frequency: 100
