@@ -6,13 +6,13 @@ int main(int argc, char *argv[]) {
   ros::start();
   ROS_INFO("Started HIL Simulator node.");
   VesselNode vessel_node;
-  ros::Rate loopRate(1 / vessel_node.getDT());
+  ros::Rate loopRate(1/ vessel_node.getDT());
 
   while (ros::ok()) {
     vessel_node.step();
     ros::spinOnce();
     loopRate.sleep();
-  }
+  } 
 
   ROS_INFO("Exiting HIL Simulator node");
   ros::shutdown();

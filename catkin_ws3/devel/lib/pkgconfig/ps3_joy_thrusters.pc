@@ -1,0 +1,8 @@
+prefix=/home/d943/Dropbox/Master/catkin_ws/devel
+
+Name: ps3_joy_thrusters
+Description: Description of ps3_joy_thrusters
+Version: 0.0.0
+Cflags: -I/home/d943/Dropbox/Master/catkin_ws/devel/include -I/home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/include
+Libs: -L/home/d943/Dropbox/Master/catkin_ws/devel/lib 
+Requires: std_msgs
