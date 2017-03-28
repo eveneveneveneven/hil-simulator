@@ -1,0 +1,4 @@
+<launch>
+	<rosparam command="load" file="$(find gtest_car)/src/TestParam.yaml" />
+	<test test-name="Unit-Tests" pkg="gtest_car" type="gtest_car-test" name="GTestTest"/>
+</launch>
