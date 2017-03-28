@@ -34,7 +34,8 @@ INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR})
 ## Find catkin and any catkin packages
 find_package(catkin REQUIRED COMPONENTS 
 	roscpp 
-	std_msgs 
+	std_msgs
+	environment 
 	message_generation
 )
 
@@ -43,10 +44,10 @@ find_package(catkin REQUIRED COMPONENTS
 ## Declare ROS messages and services
  add_message_files(
    DIRECTORY
-   /home/kjetil/Dropbox/master/simulator_ws/src/environment/msg
+   ##/home/kjetil/Dropbox/master/simulator_ws/src/environment/msg
    FILES
-   obstacleUpdate.msg
-   obstacleCmd.msg
+   ##obstacleUpdate.msg
+   ##obstacleCmd.msg
  )
 # add_service_files(FILES AddTwoInts.srv)
 

@@ -9,6 +9,7 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   std_msgs
   message_generation
+  simulator_messages
 )
 
 include_directories(
@@ -16,10 +17,6 @@ include
   ${catkin_INCLUDE_DIRS}
 )
 
-add_message_files(
-  FILES 
-  ActuatorMessage.msg
-)
 
 generate_messages(
   DEPENDENCIES

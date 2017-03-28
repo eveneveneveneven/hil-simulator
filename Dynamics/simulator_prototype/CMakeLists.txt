@@ -11,6 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   genmsg
   message_generation
+  simulator_messages
   tf
 )
 
@@ -20,14 +21,6 @@ include_directories(
 include
   ${catkin_INCLUDE_DIRS}
 )
-
-add_message_files(
-  FILES 
-  Environment.msg 
-  Gps.msg
-  ActuatorMessage.msg
-)
-
 
 
 
