@@ -18,9 +18,11 @@ int main(int argc, char* argv[])
 	ros::Publisher actuator_pub = nh_.advertise<txt_to_actuator_info::ActuatorMessage>("input/actuators", 0);
 	ros::Publisher actuator_pub2 = nh_.advertise<geometry_msgs::Twist>("input/actuators2", 0);
 
+	std::string fpath;
+	nh_.getParam("path_name", fpath);
     std::vector<std::string> line;
     std::string mystr;
-    std::ifstream myfile("/home/d943/Dropbox/Master/catkin_ws/src/Dynamics/txt_to_actuator_info/Output.txt");
+    std::ifstream myfile(fpath.c_str());
     if (myfile.is_open()){	
 		while(myfile >> mystr)
 		{
