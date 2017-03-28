@@ -1,8 +1,0 @@
-prefix=/home/d943/catkin_ws/devel
-
-Name: gtest2
-Description: Description of gtest2
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/d943/catkin_ws/devel/lib 
-Requires: 
