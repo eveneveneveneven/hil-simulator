@@ -20,7 +20,7 @@ int main(int argc, char* argv[])
 
     std::vector<std::string> line;
     std::string mystr;
-    std::ifstream myfile("/home/d943/Dropbox/Master/catkin_ws/src/txt_to_actuator_info/Output.txt");
+    std::ifstream myfile("/home/d943/Dropbox/Master/catkin_ws/src/Dynamics/txt_to_actuator_info/Output.txt");
     if (myfile.is_open()){	
 		while(myfile >> mystr)
 		{
