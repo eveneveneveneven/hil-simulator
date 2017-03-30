@@ -9,6 +9,6 @@ void Sensor::setFrequency(double _frequency){
     steps_per_data_output = int((1/dt)/frequency);
   }
   step=1;
-}
+} 
 
 void Sensor::setStepSize(double stepsize) { dt = stepsize; }

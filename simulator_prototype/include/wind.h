@@ -9,9 +9,12 @@ class Wind : public Weather {
 public:
 	Wind();
 	~Wind();
-	void getData(double &speed_in, double &direction_in);
+	void getData(double &V_in, double &beta_in);
 private:	
 	double calculateWindSpeedAtHeight(double U_10, double z);
+	void updateGustSpeed();
+	double generateRandomGust();
+	double V_gust;
 	ros::NodeHandle nh;
 	ros::Publisher wind_pub =
 	  nh.advertise<geometry_msgs::Twist>("log/wind", 0);

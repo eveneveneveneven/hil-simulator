@@ -26,11 +26,6 @@ catkin_package(
 	CATKIN_DEPENDS std_msgs
 )
 
-include_directories(  
-	include/${PROJECT_NAME}
-  	${catkin_INCLUDE_DIRS}
-  	${GTEST_INCLUDE_DIRS}
-)
 
 add_executable(ps3_thrust_input src/main.cpp)
 target_link_libraries(ps3_thrust_input ${catkin_LIBRARIES})

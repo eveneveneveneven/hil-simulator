@@ -20,16 +20,16 @@ public:
   // north.
     Weather();
     ~Weather();
-    void setData(double speed_in, double direction_in, double dt);
+    void setData(double V_in, double beta_in, double dt);
 protected:
-    double mean_direction, mean_speed, direction, speed;
-    double mu_speed, mu_direction, dt;
+    double mean_beta, mean_V, V, beta;
+    double mu_V, mu_beta, dt;
     double generateRandomSpeed();
     double generateRandomAngle();
+    double maintainSaturation(double current_value, double mean_value, double max_deviation);
     void updateSpeed();
     void updateDirection();
-    double max_speed_deviation, max_direction_deviation;
-    double V, beta;
+    double max_V_deviation, max_beta_deviation;
 };
 
 #endif
