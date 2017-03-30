@@ -6,5 +6,5 @@ CXX_FLAGS =   -std=c++11 -Wall -g
 
 CXX_DEFINES = -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"simulator_prototype\"
 
-CXX_INCLUDES = -I/home/d943/Dropbox/Master/catkin_ws/devel/include -I/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include -I/opt/ros/kinetic/include -I/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/simulator_prototype 
+CXX_INCLUDES = -I/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include -I/home/d943/Dropbox/Master/catkin_ws/devel/include -I/opt/ros/kinetic/include -I/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/simulator_prototype 
 

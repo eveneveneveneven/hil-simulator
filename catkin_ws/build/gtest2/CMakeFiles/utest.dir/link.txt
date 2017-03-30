@@ -1,1 +1,0 @@
-/usr/bin/c++      CMakeFiles/utest.dir/test/test.cpp.o  -o /home/d943/catkin_ws/devel/lib/gtest2/utest -rdynamic -Wl,-Bstatic -lgtest -Wl,-Bdynamic 

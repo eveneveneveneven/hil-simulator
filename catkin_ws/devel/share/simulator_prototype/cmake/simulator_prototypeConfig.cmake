@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(simulator_prototype_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/d943/Dropbox/Master/catkin_ws/devel/include;/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include " STREQUAL " ")
+if(NOT "/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include " STREQUAL " ")
   set(simulator_prototype_INCLUDE_DIRS "")
-  set(_include_dirs "/home/d943/Dropbox/Master/catkin_ws/devel/include;/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include")
+  set(_include_dirs "/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include")
   foreach(idir ${_include_dirs})
     if(IS_ABSOLUTE ${idir} AND IS_DIRECTORY ${idir})
       set(include ${idir})

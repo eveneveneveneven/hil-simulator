@@ -2,11 +2,11 @@
 #define VESSELNODE_H
 
 #include "ros/ros.h"
-#include "simulator_prototype/Environment.h"
+#include "simulator_messages/Environment.h"
 #include <tf/transform_broadcaster.h>
 #include "geometry_msgs/PoseStamped.h"
 #include "geometry_msgs/Twist.h"
-#include "simulator_prototype/ActuatorMessage.h"
+#include "simulator_messages/ActuatorMessage.h"
 #include "vessel.h"
 
 class VesselNode{
@@ -14,13 +14,13 @@ public:
 	VesselNode();
 	~VesselNode();
 	Vessel vessel;
-	bool paused = false;
 	void step();
 	double getDT();
 private:
+	bool paused = false;
 	Vector6d eta, nu, tau_control, desired_actuator_states;
 
-	void receiveEnvironmentMessage(const simulator_prototype::Environment::ConstPtr &environment_msg);
+	void receiveEnvironmentMessage(const simulator_messages::Environment::ConstPtr &environment_msg);
 
 	void logInfo();
 
@@ -28,7 +28,7 @@ private:
 
 	void receiveForcesAndMoments(const geometry_msgs::Twist::ConstPtr &thrust_msg);
 
-	void receiveActuatorInfo(const simulator_prototype::ActuatorMessage::ConstPtr &actuator_msg);
+	void receiveActuatorInfo(const simulator_messages::ActuatorMessage::ConstPtr &actuator_msg);
 
 	geometry_msgs::Twist vectorToGeometryMsg(Vector6d vector_in);
 
@@ -47,7 +47,7 @@ private:
 	ros::NodeHandle actuator_handle;
 
 	// Used to receive info about the desired actuator states, update the simulated states, and get the corresponding forces and moments
-	ros::Subscriber actuator_message_rec = actuator_handle.subscribe<simulator_prototype::ActuatorMessage>(
+	ros::Subscriber actuator_message_rec = actuator_handle.subscribe<simulator_messages::ActuatorMessage>(
 	  "input/actuators", 0, &VesselNode::receiveActuatorInfo, this);
 
 	// Used to receive forces and moments directly, bypassing the actuator-model.
@@ -55,7 +55,7 @@ private:
 	  "input/thrust", 0, &VesselNode::receiveForcesAndMoments, this);
 
 	ros::NodeHandle environment_comm_handle;
-	ros::Subscriber environment_msg_rec = environment_comm_handle.subscribe<simulator_prototype::Environment>("input/environment_communication", 0, &VesselNode::receiveEnvironmentMessage, this);
+	ros::Subscriber environment_msg_rec = environment_comm_handle.subscribe<simulator_messages::Environment>("input/environment_communication", 0, &VesselNode::receiveEnvironmentMessage, this);
 };
 
 

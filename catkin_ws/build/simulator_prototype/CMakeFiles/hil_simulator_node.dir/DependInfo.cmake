@@ -14,6 +14,8 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/speedsensor.cpp" "/home/d943/Dropbox/Master/catkin_ws/build/simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/speedsensor.cpp.o"
   "/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/vessel.cpp" "/home/d943/Dropbox/Master/catkin_ws/build/simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/vessel.cpp.o"
   "/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/vesselnode.cpp" "/home/d943/Dropbox/Master/catkin_ws/build/simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/vesselnode.cpp.o"
+  "/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/weather.cpp" "/home/d943/Dropbox/Master/catkin_ws/build/simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/weather.cpp.o"
+  "/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/wind.cpp" "/home/d943/Dropbox/Master/catkin_ws/build/simulator_prototype/CMakeFiles/hil_simulator_node.dir/src/wind.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -26,8 +28,8 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/d943/Dropbox/Master/catkin_ws/devel/include"
   "/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include"
+  "/home/d943/Dropbox/Master/catkin_ws/devel/include"
   "/opt/ros/kinetic/include"
   "/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/simulator_prototype"
   )

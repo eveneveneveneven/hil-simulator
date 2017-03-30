@@ -8,6 +8,7 @@
 #include "mru.h"
 #include "imu.h"
 #include "gps.h"
+#include "wind.h"
 #include "actuatormodel.h"
 #include "speedsensor.h"
 
@@ -74,6 +75,13 @@ private:
   GPS gps;
   MRU mru;
   SpeedSensor speedSensor;
+
+
+  Wind wind;
+  double wind_speed, wind_direction;
+  double A_Fw, A_Lw, s_H, s_L, CD_t, CD_l_af_0, CD_l_af_pi, delta, kappa;
+  void calculateWindForces();
+  void getRelativeWindParameters(double &speed_ned, double &direction_ned);
 
   // A set of state vectors, relative to different coordinate frames.
   Vector6d eta, nu, nu_r, nu_c_b, nu_c_n, nu_dot, delta_nu, mu;

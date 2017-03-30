@@ -37,7 +37,7 @@ void VesselNode::publishState(){
     tf.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "map", tf_name));
 }
 
-void VesselNode::receiveEnvironmentMessage(const simulator_prototype::Environment::ConstPtr &environment_msg){
+void VesselNode::receiveEnvironmentMessage(const simulator_messages::Environment::ConstPtr &environment_msg){
 	vessel.setGpsCoordinates(environment_msg->latitude, environment_msg->longitude);
 	paused = environment_msg->paused;
 	if(paused)
@@ -74,7 +74,7 @@ void VesselNode::receiveForcesAndMoments(const geometry_msgs::Twist::ConstPtr &t
 	time_since_last_message = 0;
 }
 
-void VesselNode::receiveActuatorInfo(const simulator_prototype::ActuatorMessage::ConstPtr &actuator_msg){
+void VesselNode::receiveActuatorInfo(const simulator_messages::ActuatorMessage::ConstPtr &actuator_msg){
 	desired_actuator_states << actuator_msg->rightRPM, actuator_msg->leftRPM, actuator_msg->rightNozzle, actuator_msg->leftNozzle, actuator_msg->rightDeflector, actuator_msg->leftDeflector;
 	vessel.actuators.getForcesAndMoments(tau_control, desired_actuator_states);
 	time_since_last_message = 0;

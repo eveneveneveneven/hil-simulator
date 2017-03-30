@@ -33,27 +33,11 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/simulator_prototype/msg" TYPE FILE FILES
-    "/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/msg/Environment.msg"
-    "/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/msg/Gps.msg"
-    "/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/msg/ActuatorMessage.msg"
-    )
-endif()
-
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/simulator_prototype/cmake" TYPE FILE FILES "/home/d943/Dropbox/Master/catkin_ws/build/simulator_prototype/catkin_generated/installspace/simulator_prototype-msg-paths.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/d943/Dropbox/Master/catkin_ws/devel/include/simulator_prototype")
-endif()
-
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/d943/Dropbox/Master/catkin_ws/devel/share/roseus/ros/simulator_prototype")
-endif()
-
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/d943/Dropbox/Master/catkin_ws/devel/share/common-lisp/ros/simulator_prototype")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")

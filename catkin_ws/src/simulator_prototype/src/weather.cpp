@@ -4,13 +4,43 @@ Weather::Weather() {}
 
 Weather::~Weather() {}
 
-Weather::SetMeanWindSpeedAtHeight(double U_10, double z) {
-  wind_mean_speed = U_10 * (5 / 2) * sqrt(kappa) *
-                    std::log(z / (10 * pow(e, -2 / (5 * sqrt(kappa)))));
-}
-void Weather::SetData(double speed_in, direction_in){
-	direction = direction_in;
-	speed = speed_in;
+
+void Weather::setData(double speed_in, double direction_in, double _dt){
+	mean_direction = direction_in;
+	mean_speed = speed_in;
+	dt = _dt;
 }
 
-Weather::UpdateWindSpeed() { wind_speed }
+double Weather::generateRandomSpeed(){
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	double mean, stdDev;
+	mean = 0;
+	stdDev = 1;
+	static std::normal_distribution<> d(mean, stdDev);
+	double res = d(gen);
+	return res;
+}
+
+double Weather::generateRandomAngle(){
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	double mean, stdDev;
+	mean = 0;
+	stdDev = 1;
+	static std::normal_distribution<> d(mean, stdDev);
+	double res = d(gen);
+	return res;
+}
+
+void Weather::updateSpeed(){
+	double w = generateRandomSpeed();
+	double V_dot = w-mu_speed*V;
+	V = V+dt*V_dot;
+}
+
+void Weather::updateDirection(){
+	double w = generateRandomAngle();
+	double beta_dot = w-mu_direction*beta;
+	beta = beta+dt*beta_dot;
+}

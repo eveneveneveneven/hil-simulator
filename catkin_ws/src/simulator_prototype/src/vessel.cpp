@@ -9,6 +9,7 @@ Vessel::Vessel(){
 	initializeSensors();
 	initializeMatrices();
 	solver.initializeSolver(dt);
+	wind.setData(wind_speed, wind_direction, dt);
 }
 
 Vessel::~Vessel() {}
@@ -326,9 +327,9 @@ void Vessel::updateMatrices(){
 			0,	0,	0,	0,	C_a_55, 0,
 			0,	0,	0,	0,	0,	C_a_66;
 	C = u*(C_rb+C_a);
-
-	// Complete
 	/*
+	// Complete
+	
 	double a_1, a_2, a_3, b_1, b_2, b_3;
 	a_1 = -1*(X_u_dot*u+X_v_dot*v+X_w_dot*w+X_p_dot*p+X_q_dot*q+X_r_dot*r);
 	a_2 = -1*(Y_u_dot*u+Y_v_dot*v+Y_w_dot*w+Y_p_dot*p+Y_q_dot*q+Y_r_dot*r);
@@ -353,7 +354,7 @@ void Vessel::updateMatrices(){
 			a_3, 	0, 		-a_1, 	b_3, 	0, 		-b_1,
 			-a_2, 	a_1, 	0, 		-b_2, 	b_1, 	0;
 
-	C = C_a+C_rb;*/
+	C = C_rb+C_a;*/
 
 	// Damping matrix. Contains non-linear elements for the standard 3DOF representation, and linear elements in the restoring 3 DOFs.
 	calculateNonlinearSurge();
@@ -381,6 +382,48 @@ void Vessel::step(){
 	calculateNextEta();
 	calculateNextNu();
 	publishSensorData();
+	calculateWindForces();
+}
+void Vessel::getRelativeWindParameters(double &speed, double &direction){
+	double u = nu(0);
+	double v = nu(1);
+	double psi = eta(5);
+	double beta = direction*(M_PI/180);
+	double u_w = speed*cos(beta-psi);
+	double v_w = speed*sin(beta-psi);
+	double u_rw = u-u_w;
+	double v_rw = v-v_w;
+	speed = sqrt(u_rw*u_rw+v_rw*v_rw);
+	direction = -atan2(v_rw, u_rw);
+}
+
+void Vessel::calculateWindForces(){
+	wind.getData(wind_speed, wind_direction);
+	getRelativeWindParameters(wind_speed, wind_direction);
+	double gamma_w = wind_direction;
+	while(std::abs(gamma_w)>M_PI){
+		if(gamma_w>M_PI)
+			gamma_w=gamma_w-2*M_PI;
+		if(gamma_w<-M_PI)
+			gamma_w=gamma_w+2*M_PI; 
+	}
+	double rho_a = 1.204;
+	double q = 0.5*rho_a*wind_speed*wind_speed;
+	double CD_l_af;
+	if(std::abs(gamma_w)<M_PI/2)
+		CD_l_af = CD_l_af_0;
+	else
+		CD_l_af = CD_l_af_pi;
+	double CD_l = CD_l_af;
+	double C_X = -CD_l*(A_Lw/A_Fw)*(cos(gamma_w)/(1-0.5*delta*(1-CD_l/CD_t)*sin(2*gamma_w)*sin(2*gamma_w)));
+	double C_Y = CD_t*(sin(gamma_w)/(1-0.5*delta*(1-CD_l/CD_t)*sin(2*gamma_w)*sin(2*gamma_w)));
+	double C_K = kappa*C_Y;
+	double C_N;
+	if(gamma_w<0)
+		C_N = C_Y*((s_L/L_pp)-0.18*(-gamma_w-M_PI/2));
+	else
+		C_N = C_Y*((s_L/L_pp)-0.18*(gamma_w-M_PI/2));
+	tau_wind << q*C_X*A_Fw, q*C_Y*A_Lw, 0, q*C_K*A_Lw*s_H, 0, q*C_N*A_Lw*L_pp;
 }
 
 void Vessel::publishSensorData(){
@@ -401,7 +444,7 @@ Vector6d Vessel::etaFunction(Vector6d nu_in){
 } 
 
 Vector6d Vessel::nuFunction(Vector6d nu_in){
-	tau_total = tau_control;
+	tau_total = tau_control+tau_wind;
 	Vector6d nu_r_dot = -M_inv*(C*nu_in+D*nu_in+G*eta + mu -tau_total);
 	return nu_r_dot;
 }
@@ -701,6 +744,8 @@ bool Vessel::readParameters(ros::NodeHandle nh) {
 	if (!nh.getParam("M_qq", M_qq))
 		parameterFail=true;
 
+
+	// Linearized Coriolis parameters
 	if (!nh.getParam("C_rb_26", C_rb_26))
 		parameterFail=true;
 	if (!nh.getParam("C_rb_35", C_rb_35))
@@ -719,9 +764,32 @@ bool Vessel::readParameters(ros::NodeHandle nh) {
 	if (!nh.getParam("C_a_66", C_a_66))
 		parameterFail=true;
 
+	//Wind parameters
+	if (!nh.getParam("wind_speed", wind_speed))
+		parameterFail=true;
+	if (!nh.getParam("wind_direction", wind_direction))
+		parameterFail=true;
+	if (!nh.getParam("A_Fw", A_Fw))
+		parameterFail=true;
+	if (!nh.getParam("A_Lw", A_Lw))
+		parameterFail=true;
+	if (!nh.getParam("s_H", s_H))
+		parameterFail=true;
+	if (!nh.getParam("s_L", s_L))
+		parameterFail=true;
+	if (!nh.getParam("CD_t", CD_t))
+		parameterFail=true;
+	if (!nh.getParam("CD_l_af_0", CD_l_af_0))
+		parameterFail=true;
+	if (!nh.getParam("CD_l_af_pi", CD_l_af_pi))
+		parameterFail=true;
+	if (!nh.getParam("delta", delta))
+		parameterFail=true;
+	if (!nh.getParam("kappa", kappa))
+		parameterFail=true;
 
 
-	// Others
+	// Thruster parameters
 	if (!nh.getParam("K_thruster", K_thruster))
 		parameterFail=true;
 	if (!nh.getParam("l_y_1", l_y_1))
@@ -744,16 +812,8 @@ bool Vessel::readParameters(ros::NodeHandle nh) {
 		parameterFail=true;
 	if (!nh.getParam("alpha_max", alpha_max))
 		parameterFail=true;
-	if (!nh.getParam("L_pp", L_pp))
-		parameterFail=true;
-	if (!nh.getParam("C_d_2d", C_d_2d))
-		parameterFail=true;
-	if (!nh.getParam("T", T))
-		parameterFail=true;
-	if (!nh.getParam("X_uu_c", X_uu_c))
-		parameterFail=true;
-	if (!nh.getParam("dt", dt))
-		parameterFail=true;
+
+	// Sensor parameters
 	if (!nh.getParam("gps_frequency", gps_frequency))
 		parameterFail=true;
 	if (!nh.getParam("mru_frequency", mru_frequency))
@@ -768,5 +828,20 @@ bool Vessel::readParameters(ros::NodeHandle nh) {
 		parameterFail=true;
 	if (!nh.getParam("surge_max", surge_max))
 		parameterFail=true;
+
+	//Others
+	if (!nh.getParam("L_pp", L_pp))
+		parameterFail=true;
+	if (!nh.getParam("C_d_2d", C_d_2d))
+		parameterFail=true;
+	if (!nh.getParam("T", T))
+		parameterFail=true;
+	if (!nh.getParam("X_uu_c", X_uu_c))
+		parameterFail=true;
+	if (!nh.getParam("dt", dt))
+		parameterFail=true;
+
+
+	
 	return parameterFail;
 }

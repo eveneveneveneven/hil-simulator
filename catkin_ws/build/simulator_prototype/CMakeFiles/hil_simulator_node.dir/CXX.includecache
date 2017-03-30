@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/d943/Dropbox/Master/catkin_ws/devel/include/simulator_prototype/ActuatorMessage.h
+/home/d943/Dropbox/Master/catkin_ws/devel/include/simulator_messages/ActuatorMessage.h
 string
 -
 vector
@@ -24,7 +24,7 @@ ros/message_operations.h
 std_msgs/Header.h
 -
 
-/home/d943/Dropbox/Master/catkin_ws/devel/include/simulator_prototype/Environment.h
+/home/d943/Dropbox/Master/catkin_ws/devel/include/simulator_messages/Environment.h
 string
 -
 vector
@@ -40,7 +40,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/d943/Dropbox/Master/catkin_ws/devel/include/simulator_prototype/Gps.h
+/home/d943/Dropbox/Master/catkin_ws/devel/include/simulator_messages/Gps.h
 string
 -
 vector
@@ -87,8 +87,8 @@ ros/ros.h
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/ros/ros.h
 geometry_msgs/Twist.h
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/geometry_msgs/Twist.h
-simulator_prototype/Gps.h
-/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/simulator_prototype/Gps.h
+simulator_messages/Gps.h
+/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/simulator_messages/Gps.h
 
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/solver.h
 Eigen/Dense
@@ -117,6 +117,8 @@ imu.h
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/imu.h
 gps.h
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/gps.h
+wind.h
+/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/wind.h
 actuatormodel.h
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/actuatormodel.h
 speedsensor.h
@@ -125,18 +127,38 @@ speedsensor.h
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/vesselnode.h
 ros/ros.h
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/ros/ros.h
-simulator_prototype/Environment.h
-/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/simulator_prototype/Environment.h
+simulator_messages/Environment.h
+/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/simulator_messages/Environment.h
 tf/transform_broadcaster.h
 -
 geometry_msgs/PoseStamped.h
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/geometry_msgs/PoseStamped.h
 geometry_msgs/Twist.h
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/geometry_msgs/Twist.h
-simulator_prototype/ActuatorMessage.h
-/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/simulator_prototype/ActuatorMessage.h
+simulator_messages/ActuatorMessage.h
+/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/simulator_messages/ActuatorMessage.h
 vessel.h
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/vessel.h
+
+/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/weather.h
+random
+-
+cmath
+-
+map
+-
+Eigen/Dense
+-
+iostream
+-
+
+/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/wind.h
+ros/ros.h
+/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/ros/ros.h
+geometry_msgs/Twist.h
+/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/geometry_msgs/Twist.h
+weather.h
+/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/weather.h
 
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/actuatormodel.cpp
 actuatormodel.h
@@ -177,6 +199,14 @@ vessel.h
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/vesselnode.cpp
 vesselnode.h
 /home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/vesselnode.h
+
+/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/weather.cpp
+weather.h
+/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/weather.h
+
+/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/wind.cpp
+wind.h
+/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/src/wind.h
 
 /opt/ros/kinetic/include/XmlRpcDecl.h
 ros/macros.h

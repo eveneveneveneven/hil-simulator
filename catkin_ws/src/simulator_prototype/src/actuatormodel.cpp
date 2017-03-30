@@ -1,6 +1,6 @@
 #include "actuatormodel.h"
 
-void ActuatorModel::initializeActuatorModel(double _K, double _T_alpha, double _T_beta, double _T_n, double _l_x_1, double _l_x_2, double _l_y_1, double _l_y_2, double _dt, double _n_max, double _n_min, double _alpha_max){
+void ActuatorModel::initializeActuatorModel(double _K, double _T_alpha, double _T_beta, double _T_n, double _l_x_1, double _l_x_2, double _l_y_1, double _l_y_2, double _dt, double _n_max, double _n_min, double _alpha_max){ 
 	K = _K;
 	T_alpha = _T_alpha;
 	T_beta = _T_beta;

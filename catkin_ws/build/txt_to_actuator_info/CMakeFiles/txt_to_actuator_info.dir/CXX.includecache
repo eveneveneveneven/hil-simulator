@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/d943/Dropbox/Master/catkin_ws/devel/include/txt_to_actuator_info/ActuatorMessage.h
+/home/d943/Dropbox/Master/catkin_ws/devel/include/simulator_messages/ActuatorMessage.h
 string
 -
 vector
@@ -27,8 +27,8 @@ std_msgs/Header.h
 /home/d943/Dropbox/Master/catkin_ws/src/txt_to_actuator_info/src/main.cpp
 ros/ros.h
 /home/d943/Dropbox/Master/catkin_ws/src/txt_to_actuator_info/src/ros/ros.h
-txt_to_actuator_info/ActuatorMessage.h
-/home/d943/Dropbox/Master/catkin_ws/src/txt_to_actuator_info/src/txt_to_actuator_info/ActuatorMessage.h
+simulator_messages/ActuatorMessage.h
+/home/d943/Dropbox/Master/catkin_ws/src/txt_to_actuator_info/src/simulator_messages/ActuatorMessage.h
 geometry_msgs/Twist.h
 /home/d943/Dropbox/Master/catkin_ws/src/txt_to_actuator_info/src/geometry_msgs/Twist.h
 math.h

@@ -4,7 +4,9 @@
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
-subdirs(gtest_car)
+subdirs(simulator_messages)
+subdirs(environment)
+subdirs(gui)
 subdirs(ps3_joy_thrusters)
 subdirs(ps3thrustInput)
 subdirs(simulator_prototype)

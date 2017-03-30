@@ -12,7 +12,7 @@ int main(int argc, char *argv[]) {
     vessel_node.step();
     ros::spinOnce();
     loopRate.sleep();
-  } 
+  }
 
   ROS_INFO("Exiting HIL Simulator node");
   ros::shutdown();

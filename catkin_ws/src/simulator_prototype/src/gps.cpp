@@ -66,7 +66,7 @@ void GPS::publishGpsData(Vector6d nu_n, Vector6d eta) {
   gps_position(5)=heading;
   if(step == steps_per_data_output){
     step=0;
-    simulator_prototype::Gps gpsMessage;
+    simulator_messages::Gps gpsMessage;
     gpsMessage.header.stamp = ros::Time::now();
     gpsMessage.header.frame_id = "/gps";
     gpsMessage.latitude = gps_position(0)*(180/M_PI);

@@ -18,8 +18,8 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/d943/Dropbox/Master/catkin_ws/devel/include"
   "/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include"
+  "/home/d943/Dropbox/Master/catkin_ws/devel/include"
   "/opt/ros/kinetic/include"
   "/home/d943/Dropbox/Master/catkin_ws/src/simulator_prototype/include/simulator_prototype"
   )

@@ -1,0 +1,8 @@
+prefix=/home/d943/Dropbox/Master/catkin_ws/install
+
+Name: gui
+Description: Description of gui
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/d943/Dropbox/Master/catkin_ws/install/lib 
+Requires: roscpp std_msgs

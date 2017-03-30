@@ -6,24 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/d943/Dropbox/Master/catkin_ws/devel/include/ps3_joy_thrusters/ActuatorMessage.h
-string
--
-vector
--
-map
--
-ros/types.h
--
-ros/serialization.h
--
-ros/builtin_message_traits.h
--
-ros/message_operations.h
--
-std_msgs/Header.h
--
-
 /home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/src/main.cpp
 ros/ros.h
 /home/d943/Dropbox/Master/catkin_ws/src/ps3_joy_thrusters/src/ros/ros.h

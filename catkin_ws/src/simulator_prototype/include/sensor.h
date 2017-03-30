@@ -5,7 +5,7 @@
 #include <Eigen/Dense>
 #include "ros/ros.h"
 #include "geometry_msgs/Twist.h"
-#include "simulator_prototype/Gps.h"
+#include "simulator_messages/Gps.h"
 
 using namespace Eigen;
 
@@ -19,9 +19,10 @@ public:
 
   void setNoise();
 
+protected:
   // To simplify modifications on the HIL interface, all publishers are declared here, and used in each individual sensor class.
   ros::NodeHandle sensor_handle;
-  ros::Publisher gps_pub = sensor_handle.advertise<simulator_prototype::Gps>("sensors/gps", 0);
+  ros::Publisher gps_pub = sensor_handle.advertise<simulator_messages::Gps>("sensors/gps", 0);
   ros::Publisher gps_pub2 = sensor_handle.advertise<geometry_msgs::Twist>("sensors/gpsLog", 0);
   ros::Publisher mru_velocity_pub = sensor_handle.advertise<geometry_msgs::Twist>("sensors/mru/velocity", 0);
   ros::Publisher mru_position_pub = sensor_handle.advertise<geometry_msgs::Twist>("sensors/mru/position", 0);

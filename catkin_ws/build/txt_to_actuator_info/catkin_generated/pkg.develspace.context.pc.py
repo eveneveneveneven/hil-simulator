@@ -1,6 +1,6 @@
 # generated from catkin/cmake/template/pkg.context.pc.in
 CATKIN_PACKAGE_PREFIX = ""
-PROJECT_PKG_CONFIG_INCLUDE_DIRS = "/home/d943/Dropbox/Master/catkin_ws/devel/include;/home/d943/Dropbox/Master/catkin_ws/src/txt_to_actuator_info/include".split(';') if "/home/d943/Dropbox/Master/catkin_ws/devel/include;/home/d943/Dropbox/Master/catkin_ws/src/txt_to_actuator_info/include" != "" else []
+PROJECT_PKG_CONFIG_INCLUDE_DIRS = "/home/d943/Dropbox/Master/catkin_ws/src/txt_to_actuator_info/include".split(';') if "/home/d943/Dropbox/Master/catkin_ws/src/txt_to_actuator_info/include" != "" else []
 PROJECT_CATKIN_DEPENDS = "std_msgs".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "txt_to_actuator_info"

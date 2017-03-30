@@ -1,4 +1,0 @@
-_ctest_gtest_car_gtest_gtest_car-test 0 0
-_ctest_simulator_prototype_gtest_simulator_prototype-test 1 0.224318
----
-_ctest_gtest_car_gtest_gtest_car-test

@@ -1,5 +1,5 @@
 #include "ros/ros.h"
-#include "txt_to_actuator_info/ActuatorMessage.h"
+#include "simulator_messages/ActuatorMessage.h"
 #include "geometry_msgs/Twist.h"
 #include <math.h>
 #include <fstream>
@@ -12,15 +12,17 @@ int main(int argc, char* argv[])
 	
     //ros::Duration(5).sleep(); // Wait for RViz to start
     ros::Rate loopRate(10);
-    txt_to_actuator_info::ActuatorMessage actuators;
+    simulator_messages::ActuatorMessage actuators;
     geometry_msgs::Twist actuators2;
     ros::NodeHandle nh_;
-	ros::Publisher actuator_pub = nh_.advertise<txt_to_actuator_info::ActuatorMessage>("input/actuators", 0);
+	ros::Publisher actuator_pub = nh_.advertise<simulator_messages::ActuatorMessage>("input/actuators", 0);
 	ros::Publisher actuator_pub2 = nh_.advertise<geometry_msgs::Twist>("input/actuators2", 0);
 
+	std::string fpath;
+	nh_.getParam("path_name", fpath);
     std::vector<std::string> line;
     std::string mystr;
-    std::ifstream myfile("/home/d943/Dropbox/Master/catkin_ws/src/txt_to_actuator_info/Output.txt");
+    std::ifstream myfile(fpath.c_str());
     if (myfile.is_open()){	
 		while(myfile >> mystr)
 		{

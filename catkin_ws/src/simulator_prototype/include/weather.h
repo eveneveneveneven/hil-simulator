@@ -1,8 +1,12 @@
 #ifndef WEATHER_H
 #define WEATHER_H
 
+#include <random>
+#include <cmath>
+#include <map>
 #include <Eigen/Dense>
-
+#include <iostream>
+using namespace Eigen;
 typedef Matrix<double, 6, 1> Vector6d;
 
 // This module contains models for wind and current. The module outputs a
@@ -14,13 +18,18 @@ class Weather {
 public:
   // Speed and angle for environmental forces. Angle defined as 0=going to
   // north.
+    Weather();
+    ~Weather();
+    void setData(double speed_in, double direction_in, double dt);
+protected:
+    double mean_direction, mean_speed, direction, speed;
+    double mu_speed, mu_direction, dt;
+    double generateRandomSpeed();
+    double generateRandomAngle();
+    void updateSpeed();
+    void updateDirection();
+    double max_speed_deviation, max_direction_deviation;
+    double V, beta;
+};
 
-  void SetData(double speed_in, direction_in);
-
-private:
-  double direction, speed;
-  
-  void SetMeanWindSpeedAtHeight(double U_10, double z);
-
-  void UpdateWindSpeed();
-}
+#endif
