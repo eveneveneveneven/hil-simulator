@@ -1,8 +1,0 @@
-prefix=/home/d943/Dropbox/Master/catkin_ws/devel
-
-Name: gtest_car
-Description: Description of gtest_car
-Version: 0.0.0
-Cflags: -I/home/d943/Dropbox/Master/catkin_ws/devel/include
-Libs: -L/home/d943/Dropbox/Master/catkin_ws/devel/lib 
-Requires: 
