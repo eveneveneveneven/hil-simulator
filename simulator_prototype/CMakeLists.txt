@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.5.1)
 set(PROJECT_NAME simulator_prototype)
 project(${PROJECT_NAME})
 
@@ -22,15 +22,6 @@ include
   ${catkin_INCLUDE_DIRS}
 )
 
-
-
-
-## Generate added messages and services with any dependencies listed here
-generate_messages(
-  DEPENDENCIES
-  std_msgs
-)
-
 catkin_package(
   INCLUDE_DIRS
     include 
@@ -48,7 +39,7 @@ include_directories(
   	${GTEST_INCLUDE_DIRS}
 )
 
-add_executable(hil_simulator_node src/hil_simulator.cpp src/vessel.cpp src/imu.cpp src/gps.cpp src/sensor.cpp src/mru.cpp src/speedsensor.cpp src/solver.cpp src/vesselnode.cpp src/actuatormodel.cpp src/weather.cpp src/wind.cpp)
+add_executable(hil_simulator_node src/hil_simulator.cpp src/vessel.cpp src/imu.cpp src/gps.cpp src/sensor.cpp src/mru.cpp src/speedsensor.cpp src/solver.cpp src/vesselnode.cpp src/actuatormodel.cpp src/weather.cpp src/wind.cpp src/current.cpp)
 target_link_libraries(hil_simulator_node ${catkin_LIBRARIES})
 ##add_dependencies(hil_simulator_node simulator_prototype_gen_messages_cpp)
 

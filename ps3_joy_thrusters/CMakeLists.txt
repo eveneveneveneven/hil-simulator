@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.5.1)
 set(PROJECT_NAME ps3_joy_thrusters)
 project(${PROJECT_NAME})
 
@@ -9,17 +9,13 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   std_msgs
   message_generation
+  simulator_messages
 )
 
 
 add_message_files(
   FILES 
   ActuatorMessage.msg
-)
-
-generate_messages(
-  DEPENDENCIES
-  std_msgs
 )
 
 catkin_package(

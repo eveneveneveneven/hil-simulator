@@ -10,6 +10,7 @@ Vessel::Vessel(){
 	initializeMatrices();
 	solver.initializeSolver(dt);
 	wind.setData(wind_speed, wind_direction, dt);
+	current.setData(1, 0, dt);
 }
 
 Vessel::~Vessel() {}
@@ -382,8 +383,23 @@ void Vessel::step(){
 	calculateNextEta();
 	calculateNextNu();
 	publishSensorData();
-	calculateWindForces();
+	calculateEnvironmentalForces();
+	//std::cout << nu_r << std::endl;
 }
+
+void Vessel::calculateEnvironmentalForces(){
+	calculateWindForces();
+	calculateCurrentForces();
+}
+
+void Vessel::calculateCurrentForces(){
+	current.getData(current_speed, current_direction);
+	current_direction = current_direction*(M_PI/180);
+	nu_c_n << current_speed*cos(current_direction), current_speed*sin(current_direction), 0, 0, 0, 0;
+	nu_c_b = J.transpose()*nu_c_n;
+	nu_r = nu-nu_c_b;
+}
+
 void Vessel::getRelativeWindParameters(double &speed, double &direction){
 	double u = nu(0);
 	double v = nu(1);
@@ -470,7 +486,7 @@ void Vessel::calculateNextNu(){
 	solver.k7v = solver.h*nuFunction(nu_r + solver.a71*solver.k1v + solver.a73*solver.k3v + solver.a74*solver.k4v + solver.a75*solver.k5v + solver.a76*solver.k6v);
 	nu_r = nu_r + solver.b11*solver.k1v + solver.b12*solver.k2v + solver.b13*solver.k3v + solver.b14*solver.k4v + solver.b15*solver.k5v + solver.b16*solver.k6v + solver.b17*solver.k7v;
 	nu_dot = -M_inv*(C*nu+D*nu+G*eta-tau_total);
-	nu = nu_r;
+	nu = nu_r + nu_c_b;
 
 }
 

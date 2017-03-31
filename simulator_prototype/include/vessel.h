@@ -9,6 +9,7 @@
 #include "imu.h"
 #include "gps.h"
 #include "wind.h"
+#include "current.h"
 #include "actuatormodel.h"
 #include "speedsensor.h"
 
@@ -76,10 +77,13 @@ private:
   MRU mru;
   SpeedSensor speedSensor;
 
-
+  Current current;
   Wind wind;
+  double current_speed, current_direction;
   double wind_speed, wind_direction;
   double A_Fw, A_Lw, s_H, s_L, CD_t, CD_l_af_0, CD_l_af_pi, delta, kappa;
+  void calculateEnvironmentalForces();
+  void calculateCurrentForces();
   void calculateWindForces();
   void getRelativeWindParameters(double &speed_ned, double &direction_ned);
 

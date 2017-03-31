@@ -155,7 +155,7 @@ surge_max: 10000
 L_pp: 10.5
 
 #Wind Parameters
-wind_speed: 20 #Wind speed in m/s at 10 metres above the surface
+wind_speed: 0 #Wind speed in m/s at 10 metres above the surface
 wind_direction: 90 #Wind direction, going to, in degrees, North = 0
 A_Fw: 6.4
 A_Lw: 11.31

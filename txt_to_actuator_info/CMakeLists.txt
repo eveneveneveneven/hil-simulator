@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.5.1)
 set(PROJECT_NAME txt_to_actuator_info)
 project(${PROJECT_NAME})
 
@@ -15,12 +15,6 @@ find_package(catkin REQUIRED COMPONENTS
 include_directories(
 include
   ${catkin_INCLUDE_DIRS}
-)
-
-
-generate_messages(
-  DEPENDENCIES
-  std_msgs
 )
 
 catkin_package(

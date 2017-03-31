@@ -11,7 +11,7 @@
     <node pkg="joy" name="joy_node" type="joy_node" respawn="false" output="screen">
     </node>
 
-    <node pkg="ps3thrustInput" name="Ps3Node" type="ps3_thrust_input" respawn="false" output="screen">
+    <node pkg="ps3_thrust_input" name="Ps3Node" type="ps3_thrust_input" respawn="false" output="screen">
     </node>
     
     <node pkg="simulator_prototype" type="hil_simulator_node" name="simulated_vessel" output="screen"/>
